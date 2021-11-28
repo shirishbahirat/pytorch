@@ -19,7 +19,7 @@ def loss(x, y):
     return (err * err)
 
 
-for w in np.arrange(0., 4.1, .1):
+for w in np.arange(0., 4.1, .1):
     print ("w: ", w)
     mse = 0
     lsum = 0

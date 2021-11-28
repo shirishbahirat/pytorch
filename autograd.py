@@ -29,10 +29,6 @@ print ('dL/db: ', linear.bias.grad)
 
 optimizer.step()
 
-# You can also perform gradient descent at the low level.
-# linear.weight.data.sub_(0.01 * linear.weight.grad.data)
-# linear.bias.data.sub_(0.01 * linear.bias.grad.data)
-
 pred = linear(x)
 loss = criterion(pred, y)
 print('loss after 1 step optimization: ', loss.item())

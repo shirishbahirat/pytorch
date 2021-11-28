@@ -4,20 +4,17 @@ import torch.nn as nn
 import numpy as np
 import torchvision.transforms as transforms
 
-x = torch.tensor(4., requires_grad=True)
-w = torch.tensor(2., requires_grad=True)
+a = torch.tensor(4., requires_grad=True)
 b = torch.tensor(3., requires_grad=True)
 
-print(x)
-print(w)
+print(a)
 print(b)
 
-y = w * x + b
+y = a + b
 
 print(y)
 
 y.backward()
 
-print(x.grad, w)
-print(w.grad, x)
+print(a.grad)
 print(b.grad)

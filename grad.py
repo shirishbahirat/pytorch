@@ -19,6 +19,6 @@ print(y)
 
 y.backward()
 
-print(x.grad)    # x.grad = 2
-print(w.grad)    # w.grad = 1
-print(b.grad)    # b.grad = 1
+print(x.grad)
+print(w.grad)
+print(b.grad)

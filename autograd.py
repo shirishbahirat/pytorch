@@ -7,6 +7,8 @@ import torchvision.transforms as transforms
 x = torch.randn(10, 3)
 y = torch.randn(10, 2)
 
+print(x)
+print(y)
 
 linear = nn.Linear(3, 2)
 print ('w: ', linear.weight)

@@ -10,7 +10,7 @@ b = torch.tensor(3., requires_grad=True)
 print(a)
 print(b)
 
-y = a + b
+y = a**2 + b
 
 print(y)
 

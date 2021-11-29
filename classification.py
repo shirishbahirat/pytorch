@@ -31,4 +31,28 @@ criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
 for each in range(2):
-    pass
+
+    running_loss = 0.00
+
+    for i, data in enumerate(trainloader, 0):
+
+        inputs, lables = data
+
+        inputs, lables = Variable(inputs), Variable(lables)
+
+        optimizer.zero_grad()
+
+        outputs = net(inputs)
+        loss = criterion(outputs, lables)
+
+        loss.backward()
+        optimizer.step()
+
+        running_loss += loss.data[0]
+
+        if i % 2000 == 1999:
+            print('[%d, %5d] loss: %,3f' % (epoch + 1, i + 1, running_loss / 2000))
+            running_loss = 0.0
+
+
+print('finished training')

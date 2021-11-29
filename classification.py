@@ -84,6 +84,16 @@ def main():
 
     print('Finished Training')
 
+    PATH = './cifar_net.pth'
+    torch.save(net.state_dict(), PATH)
+
+    dataiter = iter(testloader)
+    images, labels = dataiter.next()
+
+    # print images
+    imshow(torchvision.utils.make_grid(images))
+    print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
+
 
 if __name__ == '__main__':
 

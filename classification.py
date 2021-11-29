@@ -3,6 +3,9 @@ from torch.autograd import Variable
 import numpy as np
 import matplotlib.pyplot as plt
 
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+                                          shuffle=True, num_workers=2)
+
 
 class Net(torch.nn.Module):
     def __init__(self):

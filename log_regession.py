@@ -22,7 +22,7 @@ model = Model()
 criterion = torch.nn.BCELoss(size_average=False)
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
-for epoch in range(500):
+for epoch in range(1000):
     y_pred = model(x_data)
     loss = criterion(y_pred, y_data)
     print(epoch, loss.data.item())

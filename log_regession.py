@@ -32,6 +32,7 @@ for epoch in range(500):
     optimizer.step()
 
 
-hour_var = Variable(torch.tensor([[4.0]]))
+hour_var = Variable(torch.tensor([[1.0]]))
 print("predict (after training)", 1, model.forward(hour_var).data[0][0])
+hour_var = Variable(torch.tensor([[7.0]]))
 print("predict (after training)", 7, model.forward(hour_var).data[0][0])

@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 w1 = 1.0
 w2 = 2.0
 w1_list = []
@@ -10,7 +9,6 @@ mse_list = []
 
 x_data = [1., 2., 3.]
 y_data = [0., 0., 0.]
-
 
 y_data[0] = x_data[0] * x_data[0] * 4 + x_data[0] * 3 + 10
 y_data[1] = x_data[1] * x_data[1] * 4 + x_data[1] * 3 + 10

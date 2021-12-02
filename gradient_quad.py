@@ -34,7 +34,7 @@ def gradient_w2(x, y):
 
 print("predict (before training):", 4, forward(3))
 
-for epoch in range(50):
+for epoch in range(100):
     for x_val, y_val in zip(x_data, y_data):
         grad1 = gradient_w1(x_val, y_val)
         w1 = w1 - 0.01 * grad1

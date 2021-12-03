@@ -12,9 +12,9 @@ y_data = Variable(torch.from_numpy(xy[:, [-1]]))
 class Model(torch.nn.Module):
     def __init__(self):
         super(Model, self).__init__()
-        self.l1 = torch.nn.Linear(8, 6)
-        self.l2 = torch.nn.Linear(6, 4)
-        self.l3 = torch.nn.Linear(4, 1)
+        self.l1 = torch.nn.Linear(8, 12)
+        self.l2 = torch.nn.Linear(12, 6)
+        self.l3 = torch.nn.Linear(6, 1)
 
         self.sigmoid = torch.nn.Sigmoid()
 
@@ -28,8 +28,8 @@ class Model(torch.nn.Module):
 model = Model()
 
 
-criterion = torch.nn.BCELoss(size_average=False)
-optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+criterion = torch.nn.BCELoss(reduction='sum')
+optimizer = torch.optim.SGD(model.parameters(), lr=0.05)
 
 for epoch in range(1000):
     y_pred = model(x_data)
@@ -39,9 +39,3 @@ for epoch in range(1000):
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
-
-
-hour_var = Variable(torch.tensor([[1.0]]))
-print("predict (after training)", 1, model.forward(hour_var).data[0][0])
-hour_var = Variable(torch.tensor([[7.0]]))
-print("predict (after training)", 7, model.forward(hour_var).data[0][0])

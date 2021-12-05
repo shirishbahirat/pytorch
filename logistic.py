@@ -21,9 +21,9 @@ class Model(nn.Module):
 model = Model()
 
 criterion = nn.BCELoss(reduction='mean')
-optimizer = optim.SGD(model.parameters(), lr=0.01)
+optimizer = optim.SGD(model.parameters(), lr=0.05)
 
-for epoch in range(1000):
+for epoch in range(10000):
     y_pred = model(x_data)
 
     loss = criterion(y_pred, y_data)

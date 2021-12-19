@@ -5,7 +5,7 @@ true_w = np.array([1, 2, 3, 4, 5])
 d = len(true_w)
 points = []
 
-for i in range(100):
+for i in range(10):
     x = np.random.randn(d)
     y = true_w.dot(x) + np.random.randn()
     print(x, y)
@@ -22,8 +22,8 @@ def dF(w):
 
 def gradientDecent(F, dF, d):
     w = np.zeros(d)
-    eta = 0.00001
-    for t in range(10000):
+    eta = 0.001
+    for t in range(1000):
         value = F(w)
         gradient = dF(w)
         w = w - eta * gradient

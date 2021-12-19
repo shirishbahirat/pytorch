@@ -22,7 +22,7 @@ def dF(w):
 def gradientDecent(F, dF, d):
     w = np.zeros(d)
     eta = 0.0001
-    for t in range(1):
+    for t in range(1000):
         loss = F(w)
         gradient = dF(w)
         w = w - eta * gradient

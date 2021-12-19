@@ -1,6 +1,5 @@
 import numpy as np
 
-
 true_w = np.array([1, 2, 3, 4, 5])
 d = len(true_w)
 points = []
@@ -23,7 +22,7 @@ def dF(w):
 def gradientDecent(F, dF, d):
     w = np.zeros(d)
     eta = 0.0001
-    for t in range(1000):
+    for t in range(1):
         value = F(w)
         gradient = dF(w)
         w = w - eta * gradient

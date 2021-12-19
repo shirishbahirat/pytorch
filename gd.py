@@ -11,8 +11,6 @@ for i in range(100):
     print(x, y)
     points.append((x, y))
 
-points = [(2, 4), (4, 2)]
-
 
 def F(w):
     return sum((w.dot(x) - y)**2 for x, y in points)

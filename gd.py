@@ -3,7 +3,13 @@ import numpy as np
 
 points = [(np.array([4]), 2), (np.array([2]), 4)]
 
-d = 1
+
+true_w = np.array([1, 2, 3, 4, 5])
+d = len(true_w)
+points = []
+
+for i in range(1000):
+    x = np.random.randn(d)
 
 
 def F(w):
@@ -20,3 +26,4 @@ def gradientDecent(F, dF, d):
     for t in range(100):
         value = F(w)
         gradient = dF(w)
+        w = w - eta * gradient

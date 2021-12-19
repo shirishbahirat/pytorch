@@ -10,6 +10,9 @@ points = []
 
 for i in range(1000):
     x = np.random.randn(d)
+    y = true_w.dot(x) + np.random.randn()
+    print(x, y)
+    points.append((x, y))
 
 
 def F(w):

@@ -23,10 +23,10 @@ def gradientDecent(F, dF, d):
     w = np.zeros(d)
     eta = 0.0001
     for t in range(1):
-        value = F(w)
+        loss = F(w)
         gradient = dF(w)
         w = w - eta * gradient
-        print('iteration {}: w = {}, F(w) = {}'.format(t, w, value))
+        print('iteration {}: w = {}, F(w) = {}'.format(t, w, loss))
 
 
 gradientDecent(F, dF, d)

@@ -30,3 +30,7 @@ def gradientDecent(F, dF, d):
         value = F(w)
         gradient = dF(w)
         w = w - eta * gradient
+        print('iteration {}: w = {}, F(w) = {}'.format(t, w, value))
+
+
+gradientDecent(F, dF, d)

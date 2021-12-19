@@ -6,7 +6,7 @@ points = []
 
 for i in range(1000):
     x = np.random.randn(d)
-    y = true_w.dot(x) + np.random.randn() * 0.02
+    y = true_w.dot(x) + np.random.randn() * 0.0
     print(x, y)
     points.append((x, y))
 

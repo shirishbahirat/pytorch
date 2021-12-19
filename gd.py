@@ -1,9 +1,6 @@
 import numpy as np
 
 
-points = [(np.array([4]), 2), (np.array([2]), 4)]
-
-
 true_w = np.array([1, 2, 3, 4, 5])
 d = len(true_w)
 points = []
@@ -13,6 +10,8 @@ for i in range(100):
     y = true_w.dot(x) + np.random.randn()
     print(x, y)
     points.append((x, y))
+
+points = [(2, 4), (4, 2)]
 
 
 def F(w):

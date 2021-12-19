@@ -8,7 +8,7 @@ true_w = np.array([1, 2, 3, 4, 5])
 d = len(true_w)
 points = []
 
-for i in range(1000):
+for i in range(100):
     x = np.random.randn(d)
     y = true_w.dot(x) + np.random.randn()
     print(x, y)

@@ -3,6 +3,7 @@ import numpy as np
 true_w = np.array([1, 2, 3, 4, 5])
 d = len(true_w)
 points = []
+epoch = 1000
 
 for i in range(1000):
     x = np.random.randn(d)
@@ -22,7 +23,7 @@ def dF(w):
 def gradientDecent(F, dF, d):
     w = np.zeros(d)
     eta = 0.0001
-    for t in range(1000):
+    for t in range(epoch):
         loss = F(w)
         gradient = dF(w)
         w = w - eta * gradient

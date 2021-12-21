@@ -14,3 +14,12 @@ nvme write / dev / nvme0n2 - s 0x0 - d 3
 nvme zns report - zones / dev / nvme0n2 - s 0x0 - d 3
 
 ls / dev/
+
+
+block / nvme.c | 2 + -
+hw / block / nvme - ns.c | 276 + ++++++
+hw / block / nvme - ns.h | 109 + ++
+hw / block / nvme.c | 1615 + +++++++++++++++++++++++++++++++++++++---
+hw / block / nvme.h | 8 +
+hw / block / trace - events | 32 + -
+include / block / nvme.h | 204 + ++++-

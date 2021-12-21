@@ -1,0 +1,1 @@
+-device nvme - ns, iocs = 0x2, zns.zcap = 4096

@@ -24,3 +24,7 @@ hw / block / nvme.c | 1615 + +++++++++++++++++++++++++++++++++++++---
 hw / block / nvme.h | 8 +
 hw / block / trace - events | 32 + -
 include / block / nvme.h | 204 + ++++-
+
+
+qemu - img create - f qcow2 qemucsd.qcow2 4G
+qemu - img create - f raw znsssd.img 4G

@@ -31,4 +31,3 @@ qemu - img create - f raw znsssd.img 4G
 
 nvme list
 nvme list
-nvme list

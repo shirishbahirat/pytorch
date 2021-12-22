@@ -15,7 +15,7 @@ nvme zns report - zones / dev / nvme0n2 - s 0x0 - d 3
 
 ls / dev/
 
-qemu zns
+qemu zns addition
 
 block / nvme.c | 2 + -
 hw / block / nvme - ns.c | 276 + ++++++

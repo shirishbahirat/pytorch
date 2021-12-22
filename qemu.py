@@ -30,3 +30,4 @@ qemu - img create - f qcow2 qemucsd.qcow2 4G
 qemu - img create - f raw znsssd.img 4G
 
 nvme list
+nvme list

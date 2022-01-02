@@ -1,11 +1,7 @@
-# libraries
 import numpy as np
 import matplotlib.pyplot as plt
 
-# set width of bars
 barWidth = 0.25
-
-# set heights of bars
 
 size = 20
 

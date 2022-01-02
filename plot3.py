@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 barWidth = 0.25
 
-size = 22
+size = 20
 
 plt.rc('font', size=size)
 plt.rc('axes', titlesize=size)

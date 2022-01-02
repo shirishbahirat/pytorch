@@ -65,5 +65,5 @@ domain4_qos = [[293, 355, 408, 578, 742, 930, 1385, 5014],
 ax = fig.add_subplot(224)
 plot_data('(d) Very Low Priority', domain4_qos, 'Latency Percentiles', '')
 
-plt.savefig('domain2.png', bbox_inches='tight', dpi=900)
+plt.savefig('domain2.png', bbox_inches='tight', dpi=1600)
 plt.show()

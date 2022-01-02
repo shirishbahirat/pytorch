@@ -15,7 +15,7 @@ plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 line_width = 2
 
 figure, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2)
-# domain1
+
 ax1.plot([0.5, 0.75, 0.9, 0.99, 0.999, 0.9999, 0.99999, 0.999999], [293, 355, 412, 578, 742, 922, 1385, 4752], 'r', linewidth=line_width, marker='x', linestyle='dotted')
 ax1.plot([0.5, 0.75, 0.9, 0.99, 0.999, 0.9999, 0.99999, 0.999999], [143, 194, 253, 416, 570, 725, 881, 1037], 'b', linewidth=line_width, marker='d', linestyle='solid')
 ax1.plot([0.5, 0.75, 0.9, 0.99, 0.999, 0.9999, 0.99999, 0.999999], [113, 184, 202, 351, 502, 644, 791, 947], 'g', linewidth=line_width, marker='o', linestyle='-.')

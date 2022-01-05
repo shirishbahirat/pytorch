@@ -11,15 +11,15 @@ import numpy as np
 
 @attr.s
 class ipv4_udp(object):
-    src = attr.ib()
-    dst = attr.ib()
-    zrs = attr.ib()
-    prt = attr.ib()
-    lgh = attr.ib()
-    spr = attr.ib()
-    dpr = attr.ib()
-    lnh = attr.ib()
-    dat = attr.ib()
+    src = attr.ib(198.196.1.1)
+    dst = attr.ib(198.196.1.12)
+    zrs = attr.ib(0)
+    prt = attr.ib(8800)
+    lgh = attr.ib(32)
+    spr = attr.ib(1)
+    dpr = attr.ib(1)
+    lnh = attr.ib(256)
+    dat = attr.ib(1024)
 
 
 @attr.s
@@ -83,7 +83,7 @@ class generator(object):
         while self.packets_sent < self.packets:
             yield self.env.timeout(self.arrival())
             self.packets_sent += 1
-            p = ipv4_udp(1, 1, 1, 1, 1, 1, 1, 1, 1)
+            p = ipv4_udp()
             self.out.put(p)
 
 

@@ -60,23 +60,28 @@ class tcp(object):
 
 class generator(object):
 
-    def __init__(self, env, id, adist, sdist, initial_delay=0, finish=float("inf"), flow_id=0):
+    def __init__(self, env, id=0, rate=1.0, data=0.01, init_delay=1.0, packets=1e6, flow_id=0):
         self.id = id
         self.env = env
-        self.adist = adist
-        self.sdist = sdist
-        self.initial_delay = initial_delay
-        self.finish = finish
+        self.rate = rate
+        self.data = data
+        self.init_delay = init_delay
+        self.packets = packets
         self.out = None
         self.packets_sent = 0
-        self.action = env.process(self.run())  # starts the run() method as a SimPy process
+        self.action = env.process(self.dispatch())
         self.flow_id = flow_id
 
-    def run(self):
-        yield self.env.timeout(self.initial_delay)
-        while self.env.now < self.finish:
-            # wait for next transmission
-            yield self.env.timeout(self.adist())
+    def arrival():
+        return self.rate
+
+    def distSize():
+        return expovariate(self.data)
+
+    def dispatch(self):
+        yield self.env.timeout(self.init_delay)
+        while self.packets_sent < self.packets:
+            yield self.env.timeout(self.arrival())
             self.packets_sent += 1
-            p = Packet(self.env.now, self.sdist(), self.packets_sent, src=self.id, flow_id=self.flow_id)
+            p = ipv4_udp()
             self.out.put(p)

@@ -2,6 +2,7 @@ import simpy
 from queue import Queue
 import attr
 from random import randint
+from random import expovariate
 import time
 from copy import deepcopy
 from random import seed
@@ -55,3 +56,18 @@ class tcp(object):
     chk = attr.ib()
     urp = attr.ib()
     opt = attr.ib()
+
+
+class generator(object):
+
+    def __init__(self, env, id, adist, sdist, initial_delay=0, finish=float("inf"), flow_id=0):
+    self.id = id
+    self.env = env
+    self.adist = adist
+    self.sdist = sdist
+    self.initial_delay = initial_delay
+    self.finish = finish
+    self.out = None
+    self.packets_sent = 0
+    self.action = env.process(self.run())  # starts the run() method as a SimPy process
+    self.flow_id = flow_id

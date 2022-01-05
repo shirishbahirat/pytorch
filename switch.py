@@ -67,7 +67,7 @@ class generator(object):
         self.data = data
         self.init_delay = init_delay
         self.packets = packets
-        self.out = None
+        self.out = Queue()
         self.packets_sent = 0
         self.action = env.process(self.dispatch())
         self.flow_id = flow_id
@@ -83,13 +83,13 @@ class generator(object):
         while self.packets_sent < self.packets:
             yield self.env.timeout(self.arrival())
             self.packets_sent += 1
-            p = ipv4_udp()
+            p = ipv4_udp(1, 1, 1, 1, 1, 1, 1, 1, 1)
             self.out.put(p)
 
 
 def main():
     env = simpy.Environment()
-    h = generator(env)
+    h = generator(env, 0, 1.0, 0.01, 1.0, 1e6, 0)
 
     env.run(until=1000)
 

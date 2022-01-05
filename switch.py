@@ -85,3 +85,14 @@ class generator(object):
             self.packets_sent += 1
             p = ipv4_udp()
             self.out.put(p)
+
+
+def main():
+    env = simpy.Environment()
+    h = generator(env)
+
+    env.run(until=1000)
+
+
+if __name__ == '__main__':
+    main()

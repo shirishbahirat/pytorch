@@ -72,10 +72,10 @@ class generator(object):
         self.action = env.process(self.dispatch())
         self.flow_id = flow_id
 
-    def arrival():
+    def arrival(self):
         return self.rate
 
-    def distSize():
+    def distSize(self):
         return expovariate(self.data)
 
     def dispatch(self):

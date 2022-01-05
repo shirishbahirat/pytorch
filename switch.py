@@ -11,8 +11,8 @@ import numpy as np
 
 @attr.s
 class ipv4_udp(object):
-    src = attr.ib(198.196.1.1)
-    dst = attr.ib(198.196.1.12)
+    src = attr.ib('198.196.1.1')
+    dst = attr.ib('198.196.1.12')
     zrs = attr.ib(0)
     prt = attr.ib(8800)
     lgh = attr.ib(32)
@@ -83,13 +83,14 @@ class generator(object):
         while self.packets_sent < self.packets:
             yield self.env.timeout(self.arrival())
             self.packets_sent += 1
+            print(self.env.now, self.packets_sent)
             p = ipv4_udp()
             self.out.put(p)
 
 
 def main():
     env = simpy.Environment()
-    h = generator(env, 0, 1.0, 0.01, 1.0, 1e6, 0)
+    h = generator(env)
 
     env.run(until=1000)
 

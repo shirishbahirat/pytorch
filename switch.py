@@ -92,7 +92,7 @@ def main():
     env = simpy.Environment()
     h = generator(env)
 
-    env.run(until=1000)
+    env.run(until=10000)
 
 
 if __name__ == '__main__':

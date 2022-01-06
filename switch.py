@@ -11,8 +11,8 @@ import numpy as np
 
 @attr.s
 class ipv4_udp(object):
-    src = attr.ib('198.196.1.1')
-    dst = attr.ib('198.196.1.12')
+    src = attr.ib('198.196.10.1')
+    dst = attr.ib('198.196.10.12')
     zrs = attr.ib(0)
     prt = attr.ib(8800)
     lgh = attr.ib(32)

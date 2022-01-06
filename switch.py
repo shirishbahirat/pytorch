@@ -16,8 +16,8 @@ class ipv4_udp(object):
     zrs = attr.ib(0)
     prt = attr.ib(8800)
     lgh = attr.ib(32)
-    spr = attr.ib(1)
-    dpr = attr.ib(1)
+    spr = attr.ib(10)
+    dpr = attr.ib(10)
     lnh = attr.ib(256)
     dat = attr.ib(1024)
 

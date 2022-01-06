@@ -90,7 +90,7 @@ class generator(object):
 
 def main():
     env = simpy.Environment()
-    h = generator(env)
+    generator(env)
 
     env.run(until=10000)
 

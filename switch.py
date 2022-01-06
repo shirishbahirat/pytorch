@@ -78,6 +78,9 @@ class generator(object):
     def distSize(self):
         return expovariate(self.data)
 
+    def result(self):
+        return self.packets_sent
+
     def dispatch(self):
         yield self.env.timeout(self.init_delay)
         while self.packets_sent < self.packets:
@@ -90,9 +93,11 @@ class generator(object):
 
 def main():
     env = simpy.Environment()
-    generator(env)
+    h = generator(env)
 
     env.run(until=10000)
+
+    print('packets sent', h.result())
 
 
 if __name__ == '__main__':

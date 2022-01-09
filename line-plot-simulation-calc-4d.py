@@ -46,15 +46,30 @@ plt.rc('legend', fontsize=size)
 plt.rc('figure', titlesize=size)
 
 
-x = np.linspace(.5, 1, 6)
-y1 = [89, 120, 130, 150, 190, 520]
-y2 = [85, 122, 135, 156, 193, 526]
-
-
+x = [0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999]
+HP Domain
 # Simulation
-y = [89, 171, 259, 350, 439, 521]
+y11 = [182, 283, 404, 513, 620, 705]
 # QoS Calculator
-y = [85, 170, 255, 340, 425, 510]
+y12 = [170, 255, 425, 510, 595, 680]
+
+MP Domain
+# Simulation
+y21 = [199, 829, 1979, 3169, 3870, 4707]
+# QoS Calculator
+y22 = [170, 850, 1955, 3145, 3825, 4675]
+
+LP Domain
+# Simulation
+y31 = [186, 847, 2069, 3302, 4303, 4937]
+# QoS Calculator
+y32 = [170, 850, 2040, 3315, 4335, 4930]
+
+VLP Domain
+# Simulation
+y41 = [178, 839, 2101, 3677, 4827, 6252]
+# QoS Calculator
+y42 = [170, 850, 2125, 3655, 4845, 6290]
 
 
 xnew = np.linspace(.5, 1, num=50, endpoint=True)

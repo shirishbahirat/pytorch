@@ -39,8 +39,8 @@ for axis in ['top', 'bottom', 'left', 'right']:
 
 
 plt.subplots_adjust(bottom=0.15)
-plt.plot(x, y1, label='Simulation', color='#A5BEE9', marker='s', linestyle='dashed', linewidth=2, markersize=12)
-plt.plot(x, y1, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='solid', linewidth=2, markersize=12)
+plt.plot(x, y1, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
+plt.plot(x, y2, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)
 plt.xlabel('Tail Latency Percentiles')
 plt.ylabel('Latency (us)')
 leg = plt.legend()

@@ -52,7 +52,7 @@ plt.plot(x, y2, label='MP', color='#0D61F0', marker='o', linestyle='solid', line
 plt.plot(x, y3, label='LP', color='#1B7F14', marker='d', linestyle='dotted', linewidth=6, markersize=12)
 plt.plot(x, y4, label='VLP', color='#19CE25', marker='s', linestyle='dotted', linewidth=6, markersize=12)
 plt.xlabel('Credit Refresh Rate')
-plt.ylabel('Achieved BW')
+plt.ylabel('Per-domain IO Count')
 plt.ylim([00000, 2000000])
 leg = plt.legend()
 leg.get_frame().set_linewidth(2.5)

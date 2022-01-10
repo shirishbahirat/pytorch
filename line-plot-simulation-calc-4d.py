@@ -154,5 +154,3 @@ leg.get_frame().set_edgecolor("black")
 
 
 plt.show()
-
-#

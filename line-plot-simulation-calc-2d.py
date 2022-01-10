@@ -68,12 +68,12 @@ y23 = [155, 670, 2136, 3889, 6843, 9386]
 #"Refresh Rate = 0.75"
 y24 = [140, 462, 1357, 2415, 3760, 5166]
 #"Refresh Rate = 1"
-y25 = [111, 311, 655, 1084, 1562, 2354
+y25 = [111, 311, 655, 1084, 1562, 2354]
 
 
 fig = plt.figure(figsize=(9, 9))
 
-ax = fig.add_subplot(211)
+ax = fig.add_subplot(122)
 
 for axis in ['top', 'bottom', 'left', 'right']:
     ax.spines[axis].set_linewidth(2.5)  # change width
@@ -81,22 +81,22 @@ for axis in ['top', 'bottom', 'left', 'right']:
 
 
 plt.subplots_adjust(bottom=0.15)
-plt.plot(x, y11, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
-plt.plot(x, y12, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)
-plt.plot(x, y13, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
-plt.plot(x, y14, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)
-plt.plot(x, y15, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
+plt.plot(x, y11, label='Simulation', color='#0A18DA', marker='s', linestyle='solid', linewidth=3, markersize=12)
+plt.plot(x, y12, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=3, markersize=12)
+plt.plot(x, y13, label='Simulation', color='#DA0A0A', marker='x', linestyle='solid', linewidth=3, markersize=12)
+plt.plot(x, y14, label='QoS Calculator', color='#b940bf', marker='o', linestyle='dashed', linewidth=3, markersize=12)
+plt.plot(x, y15, label='Simulation', color='#5DDA0A', marker='.', linestyle='solid', linewidth=3, markersize=12)
 
-# plt.xlabel('Tail Latency Percentiles')
-plt.ylabel('Latency (us)')
+plt.xlabel('Tail Latency Percentiles')
+#plt.ylabel('Latency (us)')
 leg = plt.legend()
-plt.ylim([0, 15000])
-plt.text(.6, 2000, 'HP Domain', fontsize=25)
+#plt.ylim([0, 15000])
+#plt.text(.6, 2000, 'HP Domain', fontsize=25)
 leg.get_frame().set_linewidth(2.5)
 leg.get_frame().set_edgecolor("black")
 
 
-ax = fig.add_subplot(212)
+ax = fig.add_subplot(121)
 
 for axis in ['top', 'bottom', 'left', 'right']:
     ax.spines[axis].set_linewidth(2.5)  # change width
@@ -104,16 +104,16 @@ for axis in ['top', 'bottom', 'left', 'right']:
 
 
 plt.subplots_adjust(bottom=0.15)
-plt.plot(x, y21, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
-plt.plot(x, y22, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)
-plt.plot(x, y23, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
-plt.plot(x, y24, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)
-plt.plot(x, y25, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
-# plt.xlabel('Tail Latency Percentiles')
-# plt.ylabel('Latency (us)')
+plt.plot(x, y21, label='Simulation', color='#0A18DA', marker='s', linestyle='solid', linewidth=3, markersize=12)
+plt.plot(x, y22, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=3, markersize=12)
+plt.plot(x, y23, label='Simulation', color='#DA0A0A', marker='x', linestyle='solid', linewidth=3, markersize=12)
+plt.plot(x, y24, label='QoS Calculator', color='#b940bf', marker='o', linestyle='dashed', linewidth=3, markersize=12)
+plt.plot(x, y25, label='Simulation', color='#5DDA0A', marker='.', linestyle='solid', linewidth=3, markersize=12)
+plt.xlabel('Tail Latency Percentiles')
+plt.ylabel('Latency (us)')
 leg = plt.legend()
-plt.ylim([0, 15000])
-plt.text(.6, 2000, 'MP Domain', fontsize=25)
+#plt.ylim([0, 15000])
+#plt.text(.6, 2000, 'MP Domain', fontsize=25)
 leg.get_frame().set_linewidth(2.5)
 leg.get_frame().set_edgecolor("black")
 

@@ -4,13 +4,6 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 
-# VLP Domain
-# Simulation
-y41 = [178, 839, 2101, 3677, 4827, 6252]
-# QoS Calculator
-y42 = [170, 850, 2125, 3655, 4845, 6290]
-
-
 fig = plt.figure(figsize=(9, 9))
 
 ax = fig.add_subplot(221)

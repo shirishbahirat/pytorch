@@ -1,32 +1,3 @@
-'''
-
-Figure 10 (Multi Domain)
-x = [0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999]
-
-HP Domain
-#Simulation
-y = [182, 283, 404, 513, 620, 705]
-#QoS Calculator
-y = [170, 255, 425, 510, 595, 680]
-
-MP Domain
-#Simulation
-y = [199, 829, 1979, 3169, 3870, 4707]
-#QoS Calculator
-y = [170, 850, 1955, 3145, 3825, 4675]
-
-LP Domain
-#Simulation
-y = [186, 847, 2069, 3302, 4303, 4937]
-#QoS Calculator
-y = [170, 850, 2040, 3315, 4335, 4930]
-
-VLP Domain
-#Simulation
-y = [178, 839, 2101, 3677, 4827, 6252]
-#QoS Calculator
-y = [170, 850, 2125, 3655, 4845, 6290]
-'''
 
 
 import matplotlib as mpl

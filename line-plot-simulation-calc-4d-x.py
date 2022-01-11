@@ -4,15 +4,6 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 
-fig = plt.figure(figsize=(9, 9))
-
-ax = fig.add_subplot(221)
-
-for axis in ['top', 'bottom', 'left', 'right']:
-    ax.spines[axis].set_linewidth(2.5)  # change width
-    # ax.spines[axis].set_color('red')    # change color
-
-
 plt.subplots_adjust(bottom=0.15)
 plt.plot(x, y11, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
 plt.plot(x, y12, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)

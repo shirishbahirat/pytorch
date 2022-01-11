@@ -4,17 +4,6 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 
-size = 25
-
-plt.rc('font', size=size)
-plt.rc('axes', titlesize=size)
-plt.rc('axes', labelsize=size)
-plt.rc('xtick', labelsize=size)
-plt.rc('ytick', labelsize=size)
-plt.rc('legend', fontsize=size)
-plt.rc('figure', titlesize=size)
-
-
 x = [0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999]
 # HP Domain
 # Simulation

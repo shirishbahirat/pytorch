@@ -4,13 +4,6 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 
-leg = plt.legend()
-plt.ylim([0, 6500])
-plt.text(.6, 2000, 'HP Domain', fontsize=25)
-leg.get_frame().set_linewidth(2.5)
-leg.get_frame().set_edgecolor("black")
-
-
 ax = fig.add_subplot(222)
 
 for axis in ['top', 'bottom', 'left', 'right']:

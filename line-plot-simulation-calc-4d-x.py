@@ -4,12 +4,6 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 
-# MP Domain
-# Simulation
-y21 = [199, 829, 1979, 3169, 3370, 3707]
-# QoS Calculator
-y22 = [170, 850, 1955, 3145, 3325, 3675]
-
 # LP Domain
 # Simulation
 y31 = [186, 847, 2069, 3302, 4303, 4937]

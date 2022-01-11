@@ -3,15 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import interp1d
 
-
-ax = fig.add_subplot(222)
-
-for axis in ['top', 'bottom', 'left', 'right']:
-    ax.spines[axis].set_linewidth(2.5)  # change width
-    # ax.spines[axis].set_color('red')    # change color
-
-
-plt.subplots_adjust(bottom=0.15)
 plt.plot(x, y21, label='Simulation', color='#0A18DA', marker='s', linestyle='solid', linewidth=6, markersize=12)
 plt.plot(x, y22, label='QoS Calculator', color='#5DDA0A', marker='d', linestyle='dashed', linewidth=6, markersize=12)
 #plt.xlabel('Tail Latency Percentiles')

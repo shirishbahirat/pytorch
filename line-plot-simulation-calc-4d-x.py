@@ -3,19 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import interp1d
 
-plt.plot(x, y21, label='Simulation', color='#0A18DA', marker='s', linestyle='solid', linewidth=6, markersize=12)
-plt.plot(x, y22, label='QoS Calculator', color='#5DDA0A', marker='d', linestyle='dashed', linewidth=6, markersize=12)
-#plt.xlabel('Tail Latency Percentiles')
-#plt.ylabel('Latency (us)')
-leg = plt.legend()
-plt.ylim([0, 6500])
-plt.text(.6, 2000, 'MP Domain', fontsize=25)
-leg.get_frame().set_linewidth(2.5)
-leg.get_frame().set_edgecolor("black")
-
-
-plt.savefig('line.png', bbox_inches='tight', dpi=600)
-
 
 ax = fig.add_subplot(223)
 

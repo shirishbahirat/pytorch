@@ -72,7 +72,7 @@ y41 = [178, 839, 2101, 3677, 4827, 6252]
 y42 = [170, 850, 2125, 3655, 4845, 6290]
 
 
-fig = plt.figure(figsize=(9, 9))
+fig = plt.figure(figsize=(14, 14))
 
 ax = fig.add_subplot(221)
 
@@ -86,7 +86,7 @@ plt.plot(x, y11, label='Simulation', color='#DA0A0A', marker='s', linestyle='sol
 plt.plot(x, y12, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)
 #plt.xlabel('Tail Latency Percentiles')
 plt.ylabel('Latency (us)')
-leg = plt.legend()
+leg = plt.legend(loc=2)
 plt.ylim([0, 6500])
 plt.text(.6, 2000, 'HP Domain', fontsize=25)
 leg.get_frame().set_linewidth(2.5)
@@ -105,14 +105,11 @@ plt.plot(x, y21, label='Simulation', color='#0A18DA', marker='s', linestyle='sol
 plt.plot(x, y22, label='QoS Calculator', color='#5DDA0A', marker='d', linestyle='dashed', linewidth=6, markersize=12)
 #plt.xlabel('Tail Latency Percentiles')
 #plt.ylabel('Latency (us)')
-leg = plt.legend()
+leg = plt.legend(loc=2)
 plt.ylim([0, 6500])
 plt.text(.6, 2000, 'MP Domain', fontsize=25)
 leg.get_frame().set_linewidth(2.5)
 leg.get_frame().set_edgecolor("black")
-
-
-plt.savefig('line.png', bbox_inches='tight', dpi=600)
 
 
 ax = fig.add_subplot(223)
@@ -128,7 +125,7 @@ plt.plot(x, y32, label='QoS Calculator', color='#CCDA0A', marker='d', linestyle=
 plt.xlabel('Tail Latency Percentiles')
 plt.ylabel('Latency (us)')
 plt.ylim([0, 6500])
-leg = plt.legend()
+leg = plt.legend(loc=2)
 plt.text(.6, 2000, 'LP Domain', fontsize=25)
 leg.get_frame().set_linewidth(2.5)
 leg.get_frame().set_edgecolor("black")
@@ -146,11 +143,12 @@ plt.plot(x, y41, label='Simulation', color='#DAA90A', marker='s', linestyle='sol
 plt.plot(x, y42, label='QoS Calculator', color='#DA250A', marker='d', linestyle='dashed', linewidth=6, markersize=12)
 plt.xlabel('Tail Latency Percentiles')
 #plt.ylabel('Latency (us)')
-leg = plt.legend()
+leg = plt.legend(loc=2)
 plt.ylim([0, 6500])
 plt.text(.6, 2000, 'VLP Domain', fontsize=25)
 leg.get_frame().set_linewidth(2.5)
 leg.get_frame().set_edgecolor("black")
 
+plt.savefig('line.png', bbox_inches='tight', dpi=600)
 
 plt.show()

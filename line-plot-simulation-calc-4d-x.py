@@ -4,11 +4,6 @@ import numpy as np
 from scipy.interpolate import interp1d
 
 
-plt.subplots_adjust(bottom=0.15)
-plt.plot(x, y11, label='Simulation', color='#DA0A0A', marker='s', linestyle='solid', linewidth=6, markersize=12)
-plt.plot(x, y12, label='QoS Calculator', color='#6C4BEE', marker='d', linestyle='dashed', linewidth=6, markersize=12)
-#plt.xlabel('Tail Latency Percentiles')
-plt.ylabel('Latency (us)')
 leg = plt.legend()
 plt.ylim([0, 6500])
 plt.text(.6, 2000, 'HP Domain', fontsize=25)

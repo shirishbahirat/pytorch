@@ -30,7 +30,7 @@ y = [89, 171, 259, 350, 439, 521]
 y = [85, 170, 255, 340, 425, 510]
 
 
-fig = plt.figure(figsize=(9, 9))
+fig = plt.figure(figsize=(14, 14))
 ax = fig.add_subplot(111)
 
 for axis in ['top', 'bottom', 'left', 'right']:

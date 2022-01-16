@@ -34,29 +34,22 @@ def mse(t1, t2):
 
 loss = mse(preds, targets)
 
-loss.backward()
 
-with torch.no_grad():
-    w -= w.grad * 1e-5
-    b -= b.grad * 1e-5
-
-loss = mse(preds, targets)
-
-
-for epoch in range(60):
-
-    outputs = model(inputs)
-    loss = mse(outputs, targets)
-
-    w.grad.zero_()
-    b.grad.zero_()
-
+for epoch in range(2000):
+    preds = model(inputs)
+    loss = mse(preds, targets)
+    loss.backward()
     with torch.no_grad():
         w -= w.grad * 1e-5
         b -= b.grad * 1e-5
+        w.grad.zero_()
+        b.grad.zero_()
 
     if (epoch + 1) % 5 == 0:
         print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, 60, loss.item()))
+
+
+print(preds)
 
 '''
 predicted = model(torch.from_numpy(x_train)).detach().numpy()

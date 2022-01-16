@@ -40,6 +40,9 @@ targets = np.array([[56, 70],
                     [102, 120]],
                    dtype='float32')
 
+inputs = torch.from_numpy(inputs)
+targets = torch.from_numpy(targets)
+
 train_ds = TensorDataset(inputs, targets)
 
 batch_size = 5
@@ -79,10 +82,11 @@ def fit(num_epochs, model, loss_fn, opt, train_dl):
             print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, num_epochs, loss.item()))
 
 
-'''
-predicted = model(torch.from_numpy(x_train)).detach().numpy()
-plt.plot(x_train, y_train, 'ro', label='Original data')
-plt.plot(x_train, predicted, label='Fitted line')
-plt.legend()
-plt.show()
-'''
+fit(5000, model, loss_fn, opt, train_dl)
+
+
+preds = model(inputs)
+
+print(preds)
+
+print(model(torch.tensor([[75, 63, 44.]])))

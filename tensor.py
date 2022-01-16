@@ -26,3 +26,9 @@ print('dy/dw:', w.grad)
 print('dy/db:', b.grad)
 
 t6 = torch.full((3, 2), 42)
+
+t7 = torch.cat((t3, t6))
+
+t8 = torch.sin(t7)
+
+t9 = t8.reshape(3, 2, 2)

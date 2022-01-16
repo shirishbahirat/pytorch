@@ -20,3 +20,7 @@ b = torch.tensor(5., requires_grad=True)
 
 y = w * x + b
 y.backward()
+
+print('dy/dx:', x.grad)
+print('dy/dw:', w.grad)
+print('dy/db:', b.grad)

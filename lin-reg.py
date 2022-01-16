@@ -49,10 +49,10 @@ for epoch in range(60):
     loss = mse(outputs, targets)
 
     w.grad.zero_()
-        b.grad.zero_()
+    b.grad.zero_()
 
-    w -= w.grad * 1e-5
-    b -= b.grad * 1e-5
+    w -= loss @ 1e-5
+    b -= loss @ 1e-5
 
     if (epoch + 1) % 5 == 0:
         print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, num_epochs, loss.item()))

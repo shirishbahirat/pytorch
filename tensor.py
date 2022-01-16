@@ -13,3 +13,7 @@ t4 = torch.tensor([
      [13, 14, 15]],
     [[15, 16, 17],
      [17, 18, 19.]]])
+
+x = torch.tensor(3.)
+w = torch.tensor(4., requires_grad=True)
+b = torch.tensor(5., requires_grad=True)

@@ -24,3 +24,5 @@ y.backward()
 print('dy/dx:', x.grad)
 print('dy/dw:', w.grad)
 print('dy/db:', b.grad)
+
+t6 = torch.full((3, 2), 42)

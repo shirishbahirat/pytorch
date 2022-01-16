@@ -42,5 +42,4 @@ plt.plot(x_train, predicted, label='Fitted line')
 plt.legend()
 plt.show()
 
-# Save the model checkpoint
 torch.save(model.state_dict(), 'model.ckpt')

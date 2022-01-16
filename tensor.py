@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 
 t1 = torch.tensor(4.)
 
@@ -32,3 +33,7 @@ t7 = torch.cat((t3, t6))
 t8 = torch.sin(t7)
 
 t9 = t8.reshape(3, 2, 2)
+
+x = np.array([[1, 2], [3, 4.]])
+y = torch.from_numpy(x)
+z = y.numpy()

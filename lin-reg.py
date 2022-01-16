@@ -56,7 +56,7 @@ for epoch in range(60):
         b -= b.grad * 1e-5
 
     if (epoch + 1) % 5 == 0:
-        print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, num_epochs, loss.item()))
+        print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, 60, loss.item()))
 
 '''
 predicted = model(torch.from_numpy(x_train)).detach().numpy()

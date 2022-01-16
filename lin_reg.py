@@ -22,9 +22,11 @@ model = nn.Linear(input_size, output_size)
 criterion = nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
+inputs = torch.from_numpy(x_train)
+targets = torch.from_numpy(y_train)
+
+
 for epoch in range(num_epochs):
-    inputs = torch.from_numpy(x_train)
-    targets = torch.from_numpy(y_train)
 
     outputs = model(inputs)
     loss = criterion(outputs, targets)

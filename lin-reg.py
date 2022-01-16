@@ -42,5 +42,25 @@ with torch.no_grad():
 
 loss = mse(preds, targets)
 
-w.grad.zero_()
-b.grad.zero_()
+
+for epoch in range(60):
+
+    outputs = model(inputs)
+    loss = mse(outputs, targets)
+
+    w.grad.zero_()
+        b.grad.zero_()
+
+    w -= w.grad * 1e-5
+    b -= b.grad * 1e-5
+
+    if (epoch + 1) % 5 == 0:
+        print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, num_epochs, loss.item()))
+
+'''
+predicted = model(torch.from_numpy(x_train)).detach().numpy()
+plt.plot(x_train, y_train, 'ro', label='Original data')
+plt.plot(x_train, predicted, label='Fitted line')
+plt.legend()
+plt.show()
+'''

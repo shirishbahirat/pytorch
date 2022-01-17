@@ -48,7 +48,7 @@ val_loader = DataLoader(val_ds, batch_size)
 input_size = 28 * 28
 num_classes = 10
 
-#model = nn.Linear(input_size, num_classes)
+model = nn.Linear(input_size, num_classes)
 
 print(model.weight.shape)
 print(model.weight)

@@ -48,7 +48,7 @@ val_loader = DataLoader(val_ds, batch_size)
 input_size = 28 * 28
 num_classes = 10
 
-model = nn.Linear(input_size, num_classes)
+#model = nn.Linear(input_size, num_classes)
 
 print(model.weight.shape)
 print(model.weight)
@@ -62,5 +62,19 @@ for images, labels in train_loader:
     print(labels)
     print(images.shape)
     #outputs = model(images)
-    #print(outputs)
-    #break
+    # print(outputs)
+    # break
+
+
+class MnistModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.linear = nn.Linear(input_size, num_classes)
+
+    def forward(self, xb):
+        xb = xb.reshape(-1, 784)
+        out = self.linear(xb)
+        return out
+
+
+model = MnistModel()

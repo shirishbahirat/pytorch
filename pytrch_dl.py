@@ -78,3 +78,12 @@ class MnistModel(nn.Module):
 
 
 model = MnistModel()
+
+
+for images, labels in train_loader:
+    print(images.shape)
+    outputs = model(images)
+    break
+
+print('outputs.shape : ', outputs.shape)
+print('Sample outputs :\n', outputs[:2].data)

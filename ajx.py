@@ -8,7 +8,6 @@ from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
 
-import numpy as np
 
 dataset = MNIST(root='data/', download=True)
 
@@ -39,6 +38,9 @@ input_size = 28 * 28
 num_classes = 10
 
 
+import numpy as np
+
+
 def predict(params, inouts):
     for W, b in params:
         output = np.dot(inouts, W) + b
@@ -50,3 +52,7 @@ def mse_loss(params, batch):
     inputs, targets = batch
     preds = predict(params, inputs)
     return np.sum((preds - targets) ** 2)
+
+
+import jax.numpy as np
+from jax import grad, map, jit

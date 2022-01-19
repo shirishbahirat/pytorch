@@ -27,10 +27,6 @@ print(torch.max(img_tensor), torch.min(img_tensor))
 
 train_ds, val_ds = random_split(dataset, [50000, 10000])
 
-'''
-plt.imshow(img_tensor[0, 0:28, 0:28], cmap='gray')
-plt.show()
-'''
 
 batch_size = 128
 

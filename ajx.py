@@ -55,7 +55,7 @@ def mse_loss(params, batch):
 
 
 import jax.numpy as np
-from jax import grad, jit, vmap
+from jax import grad, jit, vmap, pmap
 
 
 def predict(params, inputs):
@@ -72,4 +72,5 @@ def mse_loss(params, batch):
 
 
 gradient_fun = jit(grad(mse_loss))
-preexample_grads = jit(vmap(grad(mse_loss), in_axes=(None, 0)))
+perexample_grads = jit(vmap(grad(mse_loss), in_axes=(None, 0)))
+parallel_grads = jit(pmap(grad(mse_loss), in_axes=(None, 0)))

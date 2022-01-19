@@ -55,4 +55,4 @@ def mse_loss(params, batch):
 
 
 import jax.numpy as np
-from jax import grad, map, jit
+from jax import grad, jit

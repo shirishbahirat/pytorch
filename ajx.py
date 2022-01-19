@@ -6,6 +6,18 @@ from torch.utils.data import random_split
 from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
+from jax import random
+
+
+import numpy as onp
+import jax.numpy as np
+
+key = random.PRNGKey(1)
+x = random.uniform(key, (1000, 1000))
+
+time y = onp.dot(x, x)
+time y = np.dot(x, x)
+time y = np.dot(x, x).block_until_ready()
 
 
 dataset = MNIST(root='data/', download=True)

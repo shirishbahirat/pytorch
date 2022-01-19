@@ -7,6 +7,13 @@ from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
 from jax import random
+import time
+
+startTime = time.time()
+
+
+executionTime = (time.time() - startTime)
+print('Execution time in ms: ' + str(executionTime))
 
 
 import numpy as onp
@@ -15,9 +22,21 @@ import jax.numpy as np
 key = random.PRNGKey(1)
 x = random.uniform(key, (1000, 1000))
 
-time y = onp.dot(x, x)
-time y = np.dot(x, x)
-time y = np.dot(x, x).block_until_ready()
+
+startTime = time.time()
+y = onp.dot(x, x)
+executionTime = 1000 * (time.time() - startTime)
+print('Execution time in ms: ' + str(executionTime))
+
+startTime = time.time()
+y = np.dot(x, x)
+executionTime = 1000 * (time.time() - startTime)
+print('Execution time in ms: ' + str(executionTime))
+
+startTime = time.time()
+y = np.dot(x, x).block_until_ready()
+executionTime = 1000 * (time.time() - startTime)
+print('Execution time in ms: ' + str(executionTime))
 
 
 dataset = MNIST(root='data/', download=True)

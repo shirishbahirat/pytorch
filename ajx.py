@@ -15,7 +15,6 @@ startTime = time.time()
 executionTime = (time.time() - startTime)
 print('Execution time in ms: ' + str(executionTime))
 
-
 import numpy as onp
 import jax.numpy as np
 

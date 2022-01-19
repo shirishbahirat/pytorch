@@ -56,3 +56,16 @@ def mse_loss(params, batch):
 
 import jax.numpy as np
 from jax import grad, jit
+
+
+def predict(params, inouts):
+    for W, b in params:
+        output = np.dot(inouts, W) + b
+        inputs = np.tanh(outputs)
+    return outputs
+
+
+def mse_loss(params, batch):
+    inputs, targets = batch
+    preds = predict(params, inputs)
+    return np.sum((preds - targets) ** 2)

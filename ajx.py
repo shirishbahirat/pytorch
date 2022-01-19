@@ -41,9 +41,9 @@ num_classes = 10
 import numpy as np
 
 
-def predict(params, inouts):
+def predict(params, inputs):
     for W, b in params:
-        output = np.dot(inouts, W) + b
+        output = np.dot(inputs, W) + b
         inputs = np.tanh(outputs)
     return outputs
 
@@ -55,12 +55,12 @@ def mse_loss(params, batch):
 
 
 import jax.numpy as np
-from jax import grad, jit
+from jax import grad, jit, vmap
 
 
-def predict(params, inouts):
+def predict(params, inputs):
     for W, b in params:
-        output = np.dot(inouts, W) + b
+        output = np.dot(inputs, W) + b
         inputs = np.tanh(outputs)
     return outputs
 
@@ -69,3 +69,7 @@ def mse_loss(params, batch):
     inputs, targets = batch
     preds = predict(params, inputs)
     return np.sum((preds - targets) ** 2)
+
+
+gradient_fun = jit(grad(mse_loss))
+preexample_grads = jit(vmap(grad(mse_loss)))

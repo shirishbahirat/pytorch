@@ -44,3 +44,9 @@ def predict(params, inouts):
         output = np.dot(inouts, W) + b
         inputs = np.tanh(outputs)
     return outputs
+
+
+def mse_loss(params, batch):
+    inputs, targets = batch
+    preds = predict(params, inputs)
+    return np.sum((preds - targets) ** 2)

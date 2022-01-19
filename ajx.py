@@ -8,6 +8,8 @@ from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.nn.functional as F
 
+import numpy as np
+
 dataset = MNIST(root='data/', download=True)
 
 print(len(dataset))
@@ -35,3 +37,10 @@ val_loader = DataLoader(val_ds, batch_size)
 
 input_size = 28 * 28
 num_classes = 10
+
+
+def predict(params, inouts):
+    for W, b in params:
+        output = np.dot(inouts, W) + b
+        inputs = np.tanh(outputs)
+    return outputs

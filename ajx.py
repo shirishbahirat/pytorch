@@ -72,4 +72,4 @@ def mse_loss(params, batch):
 
 
 gradient_fun = jit(grad(mse_loss))
-preexample_grads = jit(vmap(grad(mse_loss)))
+preexample_grads = jit(vmap(grad(mse_loss), in_axes=(None, 0)))

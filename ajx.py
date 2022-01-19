@@ -14,3 +14,28 @@ print(len(dataset))
 
 test_dataset = MNIST(root='data/', train=False)
 print(len(test_dataset))
+
+dataset = MNIST(root='data/',
+                train=True,
+                transform=transforms.ToTensor())
+
+img_tensor, label = dataset[0]
+print(img_tensor.shape, label)
+
+print(img_tensor[0, 10:15, 10:15])
+print(torch.max(img_tensor), torch.min(img_tensor))
+
+train_ds, val_ds = random_split(dataset, [50000, 10000])
+
+'''
+plt.imshow(img_tensor[0, 0:28, 0:28], cmap='gray')
+plt.show()
+'''
+
+batch_size = 128
+
+train_loader = DataLoader(train_ds, batch_size, shuffle=True)
+val_loader = DataLoader(val_ds, batch_size)
+
+input_size = 28 * 28
+num_classes = 10

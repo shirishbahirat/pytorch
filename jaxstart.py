@@ -68,3 +68,15 @@ print("Original v:")
 print(v)
 print("Gradient of f taken at point v")
 print(jax.grad(f)(v))  # should be equal to v !
+
+
+def f(x):
+    return jnp.multiply(x, x) / 2.0
+
+
+x = random.normal(key, (5,))
+v = jnp.ones(5)
+print("(x,f(x))")
+print((x, f(x)))
+print("jax.jvp(f, (x,),(v,))")
+print(jax.jvp(f, (x,), (v,)))

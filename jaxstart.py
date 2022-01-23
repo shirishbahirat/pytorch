@@ -80,3 +80,40 @@ print("(x,f(x))")
 print((x, f(x)))
 print("jax.jvp(f, (x,),(v,))")
 print(jax.jvp(f, (x,), (v,)))
+
+
+mat = random.normal(key, (15, 10))
+batched_x = random.normal(key, (5, 10))  # Batching on first dimension
+single = random.normal(key, (10,))
+
+
+def apply_matrix(v):
+    return jnp.dot(mat, v)
+
+
+print("Single apply shape: ", apply_matrix(single).shape)
+print("Batched example shape: ", jax.vmap(apply_matrix)(batched_x).shape)
+
+
+key = random.PRNGKey(0)
+
+# Create the predict function from a set of parameters
+
+
+def make_predict(W, b):
+    def predict(x):
+        return jnp.dot(W, x) + b
+    return predict
+
+# Create the loss from the data points set
+
+
+def make_mse(x_batched, y_batched):
+    def mse(W, b):
+        # Define the squared loss for a single pair (x,y)
+        def squared_error(x, y):
+            y_pred = make_predict(W, b)(x)
+            return jnp.inner(y - y_pred, y - y_pred) / 2.0
+        # We vectorize the previous to compute the average of the loss on all samples.
+        return jnp.mean(jax.vmap(squared_error)(x_batched, y_batched), axis=0)
+    return jax.jit(mse)  # And finally we jit the result.

@@ -117,3 +117,37 @@ def make_mse(x_batched, y_batched):
         # We vectorize the previous to compute the average of the loss on all samples.
         return jnp.mean(jax.vmap(squared_error)(x_batched, y_batched), axis=0)
     return jax.jit(mse)  # And finally we jit the result.
+
+
+
+# Set problem dimensions
+nsamples = 20
+xdim = 10
+ydim = 5
+
+# Generate random ground truth W and b
+k1, k2 = random.split(key)
+W = random.normal(k1, (ydim, xdim))
+b = random.normal(k2, (ydim,))
+true_predict = make_predict(W, b)
+
+# Generate samples with additional noise
+ksample, knoise = random.split(k1)
+x_samples = random.normal(ksample, (nsamples, xdim))
+y_samples = jax.vmap(true_predict)(x_samples) + 0.1 * random.normal(knoise, (nsamples, ydim))
+
+# Generate MSE for our samples
+mse = make_mse(x_samples, y_samples)
+
+
+# Initialize estimated W and b with zeros.
+What = jnp.zeros_like(W)
+bhat = jnp.zeros_like(b)
+
+alpha = 0.3  # Gradient step size
+print('Loss for "true" W,b: ', mse(W, b))
+for i in range(101):
+    # We perform one gradient update
+    What, bhat = What - alpha * jax.grad(mse, 0)(What, bhat), bhat - alpha * jax.grad(mse, 1)(What, bhat)
+    if (i % 5 == 0):
+        print("Loss step {}: ".format(i), mse(What, bhat))

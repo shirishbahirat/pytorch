@@ -14,7 +14,6 @@ x = jnp.dot(n, m).block_until_ready()
 
 print(x)
 
-
 m = jnp.ones((4, 4))
 n = jnp.array([[1.0, 2.0, 3.0, 4.0],
                [5.0, 6.0, 7.0, 8.0]])
@@ -25,7 +24,6 @@ print(m)
 x = jnp.dot(n, m).block_until_ready()
 
 print(x)
-
 
 a = np.random.normal(size=(4, 4))
 
@@ -39,9 +37,7 @@ q = jnp.array([[1.0, 2.0, 3.0, 4.0],
                [5.0, 6.0, 7.0, 8.0]])
 np.array(q)
 
-
 print(q)
-
 
 w = jnp.array([[1.0, 2.0, 3.0, 4.0],
                [5.0, 6.0, 7.0, 8.0]])

@@ -1,90 +1,44 @@
-"""A multi-layer perceptron for classification of MNIST handwritten digits."""
-from __future__ import absolute_import, division
+from __future__ import absolute_import
 from __future__ import print_function
+from builtins import range
 import autograd.numpy as np
-import autograd.numpy.random as npr
-from autograd.scipy.special import logsumexp
 from autograd import grad
-from autograd.misc.flatten import flatten
-from autograd.misc.optimizers import adam
-#from data import load_mnist
+from autograd.test_util import check_grads
 
 
-def init_random_params(scale, layer_sizes, rs=npr.RandomState(0)):
-    """Build a list of (weights, biases) tuples,
-       one for each layer in the net."""
-    return [(scale * rs.randn(m, n),   # weight matrix
-             scale * rs.randn(n))      # bias vector
-            for m, n in zip(layer_sizes[:-1], layer_sizes[1:])]
+def sigmoid(x):
+    return 0.5 * (np.tanh(x) + 1)
 
 
-def neural_net_predict(params, inputs):
-    """Implements a deep neural network for classification.
-       params is a list of (weights, bias) tuples.
-       inputs is an (N x D) matrix.
-       returns normalized class log-probabilities."""
-    for W, b in params:
-        outputs = np.dot(inputs, W) + b
-        inputs = np.tanh(outputs)
-    return outputs - logsumexp(outputs, axis=1, keepdims=True)
+def logistic_predictions(weights, inputs):
+    # Outputs probability of a label being true according to logistic model.
+    return sigmoid(np.dot(inputs, weights))
 
 
-def l2_norm(params):
-    """Computes l2 norm of params by flattening them into a vector."""
-    flattened, _ = flatten(params)
-    return np.dot(flattened, flattened)
+def training_loss(weights):
+    # Training loss is the negative log-likelihood of the training labels.
+    preds = logistic_predictions(weights, inputs)
+    label_probabilities = preds * targets + (1 - preds) * (1 - targets)
+    return -np.sum(np.log(label_probabilities))
 
 
-def log_posterior(params, inputs, targets, L2_reg):
-    log_prior = -L2_reg * l2_norm(params)
-    log_lik = np.sum(neural_net_predict(params, inputs) * targets)
-    return log_prior + log_lik
+# Build a toy dataset.
+inputs = np.array([[0.52, 1.12, 0.77],
+                   [0.88, -1.08, 0.15],
+                   [0.52, 0.06, -1.30],
+                   [0.74, -2.49, 1.39]])
+targets = np.array([True, True, False, True])
 
+# Build a function that returns gradients of training loss using autograd.
+training_gradient_fun = grad(training_loss)
 
-def accuracy(params, inputs, targets):
-    target_class = np.argmax(targets, axis=1)
-    predicted_class = np.argmax(neural_net_predict(params, inputs), axis=1)
-    return np.mean(predicted_class == target_class)
+# Check the gradients numerically, just to be safe.
+weights = np.array([0.0, 0.0, 0.0])
+check_grads(training_loss, modes=['rev'])(weights)
 
+# Optimize weights using gradient descent.
+print("Initial loss:", training_loss(weights))
+for i in range(100):
+    weights -= training_gradient_fun(weights) * 0.01
 
-if __name__ == '__main__':
-    # Model parameters
-    layer_sizes = [784, 200, 100, 10]
-    L2_reg = 1.0
-
-    # Training parameters
-    param_scale = 0.1
-    batch_size = 256
-    num_epochs = 5
-    step_size = 0.001
-
-    print("Loading training data...")
-    N, train_images, train_labels, test_images, test_labels = load_mnist()
-
-    init_params = init_random_params(param_scale, layer_sizes)
-
-    num_batches = int(np.ceil(len(train_images) / batch_size))
-
-    def batch_indices(iter):
-        idx = iter % num_batches
-        return slice(idx * batch_size, (idx + 1) * batch_size)
-
-    # Define training objective
-    def objective(params, iter):
-        idx = batch_indices(iter)
-        return -log_posterior(params, train_images[idx], train_labels[idx], L2_reg)
-
-    # Get gradient of objective using autograd.
-    objective_grad = grad(objective)
-
-    print("     Epoch     |    Train accuracy  |       Test accuracy  ")
-
-    def print_perf(params, iter, gradient):
-        if iter % num_batches == 0:
-            train_acc = accuracy(params, train_images, train_labels)
-            test_acc = accuracy(params, test_images, test_labels)
-            print("{:15}|{:20}|{:20}".format(iter // num_batches, train_acc, test_acc))
-
-    # The optimizers provided can optimize lists, tuples, or dicts of parameters.
-    optimized_params = adam(objective_grad, init_params, step_size=step_size,
-                            num_iters=num_epochs * num_batches, callback=print_perf)
+print("Trained loss:", training_loss(weights))

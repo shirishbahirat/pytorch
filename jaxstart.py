@@ -51,3 +51,14 @@ jax.ops.index_update(x, jax.ops.index[0, :], 3.0)  #  Same as x[O,:] = 3.0 in N
 
 
 key = random.PRNGKey(0)
+
+
+key = random.PRNGKey(0)
+
+
+def f(x):
+    return jnp.dot(x.T, x) / 2.0
+
+
+v = jnp.ones((4,))
+f(v)

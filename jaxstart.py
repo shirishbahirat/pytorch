@@ -44,3 +44,7 @@ w = jnp.array([[1.0, 2.0, 3.0, 4.0],
 updated = jax.ops.index_update(w, (0, 0), 3.0)
 print("w: \n", w)
 print("updated: \n", updated)
+
+x = jnp.array([[1.0, 2.0, 3.0, 4.0],
+               [5.0, 6.0, 7.0, 8.0]])
+jax.ops.index_update(x, jax.ops.index[0, :], 3.0)  #  Same as x[O,:] = 3.0 in NumPy.

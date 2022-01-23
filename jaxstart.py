@@ -151,3 +151,45 @@ for i in range(101):
     What, bhat = What - alpha * jax.grad(mse, 0)(What, bhat), bhat - alpha * jax.grad(mse, 1)(What, bhat)
     if (i % 5 == 0):
         print("Loss step {}: ".format(i), mse(What, bhat))
+
+
+key = random.PRNGKey(0)
+
+# Create the predict function from a set of parameters
+
+
+def make_predict_pytree(params):
+    def predict(x):
+        return jnp.dot(params['W'], x) + params['b']
+    return predict
+
+# Create the loss from the data points set
+
+
+def make_mse_pytree(x_batched, y_batched):
+    def mse(params):
+        # Define the squared loss for a single pair (x,y)
+        def squared_error(x, y):
+            y_pred = make_predict_pytree(params)(x)
+            return jnp.inner(y - y_pred, y - y_pred) / 2.0
+        # We vectorize the previous to compute the average of the loss on all samples.
+        return jnp.mean(jax.vmap(squared_error)(x_batched, y_batched), axis=0)
+    return jax.jit(mse)  # And finally we jit the result.
+
+
+# Generate MSE for our samples
+mse_pytree = make_mse_pytree(x_samples, y_samples)
+
+# Initialize estimated W and b with zeros.
+params = {'W': jnp.zeros_like(W), 'b': jnp.zeros_like(b)}
+
+jax.grad(mse_pytree)(params)
+
+
+alpha = 0.3  # Gradient step size
+print('Loss for "true" W,b: ', mse_pytree({'W': W, 'b': b}))
+for i in range(101):
+    # We perform one gradient update
+    params = jax.tree_multimap(lambda old, grad: old - alpha * grad, params, jax.grad(mse_pytree)(params))
+    if (i % 5 == 0):
+        print("Loss step {}: ".format(i), mse_pytree(params))

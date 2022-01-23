@@ -62,3 +62,9 @@ def f(x):
 
 v = jnp.ones((4,))
 f(v)
+
+v = random.normal(key, (4,))
+print("Original v:")
+print(v)
+print("Gradient of f taken at point v")
+print(jax.grad(f)(v))  # should be equal to v !

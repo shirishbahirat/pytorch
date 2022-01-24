@@ -159,3 +159,17 @@ for ep_i in range(NUM_EPISODES):
     loss /= float(data_len)
     loss.backward()
     optimizer.step()
+
+
+monitored_env.close()
+env.close()
+
+# Plot learning curve
+plt.figure()
+plt.plot(traj_reward_history)
+plt.title("Learning to Solve CartPole-v1 with Policy Gradient")
+plt.xlabel("Episode")
+plt.ylabel("Average Reward per Trajectory")
+plt.savefig("CartPole-pg.png")
+plt.show()
+plt.close()

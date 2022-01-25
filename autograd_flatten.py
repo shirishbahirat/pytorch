@@ -18,3 +18,8 @@ params = {'weights': [1.0, 2.0, 3.0, 4.0], 'biases': [1.0, 2.0]}
 flat_params, unflatten_func = flatten(params)
 print('Flattened: {}'.format(flat_params))
 print('Unflattened: {}'.format(unflatten_func(flat_params)))
+
+params = {'layer1': {'weights': [1.0, 2.0, 3.0, 4.0], 'biases': [1.0, 2.0]}, 'layer2': {'weights': [5.0, 6.0, 7.0, 8.0], 'biases': [6.0, 7.0]}}
+flat_params, unflatten_func = flatten(params)
+print('Flattened: {}'.format(flat_params))
+print('Unflattened: {}'.format(unflatten_func(flat_params)))

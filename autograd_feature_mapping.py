@@ -9,8 +9,6 @@ import matplotlib.pyplot as plt  # For plotting
 N = 100  # Number of data points
 x = np.linspace(-3, 3, N)  # Generate N values linearly-spaced between -3 and 3
 t = x ** 4 - 10 * x ** 2 + 10 * x + npr.normal(0, 4, x.shape[0])  # Generate corresponding targets
-plt.plot(x, t, 'r.')  # Plot data points
-
 
 M = 4  # Degree of polynomial to fit to the data (this is a hyperparameter)
 feature_matrix = np.array([[item ** i for i in range(M + 1)] for item in x])  # Construct a feature matrix
@@ -34,3 +32,7 @@ for i in range(num_epochs):
 
 # Print the final learned parameters.
 print(W)
+
+plt.plot(x, t, 'r.')
+plt.plot(x, np.dot(feature_matrix, W), 'b-')
+plt.show()

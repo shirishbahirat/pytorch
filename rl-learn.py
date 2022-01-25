@@ -44,7 +44,6 @@ def record_video():
         recorder_cur_state = convert_to_torch_variable(recorder_next_state)
 
 
-# Define environment
 env = gym.make("CartPole-v0")
 env.seed(0)
 

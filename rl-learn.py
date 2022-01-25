@@ -56,7 +56,6 @@ state_dim = env.observation_space.shape[0]
 action_dim = env.action_space.n
 bernoulli_action_dim = 1
 
-# Initialize policy network
 policy_net = PolicyNet(input_dim=state_dim, output_dim=bernoulli_action_dim)
 
 # Hyperparameters

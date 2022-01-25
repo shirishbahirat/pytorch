@@ -58,7 +58,6 @@ bernoulli_action_dim = 1
 
 policy_net = PolicyNet(input_dim=state_dim, output_dim=bernoulli_action_dim)
 
-# Hyperparameters
 NUM_EPISODES = 500
 GAMMA = 0.99
 BATCH_SIZE = 5

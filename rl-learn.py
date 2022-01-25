@@ -164,7 +164,6 @@ for ep_i in range(NUM_EPISODES):
 monitored_env.close()
 env.close()
 
-# Plot learning curve
 plt.figure()
 plt.plot(traj_reward_history)
 plt.title("Learning to Solve CartPole-v1 with Policy Gradient")

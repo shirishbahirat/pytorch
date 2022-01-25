@@ -47,7 +47,6 @@ def record_video():
 env = gym.make("CartPole-v0")
 env.seed(0)
 
-# Create environment monitor for video recording
 def video_monitor_callable(_): return True
 
 

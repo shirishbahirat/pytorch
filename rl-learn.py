@@ -29,7 +29,6 @@ class PolicyNet(nn.Module):
 
 
 def convert_to_torch_variable(arr):
-    """Converts a numpy array to torch variable"""
     return Variable(torch.from_numpy(arr).float())
 
 

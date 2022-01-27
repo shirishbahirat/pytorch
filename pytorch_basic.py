@@ -11,8 +11,8 @@ def f(x):
 np_x = np.array([4.0])
 x = torch.from_numpy(np_x).requires_grad_(True)
 y = f(x)
-
 print(y)
+
 y.backward()
 x.grad
 print(x.grad)

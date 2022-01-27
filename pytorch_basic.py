@@ -14,7 +14,7 @@ y = f(x)
 
 
 print(y)
-y.backward()
+#y.backward()
 x.grad
 print(x.grad)
 

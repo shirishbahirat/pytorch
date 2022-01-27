@@ -36,3 +36,21 @@ print(W)
 plt.plot(x, t, 'r.')
 plt.plot(x, np.dot(feature_matrix, W), 'b-')
 plt.show()
+
+
+'''
+Autograd Implementation of Stochastic Gradient Descent (with momentum)
+def sgd(grad, init_params, callback=None, num_iters=200, step_size=0.1, mass=0.9):
+    """Stochastic gradient descent with momentum.
+    grad() must have signature grad(x, i), where i is the iteration number."""
+    flattened_grad, unflatten, x = flatten_func(grad, init_params)
+
+    velocity = np.zeros(len(x))
+    for i in range(num_iters):
+        g = flattened_grad(x, i)
+        if callback:
+            callback(unflatten(x), i, unflatten(g))
+        velocity = mass * velocity - (1.0 - mass) * g
+        x = x + step_size * velocity
+    return unflatten(x)
+'''

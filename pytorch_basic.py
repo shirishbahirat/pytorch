@@ -25,3 +25,14 @@ print(y)
 y.backward()
 x.grad
 print(x.grad)
+
+
+np_x = np.array([10.])
+np_x = np_x.transpose()
+x = torch.from_numpy(np_x).requires_grad_(True)
+y = f(x)
+print(y)
+
+y.backward()
+x.grad
+print(x.grad)

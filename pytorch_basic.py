@@ -44,10 +44,18 @@ b = torch.tensor([6., 4.], requires_grad=True)
 print(a, b)
 
 Q = 3 * a**3 - b**2
-print('Q',Q)
+print('Q', Q)
 external_grad = torch.tensor([1., 1.])
 
 Q.backward(gradient=external_grad)
 
-print('a grad',a.grad)
-print('b grad',b.grad)
+print('a grad', a.grad)
+print('b grad', b.grad)
+
+
+x = torch.ones(5)  # input tensor
+y = torch.zeros(3)  # expected output
+w = torch.randn(5, 3, requires_grad=True)
+b = torch.randn(3, requires_grad=True)
+z = torch.matmul(x, w) + b
+loss = torch.nn.functional.binary_cross_entropy_with_logits(z, y)

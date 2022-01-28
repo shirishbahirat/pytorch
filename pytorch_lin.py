@@ -3,9 +3,16 @@ import torchvision
 from torch.autograd import Variable
 import numpy as np
 from autograd import grad
+import autograd.numpy.random as npr
 
 N = 100
 x = np.linspace(0, 10, N)
+
+t = 4 * x + 10 + npr.normal(0, 2, x.shape[0])
+
+w = npr.normal(0, 1)
+b = npr.normal(0, 1)
+params = {'w': w, 'b': b}  # One option: aggregate parameters in a dictionary
 
 
 def mode(x):

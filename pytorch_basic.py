@@ -36,3 +36,7 @@ print(y)
 y.backward()
 x.grad
 print(x.grad)
+
+
+a = torch.tensor([2., 3.], requires_grad=True)
+b = torch.tensor([6., 4.], requires_grad=True)

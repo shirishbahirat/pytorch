@@ -2,6 +2,10 @@ import torch
 import torchvision
 from torch.autograd import Variable
 import numpy as np
+from autograd import grad
+
+N = 100
+x = np.linspace(0, 10, N)
 
 
 def mode(x):
@@ -13,3 +17,5 @@ def cost(x):
 
 
 grad_cost = grad(cost)
+
+print(mode(x))

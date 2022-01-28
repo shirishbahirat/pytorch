@@ -58,7 +58,25 @@ y = torch.zeros(3)  # expected output
 w = torch.randn(5, 3, requires_grad=True)
 b = torch.randn(3, requires_grad=True)
 z = torch.matmul(x, w) + b
+
+model = torch.nn.Linear(5, 3)
+
+
 loss = torch.nn.functional.binary_cross_entropy_with_logits(z, y)
+criterion = torch.nn.MSELoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+
+for epoch in range(10):
+    z = torch.matmul(x, w) + b
+    outputs = model(x)
+    loss = criterion(outputs, y)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    if (epoch + 1) % 5 == 0:
+        print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, 10, loss.item()))
 
 
 loss.backward()

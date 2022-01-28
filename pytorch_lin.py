@@ -13,9 +13,13 @@ def mode(x):
 
 
 def cost(x):
-    return ((2 * x + 2)**2) * 0.5
+    return (1 / N) * np.sum(((2 * x + 2)**2) * 0.5)
 
 
 grad_cost = grad(cost)
 
 print(mode(x))
+
+
+num_epochs = 1000  # Number of epochs of training
+alpha = 0.01       # Learning rate

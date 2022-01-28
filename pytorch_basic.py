@@ -46,3 +46,5 @@ print(a, b)
 Q = 3 * a**3 - b**2
 print(Q)
 external_grad = torch.tensor([1., 1.])
+
+Q.backward(gradient=external_grad)

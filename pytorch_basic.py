@@ -66,7 +66,9 @@ loss = torch.nn.functional.binary_cross_entropy_with_logits(z, y)
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
-for epoch in range(10):
+print('before',w)
+
+for epoch in range(100):
     z = torch.matmul(x, w) + b
     outputs = model(x)
     loss = criterion(outputs, y)
@@ -78,7 +80,5 @@ for epoch in range(10):
     if (epoch + 1) % 5 == 0:
         print ('Epoch [{}/{}], Loss: {:.4f}'.format(epoch + 1, 10, loss.item()))
 
+print('after',w)
 
-loss.backward()
-print(w.grad)
-print(b.grad)

@@ -49,5 +49,5 @@ external_grad = torch.tensor([1., 1.])
 
 Q.backward(gradient=external_grad)
 
-print(a.grad)
-print(b.grad)
+print('a grad',a.grad)
+print('b grad',b.grad)

@@ -14,3 +14,7 @@ print(d)
 x = np.random.normal(size=(4, 4))  # Creating one standard NumPy array instance
 y = jnp.dot(x, m)
 print(y)
+
+x = np.random.normal(size=(4, 4))
+x = jax.device_put(x)
+print(x)

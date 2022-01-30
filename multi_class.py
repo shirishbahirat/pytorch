@@ -15,3 +15,7 @@ class NeuralNet(nn.Module):
         out = self.relu(out)
         out = self.linear2(out)
         return out
+
+
+model = NeuralNet(input=28 * 28, hidden=5, classes=1)
+criterion = nn.CrossEntropyLoss()

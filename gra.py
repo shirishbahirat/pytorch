@@ -39,3 +39,10 @@ print(loss)
 
 loss.backward()
 print(w.grad)
+
+for epoch in range(100):
+
+    y_hat = w * x
+    loss = (y_hat - y)**2
+    loss.backward()
+    loss.zero_grad()

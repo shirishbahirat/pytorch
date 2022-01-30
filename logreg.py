@@ -42,7 +42,7 @@ class Model(nn.Module):
 
 model = Model(n_features)
 
-# 2) Loss and optimizer
+# Loss and optimizer
 num_epochs = 100
 learning_rate = 0.01
 criterion = nn.BCELoss()

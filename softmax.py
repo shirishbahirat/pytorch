@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+from torch import nn
 
 
 def softmax(x):
@@ -28,3 +29,15 @@ l2 = cross_entropy(y, y_pred_bad)
 
 print(f'loss1 numpy: {l1:.4f}')
 print(f'loss2 numpy: {l2:.4f}')
+
+
+loss = nn.CrossEntropyLoss()
+Y = torch.tensor([0])
+Y_pred_good = torch.tensor([[0.7, 0.2, 0.1]])
+Y_pred_bad = torch.tensor([[0.1, 0.3, 0.6]])
+
+l1 = loss(Y_pred_good, Y)
+l2 = loss(Y_pred_bad, Y)
+
+print(f'loss1 numpy: {l1.item():.4f}')
+print(f'loss2 numpy: {l2.item():.4f}')

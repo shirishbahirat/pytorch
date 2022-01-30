@@ -59,12 +59,3 @@ l2 = loss(Y_pred_bad, Y)
 
 print(f'loss1 numpy: {l1.item():.4f}')
 print(f'loss2 numpy: {l2.item():.4f}')
-
-'''
-_, predictions1 = torch.max(Y_pred_good, 1)
-_, predictions2 = torch.max(Y_pred_bad, 1)
-
-
-print(predictions1)
-print(predictions2)
-'''

@@ -5,7 +5,7 @@ from sklearn import datasets
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
-# 0) Prepare data
+# Prepare data
 bc = datasets.load_breast_cancer()
 X, y = bc.data, bc.target
 

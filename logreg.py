@@ -26,7 +26,7 @@ y_test = torch.from_numpy(y_test.astype(np.float32))
 y_train = y_train.view(y_train.shape[0], 1)
 y_test = y_test.view(y_test.shape[0], 1)
 
-# 1) Model
+# Model
 # Linear model f = wx + b , sigmoid at the end
 
 

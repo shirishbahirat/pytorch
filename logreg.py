@@ -48,7 +48,7 @@ learning_rate = 0.01
 criterion = nn.BCELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
-# 3) Training loop
+# Training loop
 for epoch in range(num_epochs):
     # Forward pass and loss
     y_pred = model(X_train)

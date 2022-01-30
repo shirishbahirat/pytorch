@@ -12,3 +12,7 @@ print(x.grad)
 x = torch.randn(3, requires_grad=True)
 y = x + 2
 y.backward(x)
+
+k = torch.tensor(10, requires_grad=True)
+m = k + 10
+m, backward()

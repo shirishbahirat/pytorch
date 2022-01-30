@@ -28,11 +28,11 @@ dx/dx = dz/dy * dy/dx
 
 
 x = torch.tensor(1.0)
-y = torch.tensor(2.0)
+y = torch.tensor(4.0)
 
-w = torch.tensor(1.0, requires_grad=True)
+w = torch.tensor(.02, requires_grad=True)
 
-y_hat = w * x
+y_hat = w * x + .5
 loss = (y_hat - y)**2
 
 print(loss)
@@ -40,9 +40,13 @@ print(loss)
 loss.backward()
 print(w.grad)
 
-for epoch in range(100):
+for epoch in range(1000):
 
-    y_hat = w * x
+    y_hat = w * x + .5
     loss = (y_hat - y)**2
     loss.backward()
-    loss.zero_grad()
+    with torch.no_grad():
+        w -= 0.01 * w.grad
+    w.grad.zero_()
+
+    print(y_hat)

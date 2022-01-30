@@ -48,3 +48,23 @@ _, predictions2 = torch.max(Y_pred_bad, 1)
 
 print(predictions1)
 print(predictions2)
+
+
+Y = torch.tensor([2, 0, 1])
+Y_pred_good = torch.tensor([[0.7, 0.2, 0.1], [0.7, 0.2, 0.1], [0.7, 0.2, 0.1]])
+Y_pred_bad = torch.tensor([[0.1, 0.3, 0.6], [0.7, 0.2, 0.1], [0.7, 0.2, 0.1]])
+
+l1 = loss(Y_pred_good, Y)
+l2 = loss(Y_pred_bad, Y)
+
+print(f'loss1 numpy: {l1.item():.4f}')
+print(f'loss2 numpy: {l2.item():.4f}')
+
+'''
+_, predictions1 = torch.max(Y_pred_good, 1)
+_, predictions2 = torch.max(Y_pred_bad, 1)
+
+
+print(predictions1)
+print(predictions2)
+'''

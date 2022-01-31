@@ -1,3 +1,7 @@
+from random import random
+
+
+data = [[(random() + i) for _ in range(4)] for i in range(100)]
 
 
 class knn(object):
@@ -6,7 +10,8 @@ class knn(object):
         self.k = k
 
     def fit(self, x, y):
-        pass
+        self.x_train = x
+        self.y_train = y
 
     def predict(self, x, y):
-        pass
+        predict_lable

@@ -14,4 +14,7 @@ class knn(object):
         self.y_train = y
 
     def predict(self, x, y):
-        predict_lable
+        predict_lables = [self.predict(x) for x in X]
+
+    def _predict(self, x):
+        pass

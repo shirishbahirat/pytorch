@@ -1,7 +1,8 @@
 from random import random
 
 
-data = [[(random() + i) for _ in range(4)] for i in range(100)]
+x = [[(random() + i) for _ in range(4)] for i in range(100)]
+y = [[(random() + i) for _ in range(4)] for i in range(100)]
 
 
 class knn(object):
@@ -17,4 +18,4 @@ class knn(object):
         predict_lables = [self.predict(x) for x in X]
 
     def _predict(self, x):
-        pass
+        distences =

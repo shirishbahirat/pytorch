@@ -98,6 +98,9 @@ for epoch in tqdm.trange(EPOCHS):
         correct = (torch.argmax(y_pred, dim=1) == y_test).type(torch.FloatTensor)
         accuracy_list[epoch] = correct.mean()
 
+    if epoch % 10 == 0:
+        print("Epoch: {} \tTrain Loss: {} \tTrain Accuracy: {}".format(epoch + 1, loss_list[epoch], accuracy_list[epoch]))
+
 
 print(model)
 

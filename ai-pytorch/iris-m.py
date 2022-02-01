@@ -56,11 +56,11 @@ from torch.autograd import Variable
 class Model(nn.Module):
     def __init__(self, input_dim):
         super(Model, self).__init__()
-        self.layer1 = nn.Linear(input_dim, 50)
-        self.layer2 = nn.Linear(50, 100)
-        self.layer3 = nn.Linear(100, 50)
-        self.layer4 = nn.Linear(50, 20)
-        self.layer5 = nn.Linear(20, 3)
+        self.layer1 = nn.Linear(input_dim, 25)
+        self.layer2 = nn.Linear(25, 30)
+        self.layer3 = nn.Linear(30, 30)
+        self.layer4 = nn.Linear(30, 10)
+        self.layer5 = nn.Linear(10, 3)
 
     def forward(self, x):
         x = F.relu(self.layer1(x))

@@ -17,5 +17,8 @@ class knn(object):
     def predict(self, x, y):
         predict_lables = [self.predict(x) for x in X]
 
+    def eculidian(self, x, y):
+        sqrt(sum(x2 - x1))
+
     def _predict(self, x):
         distences =

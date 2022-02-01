@@ -57,24 +57,28 @@ class Model(nn.Module):
     def __init__(self, input_dim):
         super(Model, self).__init__()
         self.layer1 = nn.Linear(input_dim, 50)
-        self.layer2 = nn.Linear(50, 50)
-        self.layer3 = nn.Linear(50, 3)
+        self.layer2 = nn.Linear(50, 100)
+        self.layer3 = nn.Linear(100, 50)
+        self.layer4 = nn.Linear(50, 20)
+        self.layer5 = nn.Linear(20, 3)
 
     def forward(self, x):
         x = F.relu(self.layer1(x))
         x = F.relu(self.layer2(x))
-        x = F.softmax(self.layer3(x), dim=1)
+        x = F.relu(self.layer3(x))
+        x = F.relu(self.layer4(x))
+        x = F.softmax(self.layer5(x), dim=1)
         return x
 
 
 model = Model(X_train.shape[1])
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
 loss_fn = nn.CrossEntropyLoss()
 
 
 import tqdm
 
-EPOCHS = 100
+EPOCHS = 300
 X_train = Variable(torch.from_numpy(X_train)).float()
 y_train = Variable(torch.from_numpy(y_train)).long()
 X_test = Variable(torch.from_numpy(X_test)).float()
@@ -99,7 +103,7 @@ for epoch in tqdm.trange(EPOCHS):
         accuracy_list[epoch] = correct.mean()
 
     if epoch % 10 == 0:
-        print("Epoch: {} \tTrain Loss: {} \tTrain Accuracy: {}".format(epoch + 1, loss_list[epoch], accuracy_list[epoch]))
+        print("Epoch: {} \tTrain Loss: {:.4f} \tTrain Accuracy: {:.4f}".format(epoch + 1, loss_list[epoch], accuracy_list[epoch]))
 
 
 print(model)

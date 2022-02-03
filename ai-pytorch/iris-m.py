@@ -14,8 +14,10 @@ y = iris['target']
 names = iris['target_names']
 feature_names = iris['feature_names']
 
-# Scale data to have mean 0 and variance 1 which is
-# importance for convergence of the neural network
+'''
+Scale data to have mean 0 and variance 1 which is
+importance for convergence of the neural network
+'''
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 

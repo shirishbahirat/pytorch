@@ -50,3 +50,7 @@ print(torch.einsum('ijk,ikl->ijl', a, b))
 x = torch.rand((3, 3))
 print(x)
 print(torch.einsum('ii->i', x))
+
+# Matrix trace 
+
+print(torch.einsum('ii->', x))

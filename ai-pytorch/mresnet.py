@@ -43,3 +43,7 @@ class ResNet(nn.Module):
         self.bn1 = nn.BatchNorm2d(64)
         self.relu = nn.ReLU()
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+
+        # ResNet layers
+        self.layer1
+        self.layer2

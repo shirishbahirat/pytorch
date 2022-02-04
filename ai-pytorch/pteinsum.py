@@ -38,3 +38,9 @@ a = torch.rand((3))
 b = torch.rand((5))
 
 print(torch.einsum('i,j->ij', a, b))
+
+# batch matrix multiplication
+a = torch.rand((3, 2, 5))
+b = torch.rand((3, 5, 3))
+
+print(torch.einsum('ijk,ikl->ijl', a, b))

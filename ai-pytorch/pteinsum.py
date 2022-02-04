@@ -22,3 +22,7 @@ print(torch.einsum('ij->i', x))
 # Matrix vector multiplication
 v = torch.rand((1, 3))
 print(torch.einsum('ij,kj->ik', x, v))
+
+
+# Matrix multiplication
+print(torch.einsum('ij,kj->ik', x, x))

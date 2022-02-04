@@ -48,10 +48,9 @@ class ResNet(nn.Module):
         self.layer1
         self.layer2
 
-     def make_layer(self, block, num_residual_blocks, out_channels, strides):
-     	identity_downsample = None
-     	layers = []
+    def make_layer(self, block, num_residual_blocks, out_channels, strides):
+        identity_downsample = None
+        layers = []
 
-
-     	if stride !=1 or self.in_channels != out_channels*4:
-     		identity_downsample = nn.Sequential()
+        if stride != 1 or self.in_channels != out_channels * 4:
+            identity_downsample = nn.Sequential()

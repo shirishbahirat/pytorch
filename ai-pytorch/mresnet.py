@@ -27,3 +27,9 @@ class block(nn.Module):
         x = self.conv3(x)
         x = self.bn3(x)
         x = self.relu(x)
+
+        if self.identity_downsample is not None:
+            identity = self.identity_downsample(identity)
+
+        x += identity
+        x = self.relu(x)

@@ -44,3 +44,9 @@ a = torch.rand((3, 2, 5))
 b = torch.rand((3, 5, 3))
 
 print(torch.einsum('ijk,ikl->ijl', a, b))
+
+
+# Matrix diagonal
+x = torch.rand((3, 3))
+print(x)
+print(torch.einsum('ii->i', x))

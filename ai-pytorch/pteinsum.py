@@ -29,3 +29,6 @@ print(torch.einsum('ij,kj->ik', x, x))
 
 # dot product
 print(torch.einsum('i,i->', x[0], x[0]))
+
+# Hadamard product (elementwise multiplication)
+print(torch.einsum('ij,ij->ij', x, x))

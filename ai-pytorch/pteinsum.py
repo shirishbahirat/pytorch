@@ -32,3 +32,9 @@ print(torch.einsum('i,i->', x[0], x[0]))
 
 # Hadamard product (elementwise multiplication)
 print(torch.einsum('ij,ij->ij', x, x))
+
+# outer product
+a = torch.rand((3))
+b = torch.rand((5))
+
+print(torch.einsum('i,j->ij', a, b))

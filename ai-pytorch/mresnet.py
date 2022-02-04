@@ -53,4 +53,4 @@ class ResNet(nn.Module):
         layers = []
 
         if stride != 1 or self.in_channels != out_channels * 4:
-            identity_downsample = nn.Sequential()
+            identity_downsample = nn.Sequential(nn.Conv2d(self.in_channels, out_channels * 4, kernel_size=1, stride=stride, nn.BatchNorm2d(out_channels * 4)))

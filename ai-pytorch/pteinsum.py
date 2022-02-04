@@ -25,7 +25,7 @@ print(torch.einsum('ij,kj->ik', x, v))
 
 
 # Matrix multiplication
-print(torch.einsum('ij,kj->ik', x, x))
+print(torch.einsum('ij,kj->ik', x[0], x[0]))
 
 # dot product
 print(torch.einsum('i,i->', x, x))

@@ -13,8 +13,8 @@ print(torch.einsum('ij->', x))
 
 # column sum of
 
-print(torch.einsum('ij->', x))
+print(torch.einsum('ij->j', x))
 
 # row sum
 
-print(torch.einsum('ij->', x))
+print(torch.einsum('ij->i', x))

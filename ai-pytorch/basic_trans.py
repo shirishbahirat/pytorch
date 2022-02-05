@@ -17,6 +17,6 @@ print(x.transpose(2, 1))
 print(raw_weights)
 
 
-weights = F.softmax(raw_weights, dim=3)
+weights = F.softmax(raw_weights, dim=2)
 
-print(weights)
+print('swmax',weights)

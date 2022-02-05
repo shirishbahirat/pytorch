@@ -45,8 +45,10 @@ class ResNet(nn.Module):
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
 
         # ResNet layers
-        self.layer1
-        self.layer2
+        self.layer1 = self._make_layer(block, labels[0], out_channels=64, stride=1)
+        self.layer2 = self._make_layer(block, labels[1], out_channels=128, stride=2)
+        self.layer3 = self._make_layer(block, labels[2], out_channels=256, stride=2)
+        self.layer4 = self._make_layer(block, labels[3], out_channels=512, stride=2)
 
     def make_layer(self, block, num_residual_blocks, out_channels, strides):
         identity_downsample = None

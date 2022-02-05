@@ -66,6 +66,8 @@ class ResNet(nn.Module):
 
         x = self.avgpool(x)
         x = x.reshape(x.shape[0], -1)
+        x = self.fc(x)
+        return x
 
     def make_layer(self, block, num_residual_blocks, out_channels, strides):
         identity_downsample = None

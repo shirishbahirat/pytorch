@@ -98,4 +98,10 @@ def ResNet152(image_channels=3, num_classes=1000):
 
 
 def test():
-    x = torch.randn()
+    net = ResNet50()
+    x = torch.randn(2, 3, 224, 224)
+    y = net(x).to(device)
+    print(y.shape)
+
+
+test()

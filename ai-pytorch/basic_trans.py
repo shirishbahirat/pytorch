@@ -12,6 +12,6 @@ raw_weights = torch.bmm(x, x.transpose(1, 2))
 #   matrices.
 
 
-print(x.transpose(1, 2))
+print(x.transpose(2, 2))
 
 print(raw_weights)

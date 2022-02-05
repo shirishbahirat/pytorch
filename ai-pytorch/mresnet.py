@@ -50,6 +50,9 @@ class ResNet(nn.Module):
         self.layer3 = self._make_layer(block, labels[2], out_channels=256, stride=2)
         self.layer4 = self._make_layer(block, labels[3], out_channels=512, stride=2)
 
+        self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
+        self.f = nn.Linear(512 * 4, num_classes)
+
     def make_layer(self, block, num_residual_blocks, out_channels, strides):
         identity_downsample = None
         layers = []

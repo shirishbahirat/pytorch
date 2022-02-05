@@ -19,4 +19,8 @@ print(raw_weights)
 
 weights = F.softmax(raw_weights, dim=2)
 
-print('swmax',weights)
+print('swmax', weights)
+
+y = torch.bmm(weights, x)
+
+print('attention', y)

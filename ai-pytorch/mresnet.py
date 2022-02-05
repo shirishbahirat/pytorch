@@ -53,6 +53,12 @@ class ResNet(nn.Module):
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         self.f = nn.Linear(512 * 4, num_classes)
 
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+
     def make_layer(self, block, num_residual_blocks, out_channels, strides):
         identity_downsample = None
         layers = []

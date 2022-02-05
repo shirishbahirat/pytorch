@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 
 # assume we have some tensor x with size (b, t, k)
-x = torch.rand(1, 1, 2)
+x = torch.rand(2, 3, 4)
 
 print(x)
 

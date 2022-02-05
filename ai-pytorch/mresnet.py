@@ -83,3 +83,15 @@ class ResNet(nn.Module):
             layers.append(block(self.in_channels, self.out_channels))
 
         return nn.Sequential(*layers)
+
+
+def ResNet50(image_channels=3, num_classes=1000):
+    return ResNet(block, [3, 4, 6, 3], image_channels, num_classes)
+
+
+def ResNet101(image_channels=3, num_classes=1000):
+    return ResNet(block, [3, 4, 23, 3], image_channels, num_classes)
+
+
+def ResNet152(image_channels=3, num_classes=1000):
+    return ResNet(block, [3, 8, 36, 3], image_channels, num_classes)

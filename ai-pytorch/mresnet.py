@@ -61,4 +61,4 @@ class ResNet(nn.Module):
         for i in range(num_residual_blocks - 1):
             layers.append(block(self.in_channels, self.out_channels))
 
-        return nn.Sequential()
+        return nn.Sequential(*layers)

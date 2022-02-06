@@ -88,6 +88,16 @@ class Agent(object):
 
         action_batch = self.action_memory[batch]
 
+        q_eval = self.Q_eval.forward(state_batch)[batch_index, action_batch]
+        q_next = self.Q_eval.forward(new_state_batch)
+        q_next[terminal_batch] = 0.0
+
+        q_target = reward_batch + self.gamma * T.max(q_next, dim=1)[0]
+
+        loss = self.Q_eval.loss(q_target, q_eval).to(self.Q_eval.device)
+        loss.backward()
+        self.Q_eval.optimizer_step()
+
 
 def main():
     print("test")

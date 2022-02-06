@@ -8,12 +8,12 @@ import numpy as np
 class DeepQNetwork(nn.Module):
     def __init__(self, lr, input_dims, fc1_dims,
                  fc2_dims, n_actions):
-        super(DeepQNetwork, self)__init__()
+        super(DeepQNetwork, self).__init__()
         self.input_dims = input_dims
         self.fc1_dims = fc1_dims
         self.fc2_dims = fc2_dims
         self.n_actions = n_actions
-        self.fc1 = nn.Linear(*self.input_dimsm self.fc1_dims)
+        self.fc1 = nn.Linear(*self.input_dims, self.fc1_dims)
         self.fc2 = nn.Linear(self.fc1_dims, self.fc2_dims)
         self.fc3 = nn.Linear(self.fc2_dims, self.n_actions)
         self.optimize = optim.Adam(self.parameters(), lr=lr)
@@ -25,7 +25,7 @@ class DeepQNetwork(nn.Module):
     def forward(self, state):
         x = F.relu(self.fc1(state))
         x = F.relu(self.fc2(x))
-        actions = self..fc3(x)
+        actions = self.fc3(x)
 
         return actions
 
@@ -33,12 +33,12 @@ class DeepQNetwork(nn.Module):
 class Agent(object):
     def __init__(self, gamma, epsilon, lr, input_dims, batch_size,
                  n_actions, max_size=100000, eps_end=0.01,
-                 eps_dec=5e-4)
+                 eps_dec=5e-4):
         self.gamma = gamma
         self.epsilon = epsilon
         self.eps_dec = eps_dec
         self.lr = lr
-        self.action_space = [i for in range(n_actions)]
+        self.action_space = [i for i in range(n_actions)]
         self.memory_size - max_memory_size
         self.batch_size = batch_size
         self.mem_cntr = 0
@@ -47,10 +47,11 @@ class Agent(object):
         self.state_memory = np.zeros((self.memory_size, *input_dims),
                                      dtype=np.float32)
 
-def main(argv):
+
+def main():
     print("test")
-    dqn = DeepQNetwork(0.01, 24, 32, 32, 2)
-    agn = Agent(0.01, 0.01, 32, 32, 2)
+    #dqn = DeepQNetwork(0.01, [24], [32], 32, 2)
+    #agn = Agent(0.01, 0.01, 0.01, [32], 32, 2)
 
 
 if __name__ == "__main__":

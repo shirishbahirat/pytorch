@@ -61,6 +61,26 @@ class Agent(object):
 
         self.mem_cntr += 1
 
+    def choose_action(self, observation):
+        if np.random.random() > self.epsilon:
+            state = T.tensor([observation]).to(self.Q_eval.device)
+            actions = self.Q_eval.forward(state)
+            actions = T.argmax(actions).items()
+        else:
+            action = np.random.choice(self.action_space)
+
+        return action
+
+    def learn(self):
+        if self.mem_cntr < self.batch_size:
+            return
+        self.Q_eval.optimizer.zero_grad()
+
+        max_mem = min(self.mem_cntr, self.memory_size)
+        batch = np.random.choice(max_mem, self.batch_size, replace=False)
+
+        batch_index = np.arange(self.batch_size, dtype=np.int32)
+
 
 def main():
     print("test")

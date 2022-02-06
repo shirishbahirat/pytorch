@@ -39,3 +39,9 @@ class Agent(object):
         self.eps_dec = eps_dec
         self.lr = lr
         self.action_space = [i for in range(n_actions)]
+
+
+def main(argv):
+
+    dqn = DeepQNetwork(0.01, 24, 32, 32, 2)
+    agn = Agent(0.01, 0.01, 32, 32, 2)

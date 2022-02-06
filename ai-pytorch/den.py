@@ -98,6 +98,8 @@ class Agent(object):
         loss.backward()
         self.Q_eval.optimizer_step()
 
+        self.epsilon = self.epsilon - self.eps_dec if self.epsilon > self.eps_min else self.eps_min
+
 
 def main():
     print("test")

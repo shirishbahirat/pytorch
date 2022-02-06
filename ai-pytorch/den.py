@@ -18,9 +18,11 @@ class DeepQNetwork(nn.Module):
         self.optimize = optim.Adam(self.parameters(), lr=lr)
         self.loss = nn.MSELoss()
         self.device = T.device('cuda:0' if T.cuda.is_available() else 'cpu')
-        self..to(self.device)
+        self.to(self.device)
 
     def forward(self, state):
         x = F.relu(self.fc1(state))
         x = F.relu(self.fc2(x))
         actions = self..fc3(x)
+
+        return actions

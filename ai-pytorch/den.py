@@ -47,6 +47,10 @@ class Agent(object):
         self.state_memory = np.zeros((self.memory_size, *input_dims),
                                      dtype=np.float32)
 
+        self.action_memory = np.zeros(self.memory_size, dtype=np.int32)
+        self.reward_memory = np.zeros(self.memory_size, dtype=np.float32)
+        self.terminal_memory = np.zeros(self.memory_size, dtype=np.bool)
+
 
 def main():
     print("test")

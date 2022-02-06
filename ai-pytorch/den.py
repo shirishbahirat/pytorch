@@ -48,7 +48,7 @@ class Agent(object):
                                      dtype=np.float32)
 
 def main(argv):
-
+    print("test")
     dqn = DeepQNetwork(0.01, 24, 32, 32, 2)
     agn = Agent(0.01, 0.01, 32, 32, 2)
 

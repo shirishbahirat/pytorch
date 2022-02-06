@@ -81,6 +81,13 @@ class Agent(object):
 
         batch_index = np.arange(self.batch_size, dtype=np.int32)
 
+        state_batch = T.tensor(self.state_memory[batch]).to(self.Q_eval.device)
+        new_state_batch = T.tensor(self.new_state_memory[batch]).to(self.Q_eval.device)
+        reward_batch = T.tensor(self.reward_memory[batch]).to(self.Q_eval.device)
+        terminal_memory = T.tensor(self.terminal_memory[batch]).to(self.Q_eval.device)
+
+        action_batch = self.action_memory[batch]
+
 
 def main():
     print("test")

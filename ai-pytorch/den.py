@@ -39,7 +39,13 @@ class Agent(object):
         self.eps_dec = eps_dec
         self.lr = lr
         self.action_space = [i for in range(n_actions)]
-
+        self.memory_size - max_memory_size
+        self.batch_size = batch_size
+        self.mem_cntr = 0
+        self.Q_eval = dqn = DeepQNetwork(self.lr, actions=n_actions,
+                                         input_dims=256, fc2_dims=256)
+        self.state_memory = np.zeros((self.memory_size, *input_dims),
+                                     dtype=np.float32)
 
 def main(argv):
 

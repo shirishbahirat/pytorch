@@ -35,3 +35,7 @@ class Agent(object):
                  n_actions, max_size=100000, eps_end=0.01,
                  eps_dec=5e-4)
         self.gamma = gamma
+        self.epsilon = epsilon
+        self.eps_dec = eps_dec
+        self.lr = lr
+        self.action_space = [i for in range(n_actions)]

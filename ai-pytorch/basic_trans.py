@@ -259,8 +259,8 @@ def train_loop(model, opt, loss_fn, dataloader):
 
 def validation_loop(model, loss_fn, dataloader):
 
-	model.eval()
-	total_loss = 0
+    model.eval()
+    total_loss = 0
 
     with torch.no_grad():
         for batch in dataloader:

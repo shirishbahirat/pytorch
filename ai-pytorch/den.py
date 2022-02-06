@@ -45,3 +45,7 @@ def main(argv):
 
     dqn = DeepQNetwork(0.01, 24, 32, 32, 2)
     agn = Agent(0.01, 0.01, 32, 32, 2)
+
+
+if __name__ == "__main__":
+    main()

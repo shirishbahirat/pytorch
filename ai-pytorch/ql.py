@@ -6,7 +6,7 @@ from collections import deque
 import random
 from itertools import count
 import torch.nn.functional as F
-from tensorboardX import SummaryWriter
+#from tensorboardX import SummaryWriter
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -83,7 +83,7 @@ memory_replay = Memory(REPLAY_MEMORY)
 
 epsilon = INITIAL_EPSILON
 learn_steps = 0
-writer = SummaryWriter('logs/dqn')
+#writer = SummaryWriter('logs/dqn')
 begin_learn = False
 
 episode_reward = 0
@@ -126,7 +126,7 @@ for epoch in count():
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-            writer.add_scalar('loss', loss.item(), global_step=learn_steps)
+            #writer.add_scalar('loss', loss.item(), global_step=learn_steps)
 
             if epsilon > FINAL_EPSILON:
                 epsilon -= (INITIAL_EPSILON - FINAL_EPSILON) / EXPLORE
@@ -135,7 +135,7 @@ for epoch in count():
             break
         state = next_state
 
-    writer.add_scalar('episode reward', episode_reward, global_step=epoch)
+    #writer.add_scalar('episode reward', episode_reward, global_step=epoch)
     if epoch % 10 == 0:
         torch.save(onlineQNetwork.state_dict(), 'dqn-policy.para')
         print('Ep {}\tMoving average score: {:.2f}\t'.format(epoch, episode_reward))

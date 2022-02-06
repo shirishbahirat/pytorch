@@ -217,3 +217,70 @@ val_data = generate_random_data(3000)
 
 train_dataloader = batchify_data(train_data)
 val_dataloader = batchify_data(val_data)
+
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = Transformer(num_tokens=4, dim_model=8, num_heads=2, num_encoder_layers=3, num_decoder_layers=3, dropout_p=0.1).to(device)
+opt = torch.optim.SGD(model.parameters(), lr=0.01)
+loss_fn = nn.CrossEntropyLoss()
+
+
+def train_loop(model, opt, loss_fn, dataloader):
+    model.train()
+    total_loss = 0
+
+    for batch in dataloader:
+        X, y = batch[:, 0], batch[:, 1]
+        X, y = torch.tensor(X).to(device), torch.tensor(y).to(device)
+
+        # Now we shift the tgt by one so with the <SOS> we predict the token at pos 1
+        y_input = y[:, :-1]
+        y_expected = y[:, 1:]
+
+        # Get mask to mask out the next words
+        sequence_length = y_input.size(1)
+        tgt_mask = model.get_tgt_mask(sequence_length).to(device)
+
+        # Standard training except we pass in y_input and tgt_mask
+        pred = model(X, y_input, tgt_mask)
+
+        # Permute pred to have batch size first again
+        pred = pred.permute(1, 2, 0)
+        loss = loss_fn(pred, y_expected)
+
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
+
+        total_loss += loss.detach().item()
+
+    return total_loss / len(dataloader)
+
+
+def validation_loop(model, loss_fn, dataloader):
+
+	model.eval()
+	total_loss = 0
+
+    with torch.no_grad():
+        for batch in dataloader:
+            X, y = batch[:, 0], batch[:, 1]
+            X, y = torch.tensor(X, dtype=torch.long, device=device), torch.tensor(y, dtype=torch.long, device=device)
+
+            # Now we shift the tgt by one so with the <SOS> we predict the token at pos 1
+            y_input = y[:, :-1]
+            y_expected = y[:, 1:]
+
+            # Get mask to mask out the next words
+            sequence_length = y_input.size(1)
+            tgt_mask = model.get_tgt_mask(sequence_length).to(device)
+
+            # Standard training except we pass in y_input and src_mask
+            pred = model(X, y_input, tgt_mask)
+
+            # Permute pred to have batch size first again
+            pred = pred.permute(1, 2, 0)
+            loss = loss_fn(pred, y_expected)
+            total_loss += loss.detach().item()
+
+    return total_loss / len(dataloader)

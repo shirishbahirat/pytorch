@@ -126,3 +126,6 @@ plt.show()
 w = torch.tensor([w1, w2, w3, w4])
 s = torch.einsum('i,j->ij', w, w)
 print(s)
+
+s = F.softmax(s, dim=1)
+print(s)

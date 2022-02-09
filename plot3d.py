@@ -25,5 +25,6 @@ surf = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.jet,
 ax.set_zlim(-1.01, 1.01)
 fig.colorbar(surf, shrink=0.5, aspect=10)
 
+plt.savefig('demo.png', transparent=True)
 
 plt.show()

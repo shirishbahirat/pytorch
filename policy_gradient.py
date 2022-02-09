@@ -98,7 +98,7 @@ def main():
             print('Episode {}\tLast reward: {:.2f}\tAverage reward: {:.2f}'.format(
                   i_episode, ep_reward, running_reward))
         if running_reward > env.spec.reward_threshold:
-            print("Solved Running reward is now {} and "
+            print("Solved, Running reward is now {} and "
                   "the last episode runs to {} time steps!".format(running_reward, t))
             break
 

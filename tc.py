@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.autograd
 from torch.autograd import Variable
 
-X = torch.tensor([[float(i)] for i in range(10)])
+X = torch.tensor([[float(i)] for i in range(5)])
 Y = X*2
 
 class Model(nn.Module):
@@ -26,7 +26,7 @@ for epoch in range(100):
     y_pred = model(X)
 
     loss = criterion(y_pred, Y)
-    print(f'Epoch: {epoch:3.0f} | Loss {loss.items():.3f}')
+    print(f'Epoch: {epoch:3.0f} | Loss {loss.item():.3f}')
 
     optimizer.zero_grad()
     loss.backward()

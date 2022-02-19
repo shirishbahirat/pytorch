@@ -28,4 +28,14 @@ for epoch in range(100):
     loss = criterion(y_pred, Y)
     print(f'Epoch: {epoch:3.0f} | Loss {loss.items():.3f}')
 
-    
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+
+p = 10.
+tx = torch.tensor([[p]])
+y_hat = model(tx)
+
+print('Predection after training {} {:.2f}'.format(p, y_hat.data[0][0].item()))
+

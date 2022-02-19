@@ -17,13 +17,20 @@ future_returns = [3, 0, 0, -7, -10, 10, 13, 10, 10]  # update once episode done
 
 num_episodes = 4
 
-net = nn.Linear(2, 2)
+net = nn.Linear(2, 2)  # observations, actions - left, right
 logits = net(observations)
 
 policy_distributions = distributions.Categorical(logits=logits)
 
+
+###
 log_probs = policy_distributions.log_probs(actions)
 
 loss = -(log_probs * future_returns).sum() / num_episodes
-
+####
 loss.backward()
+
+
+probs = policy_distributions.log_probs(actions).exp()
+
+loss = -(orobs / probs.detach() * future_returns).sum() / num_episodes

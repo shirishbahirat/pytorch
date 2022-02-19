@@ -1,8 +1,9 @@
 import torch
 import torch.nn as nn
+from random import random 
 
 X = torch.tensor([[float(i)] for i in range(5)])
-Y = X*2
+Y = X*3.5 + random()
 
 class Model(nn.Module):
     def __init__(self):
@@ -20,7 +21,7 @@ optimizer = torch.optim.SGD(model.parameters(),lr=0.01)
 
 print(model)
 
-for epoch in range(100):
+for epoch in range(200):
     y_pred = model(X)
 
     loss = criterion(y_pred, Y)

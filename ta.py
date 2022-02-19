@@ -1,4 +1,3 @@
-from statistics import mode
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
@@ -16,6 +15,8 @@ class Model(nn.Module):
         return y_pred
 
 model = Model()
+
+dir(model)
 
 criterion = nn.MSELoss(reduction='sum')
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)

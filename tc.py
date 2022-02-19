@@ -1,7 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.autograd
-from torch.autograd import Variable
 
 X = torch.tensor([[float(i)] for i in range(5)])
 Y = X*2

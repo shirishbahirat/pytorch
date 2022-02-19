@@ -16,12 +16,12 @@ class Model(nn.Module):
 
 model = Model()
 
-dir(model)
+print(model)
 
 criterion = nn.MSELoss(reduction='sum')
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
-for epoch in range(500):
+for epoch in range(50):
     y_pred = model(x)
 
     loss = criterion(y_pred, y)

@@ -20,9 +20,9 @@ criteria = nn.MSELoss(reduction='sum')
 optimizer = torch.optim.SGD(model.parameters(), lr = 0.01)
 
 
-for epoch in range(100):
+for epoch in range(1000):
     y_pred = model(x)
-    loss = criteria(y_pred, x)
+    loss = criteria(y_pred, y)
 
     print('Epoch {:3.0f} loss {:4.4f}'.format(epoch,
     loss.item()))
@@ -32,8 +32,8 @@ for epoch in range(100):
     optimizer.step()
 
 
-p = 5.0
+p = 4.0
 y_hat = model(torch.tensor([[p]]))
 print(x, y, y_hat)
 
-print('Prediction {}:{}'.format(p,y_hat.data[0][0].item()))
+print('Prediction {} : {}'.format(p,y_hat.data[0][0].item()))

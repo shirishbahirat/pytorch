@@ -3,7 +3,7 @@ import torch.nn as nn
 from random import random 
 
 X = torch.tensor([[float(i)] for i in range(5)])
-Y = X*3.5 + random()
+Y = X*3.5 + random() + 10
 
 class Model(nn.Module):
     def __init__(self):

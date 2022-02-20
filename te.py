@@ -13,3 +13,9 @@ class Model(nn.Module):
     def forward(self, x):
         y_pred = self.liner(x)
         return y_pred
+
+model = Model()
+
+criterion = nn.MSELoss(reduction='sum')
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+

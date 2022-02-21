@@ -27,8 +27,9 @@ for epoch in range(100):
 
     output = model(data)
 
-    optimizer.zero_grad()
     loss = criterion(output, label)
+    optimizer.zero_grad()
+
     loss.backward()
     optimizer.step()
 

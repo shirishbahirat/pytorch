@@ -21,3 +21,13 @@ model = Model()
 
 criterion = nn.CrossEntropyLoss()
 optimizer = optim(model.parameters(), lr=0.001,momentum=0.9)
+
+for epoch in range(100):
+
+    output = model(data)
+
+    optimizer.zero_grad()
+    loss = criterion(output, label)
+    loss.backward()
+    optimizer.step()
+

@@ -8,6 +8,7 @@ import torch.nn.functional as F
 data = torch.tensor([[.101]])
 label = torch.tensor([[.1]]) 
 
+
 class Model(nn.Module):
     def __init__(self):
         super(Model, self).__init__()

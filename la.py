@@ -17,3 +17,7 @@ class Model(nn.Module):
         y = F.relu(y)
         return y
 
+model = Model()
+
+criterion = nn.CrossEntropyLoss()
+optimizer = optim(model.parameters(), lr=0.001,momentum=0.9)

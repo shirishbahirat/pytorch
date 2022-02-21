@@ -20,7 +20,8 @@ class Model(nn.Module):
 
 model = Model()
 
-criterion = nn.CrossEntropyLoss()
+#criterion = nn.CrossEntropyLoss()
+criterion = nn.BCELoss(reduction='mean')
 optimizer = optim.SGD(model.parameters(), lr=0.001,momentum=0.9)
 
 for epoch in range(100):
@@ -30,6 +31,6 @@ for epoch in range(100):
     loss = criterion(output, label)
     optimizer.zero_grad()
 
-    loss.backward()
+    #loss.backward()
     optimizer.step()
 

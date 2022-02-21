@@ -21,7 +21,7 @@ class Model(nn.Module):
 model = Model()
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim(model.parameters(), lr=0.001,momentum=0.9)
+optimizer = optim.SGD(model.parameters(), lr=0.001,momentum=0.9)
 
 for epoch in range(100):
 

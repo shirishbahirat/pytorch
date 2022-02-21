@@ -22,5 +22,8 @@ print(model)
 criterion = nn.MSELoss(reduction='sum')
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
+for epoch in range(100):
 
+    y_pred = model(x)
+    
 

@@ -6,7 +6,7 @@ import torch.nn.functional as F
 
 
 data = torch.tensor([[.101]])
-label = torch.tensor([[1.]]) 
+label = torch.tensor([[.1]]) 
 
 class Model(nn.Module):
     def __init__(self):
@@ -25,7 +25,7 @@ criterion = nn.BCELoss(reduction='mean')
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 #optimizer = optim.SGD(model.parameters(), lr=0.001,momentum=0.9)
 
-for epoch in range(100):
+for epoch in range(1000):
 
     output = model(data)
 

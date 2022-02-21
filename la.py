@@ -2,10 +2,11 @@ import torch
 import torch.nn as nn
 from random import random
 import torch.optim as optim
+import torch.nn.functional as F
 
 
 data = torch.tensor([[.101]])
-label = torch.tensorr([[1]]) 
+label = torch.tensor([[1]]) 
 
 class Model(nn.Module):
     def __init__(self):

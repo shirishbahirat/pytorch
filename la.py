@@ -30,8 +30,10 @@ for epoch in range(100):
     output = model(data)
 
     loss = criterion(output, label)
+
+    print('Epoch {:4.0f} | Loss {:4.3f}'.format(epoch, loss.item()))
     optimizer.zero_grad()
 
-    #loss.backward()
+    loss.backward()
     optimizer.step()
 

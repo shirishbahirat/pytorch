@@ -5,12 +5,12 @@ import torch.optim as optim
 
 
 data = torch.tensor([[.101]])
-label = torch.tensor([[1]]) 
+label = torch.tensorr([[1]]) 
 
 class Model(nn.Module):
     def __init__(self):
         super(Model, self).__init__()
-        self.linear = nn.Linear(x)
+        self.linear = nn.Linear(1,1)
 
     def forward(self,x):
         y = self.linear(x)

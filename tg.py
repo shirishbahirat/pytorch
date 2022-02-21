@@ -33,4 +33,8 @@ for epoch in range(100):
     optimizer.step()
 
 
+p = 5.
+tx = torch.tensor([[p]])
+y_pred = model(tx)
 
+print('Predict {:3.3f} : {:4.4f}'.format(p, y_pred.data[0][0].item()))

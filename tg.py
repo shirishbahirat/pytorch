@@ -18,3 +18,9 @@ class Model(nn.Module):
     
 model = Model()
 print(model)
+
+criterion = nn.MSELoss(reduction='sum')
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+
+
+

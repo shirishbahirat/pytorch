@@ -13,7 +13,7 @@ class Model(nn.Module):
         self.linear = nn.Linear(1,1)
 
     def forward(self,x):
-        y_pred = nn.Linear(x)
+        y_pred = self.linear(x)
         return y_pred
     
 model = Model()
@@ -23,7 +23,14 @@ criterion = nn.MSELoss(reduction='sum')
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
 
 for epoch in range(100):
-
     y_pred = model(x)
+    loss = criterion(y_pred, y)
     
+    print('Epoch {:4.0f} | Loss {:3.4f}'.format(epoch, loss.item()))
+    
+    optimizer.zero_grad()
+    loss.backward()    
+    optimizer.step()
+
+
 

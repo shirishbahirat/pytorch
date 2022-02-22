@@ -31,6 +31,19 @@ net = nn.Sequential(
     nn.Linear(n_hidden, n_output),
     nn.Sigmoid())
 
+class Net(nn.Module):
+    def __init__(self, n_input_dim, n_hidden, n_output):
+        super(Net,self).__init__()
+        self.lin1 = nn.Linear(n_input_dim, n_hidden)
+        self.lin2 = nn.Linear(n_hidden, n_output) 
+
+    def forward(self, x):
+        x = nn.ELU(self.lin1(x))
+        x = nn.Sigmoid(nn.lin2)
+        return x
+
+
+net = Net(n_input_dim, n_hidden, n_output)
 print(net)
 
 loss_func = nn.BCELoss()

@@ -22,7 +22,7 @@ plt.show()
 # Define network dimensions
 n_input_dim = X_train.shape[1]
 # Layer size
-n_hidden = 4 # Number of hidden nodes
+n_hidden = 10 # Number of hidden nodes
 n_output = 1 # Number of output nodes = for binary classifier
 
 
@@ -70,7 +70,7 @@ for i in range(iters):
     train_accuracy.append(accuracy)
     train_loss.append(loss.item())
     
-fig, ax = plt.subplots(2, 1, figsize=(12,8))
+fig, ax = plt.subplots(2, 1, figsize=(8,6))
 ax[0].plot(train_loss)
 ax[0].set_ylabel('Loss')
 ax[0].set_title('Training Loss')

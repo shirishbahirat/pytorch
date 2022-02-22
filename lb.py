@@ -25,12 +25,15 @@ n_input_dim = X_train.shape[1]
 n_hidden = 4 # Number of hidden nodes
 n_output = 1 # Number of output nodes = for binary classifier
 
+
 # Build your network
+'''
 net = nn.Sequential(
     nn.Linear(n_input_dim, n_hidden),
     nn.ELU(),
     nn.Linear(n_hidden, n_output),
     nn.Sigmoid())
+'''
 
 class Net(nn.Module):
     def __init__(self, n_input_dim, n_hidden, n_output):

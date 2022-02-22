@@ -14,6 +14,7 @@ X, Y = make_moons(500, noise=0.2)
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y,
     test_size=0.25, random_state=73)
 
+print(Y_train)
 plt.figure(figsize=(8,6))
 plt.scatter(X_train[:,0], X_train[:,1], c=Y_train)
 plt.title('Moon Data')
@@ -22,6 +23,9 @@ plt.show()
 # Define network dimensions
 n_input_dim = X_train.shape[1]
 # Layer size
+
+print('Input dim', n_input_dim)
+
 n_hidden = 10 # Number of hidden nodes
 n_output = 1 # Number of output nodes = for binary classifier
 

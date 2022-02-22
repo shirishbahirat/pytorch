@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 np.random.seed(0)
 torch.manual_seed(0)
@@ -38,8 +39,8 @@ class Net(nn.Module):
         self.lin2 = nn.Linear(n_hidden, n_output) 
 
     def forward(self, x):
-        x = nn.ELU(self.lin1(x))
-        x = nn.Sigmoid(nn.lin2)
+        x = F.elu(self.lin1(x))
+        x = torch.sigmoid(self.lin2(x))
         return x
 
 

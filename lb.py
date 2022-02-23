@@ -62,6 +62,7 @@ train_loss = []
 train_accuracy = []
 iters = 1000
 Y_train_t = torch.FloatTensor(Y_train).reshape(-1, 1)
+
 for i in range(iters):
     X_train_t = torch.FloatTensor(X_train)
     y_hat = net(X_train_t)

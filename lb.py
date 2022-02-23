@@ -75,7 +75,8 @@ for i in range(iters):
     accuracy = np.sum(Y_train.reshape(-1,1)==y_hat_class) / len(Y_train)
     train_accuracy.append(accuracy)
     train_loss.append(loss.item())
-    
+
+
 fig, ax = plt.subplots(2, 1, figsize=(8,6))
 ax[0].plot(train_loss)
 ax[0].set_ylabel('Loss')

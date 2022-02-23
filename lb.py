@@ -53,6 +53,7 @@ class Net(nn.Module):
 net = Net(n_input_dim, n_hidden, n_output)
 print(net)
 
+
 loss_func = nn.BCELoss()
 learning_rate = 0.01
 optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)

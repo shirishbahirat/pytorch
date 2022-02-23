@@ -49,7 +49,6 @@ class Net(nn.Module):
         x = torch.sigmoid(self.lin2(x))
         return x
 
-
 net = Net(n_input_dim, n_hidden, n_output)
 print(net)
 

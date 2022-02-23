@@ -61,6 +61,7 @@ optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)
 train_loss = []
 train_accuracy = []
 iters = 1000
+
 Y_train_t = torch.FloatTensor(Y_train).reshape(-1, 1)
 
 for i in range(iters):

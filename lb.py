@@ -88,7 +88,6 @@ ax[1].set_title('Training Accuracy')
 plt.tight_layout()
 plt.show()
 
-
 # Pass test data
 X_test_t = torch.FloatTensor(X_test)
 y_hat_test = net(X_test_t)

@@ -123,5 +123,6 @@ plt.figure(figsize=(8,6))
 plt.contourf(XX, YY, Z, cmap=plt.cm.Accent, alpha=0.5)
 plt.scatter(X_test[:,0], X_test[:,1], c=Y_test, 
             cmap=plt.cm.Accent)
+
 plt.show()
 

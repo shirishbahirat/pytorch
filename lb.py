@@ -29,7 +29,6 @@ print('Input dim', n_input_dim)
 n_hidden = 10 # Number of hidden nodes
 n_output = 1 # Number of output nodes = for binary classifier
 
-
 # Build your network
 '''
 net = nn.Sequential(

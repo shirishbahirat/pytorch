@@ -17,9 +17,9 @@ class Net(nn.Module):
         self.l2 = nn.Linear(6,3)
 
     def forward(self,x):
-        y = self.l1(x)
-        y = self.l2(y)
-        return y[:, -1,:]
+        y = F.relu(self.l1(x))
+        y = F.relu(self.l2(y))
+        return y
 
 
 module = Net()

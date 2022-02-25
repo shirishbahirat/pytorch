@@ -1,4 +1,3 @@
-from black import out
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
@@ -10,4 +9,5 @@ print(output)
 
 criterion = nn.CrossEntropyLoss()
 loss = criterion(output, target)
+
 print(loss)

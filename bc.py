@@ -27,9 +27,9 @@ module = Net()
 
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(module.parameters(), lr=0.1)
+optimizer = optim.Adam(module.parameters(), lr=0.01)
 
-for epoch in range(10):
+for epoch in range(100):
 
     y_hat = module(data)
 

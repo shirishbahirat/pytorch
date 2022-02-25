@@ -5,7 +5,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 data = torch.FloatTensor([[0.8, 0.1, 0.1], [0.2, 0.7, 0.2], [0.2, 0.2, 0.6]])
-label = torch.FloatTensor([[1., 0., 0.], [0., 1., 0.], [0., 0., 0.1]])
+labels = torch.Tensor([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
 
 
 class Net(nn.Module):
@@ -31,5 +31,5 @@ for epoch in range(10):
 
     y_hat = module(data)
 
-    loss = criterion(y_hat, label)
+    loss = criterion(y_hat, labels)
 

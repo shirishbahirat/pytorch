@@ -4,8 +4,8 @@ import torch.optim as optim
 
 import torch.nn.functional as F
 
-data = torch.FloatTensor([[0.8, 0.1, 0.1], [0.7, 0.2, 0.2], [0.6, 0.2, 0.1]])
-labels = torch.LongTensor([1, 0, 0])
+data = torch.FloatTensor([[1.8, 0.1, 0.1], [0.2, 1.9, 0.2], [0.1, 0.2, 1.9]])
+labels = torch.LongTensor([0, 1, 2])
 
 
 class Net(nn.Module):
@@ -18,7 +18,7 @@ class Net(nn.Module):
 
     def forward(self,x):
         y = F.relu(self.l1(x))
-        y = F.relu(self.l2(y))
+        y = self.l2(y)
         return y
 
 
@@ -27,7 +27,7 @@ module = Net()
 
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(module.parameters(), lr=0.01)
+optimizer = optim.Adam(module.parameters(), lr=0.001)
 
 for epoch in range(1000):
 
@@ -41,3 +41,4 @@ for epoch in range(1000):
     loss.backward()
     optimizer.step()
 
+print(module(torch.FloatTensor([0.1,0.2, 0.9]))[0].data.item())

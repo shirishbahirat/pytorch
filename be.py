@@ -4,9 +4,9 @@ import torch.optim as optim
 
 import torch.nn.functional as F
 
-data = torch.FloatTensor([[[1.8, 0.1, 0.1]],
-            [[0.2, 0.1, 3.1]]])
-labels = torch.LongTensor([[0],[2]])
+data = torch.FloatTensor([[1.8, 0.1, 0.1],
+            [0.2, 0.1, 3.1], [0.1, 2.3, 0.2]])
+labels = torch.LongTensor([0, 2, 1])
 
 
 

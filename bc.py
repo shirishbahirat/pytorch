@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import torch.optim as optim
 
 import torch.nn.functional as F
 
@@ -22,3 +23,6 @@ class Net(nn.Module):
 module = Net()
 
 module(data)
+
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(module.parameters(), lr=0.01)

@@ -33,5 +33,5 @@ for epoch in range(10):
 
     y_hat = module(data)
 
-    loss = criterion(y_hat[0], labels[0])
+    loss = criterion(y_hat, labels)
 

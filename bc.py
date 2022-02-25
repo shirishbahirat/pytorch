@@ -35,6 +35,8 @@ for epoch in range(10):
 
     loss = criterion(y_hat, labels)
 
+    print('Epoch {:4.0f} : Loss {:2.4f}'.format(epoch, loss.item()))
+
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()

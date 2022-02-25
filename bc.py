@@ -19,7 +19,7 @@ class Net(nn.Module):
     def forward(self,x):
         y = self.l1(x)
         y = self.l2(y)
-        return y
+        return y[:, -1,:]
 
 
 module = Net()

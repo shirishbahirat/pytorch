@@ -5,7 +5,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 data = torch.FloatTensor([[1.8, 0.1, 0.1], [0.2, 1.9, 0.2], [0.1, 0.2, 1.9]])
-labels = torch.LongTensor([0, 1, 2])
+labels = torch.FloatTensor([[0, 1, 2],[0, 1, 2],[0, 1, 2]])
 
 
 
@@ -27,7 +27,7 @@ module = Net()
 
 
 
-criterion = nn.CrossEntropyLoss()
+criterion = nn.MSELoss()
 optimizer = optim.Adam(module.parameters(), lr=0.001)
 
 for epoch in range(1000):

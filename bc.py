@@ -27,7 +27,7 @@ module = Net()
 
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(module.parameters(), lr=0.01)
+optimizer = optim.Adam(module.parameters(), lr=0.1)
 
 for epoch in range(10):
 

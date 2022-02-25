@@ -4,8 +4,8 @@ import torch.optim as optim
 
 import torch.nn.functional as F
 
-data = torch.FloatTensor([[0.8, 0.1, 0.1], [0.2, 0.7, 0.2], [0.2, 0.2, 0.6]])
-labels = torch.Tensor([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+data = torch.FloatTensor([[0.8, 0.1, 0.1], [0.7, 0.2, 0.2], [0.6, 0.2, 0.1]])
+labels = torch.LongTensor([1, 0, 0])
 
 
 class Net(nn.Module):

@@ -13,10 +13,12 @@ class Net(nn.Module):
     def __init__(self):
         super(Net,self).__init__()
 
-        self.l1 = nn.Linear(3,3)
+        self.l1 = nn.Linear(3,6)
+        self.l2 = nn.Linear(6,3)
 
     def forward(self,x):
         y = self.l1(x)
+        y = self.l2(y)
         return y
 
 
@@ -31,5 +33,5 @@ for epoch in range(10):
 
     y_hat = module(data)
 
-    #loss = criterion(y_hat, labels)
+    loss = criterion(y_hat, labels)
 

@@ -5,7 +5,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 data = torch.FloatTensor([[0.8, 0.1, 0.1], [0.2, 0.7, 0.2], [0.2, 0.2, 0.6]])
-labels = torch.Tensor([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+labels = torch.FloatTensor([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
 
 
 class Net(nn.Module):
@@ -13,7 +13,7 @@ class Net(nn.Module):
     def __init__(self):
         super(Net,self).__init__()
 
-        self.l1 = nn.Linear(3,6)
+        self.l1 = nn.Linear(3,3)
 
     def forward(self,x):
         y = self.l1(x)

@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
 input = torch.randn(3,8, requires_grad=True)
-target = torch.empty(3,dtype=torch.long).random_(5)
+target = torch.randn(3, 5).softmax(dim=1)
 
 class Model(nn.Module):
 
@@ -15,9 +15,9 @@ class Model(nn.Module):
         self.linear3 = nn.Linear(8,5)
 
     def forward(self,x):
-        y_hat = self.linear1(x)
-        y_hat = self.linear2(y_hat)
-        y_hat = self.linear3(y_hat)
+        y_hat = F.relu(self.linear1(x))
+        y_hat = F.relu(self.linear2(y_hat))
+        y_hat = F.relu(self.linear3(y_hat))
         return y_hat
 
 model = Model()

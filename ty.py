@@ -5,14 +5,14 @@ import torch.nn.functional as F
 
 import matplotlib.pyplot as plt
 
-input = torch.randn(3,5, requires_grad=True)
+input = torch.randn(3,8, requires_grad=True)
 target = torch.empty(3,dtype=torch.long).random_(5)
 
 class Model(nn.Module):
 
     def __init__(self):
         super(Model, self).__init__()
-        self.linear1 = nn.Linear(5,10)
+        self.linear1 = nn.Linear(8,10)
         self.linear2 = nn.Linear(10,8)
         self.linear3 = nn.Linear(8,5)
 

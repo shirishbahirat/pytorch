@@ -22,7 +22,7 @@ class Model(nn.Module):
 
 model = Model()
 criterion = nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.02)
 
 train_loss = []
 

@@ -43,10 +43,17 @@ for episode in range(n_episode):
 
 print('Average total reward over {} episode: {}'.format(n_episode, sum(total_rewards) / n_episode))
 
-
 import matplotlib.pyplot as plt
 plt.plot(total_rewards)
 plt.xlabel('Episode')
 plt.ylabel('Reward')
 plt.show()
+
+
+n_episode_eval = 100
+total_rewards_eval = []
+for episode in range(n_episode_eval):
+    total_reward, _ = run_episode(env, weight)
+    print('Episode {}: {}'.format(episode+1, total_reward))
+    total_rewards_eval.append(total_reward)
 

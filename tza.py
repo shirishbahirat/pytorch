@@ -6,26 +6,26 @@ env = gym.make('CartPole-v0')
 n_state = env.observation_space.shape[0]
 n_action = env.action_space.n
 
- def run_episode(env, weight):
-     state = env.reset()
-     grads = []
-     total_reward = 0
-     is_done = False
-     while not is_done:
-         state = torch.from_numpy(state).float()
-         z = torch.matmul(state, weight)
-         probs = torch.nn.Softmax()(z)
-         action = int(torch.bernoulli(probs[1]).item())
-         d_softmax = torch.diag(probs) -
-                         probs.view(-1, 1) * probs
-         d_log = d_softmax[action] / probs[action]
-         grad = state.view(-1, 1) * d_log
-         grads.append(grad)
-         state, reward, is_done, _ = env.step(action)
-         total_reward += reward
-         if is_done:
-             break
-     return total_reward, grads
+def run_episode(env, weight):
+    state = env.reset()
+    grads = []
+    total_reward = 0
+    is_done = False
+    while not is_done:
+        state = torch.from_numpy(state).float()
+        z = torch.matmul(state, weight)
+        probs = torch.nn.Softmax()(z)
+        action = int(torch.bernoulli(probs[1]).item())
+        d_softmax = torch.diag(probs) -
+                        probs.view(-1, 1) * probs
+        d_log = d_softmax[action] / probs[action]
+        grad = state.view(-1, 1) * d_log
+        grads.append(grad)
+        state, reward, is_done, _ = env.step(action)
+        total_reward += reward
+        if is_done:
+            break
+    return total_reward, grads
 
 
 n_episode = 1000

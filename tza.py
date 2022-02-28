@@ -48,6 +48,6 @@ print('Average total reward over {} episode: {}'.format(n_episode, sum(total_rew
 
 import matplotlib.pyplot as plt
 plt.plot(total_rewards)
- plt.xlabel('Episode')
+plt.xlabel('Episode')
  plt.ylabel('Reward')
  plt.show()

@@ -50,4 +50,5 @@ import matplotlib.pyplot as plt
 plt.plot(total_rewards)
 plt.xlabel('Episode')
 plt.ylabel('Reward')
- plt.show()
+plt.show()
+

@@ -16,8 +16,7 @@ def run_episode(env, weight):
         z = torch.matmul(state, weight)
         probs = torch.nn.Softmax()(z)
         action = int(torch.bernoulli(probs[1]).item())
-        d_softmax = torch.diag(probs) -
-                        probs.view(-1, 1) * probs
+        d_softmax = torch.diag(probs) - probs.view(-1, 1) * probs
         d_log = d_softmax[action] / probs[action]
         grad = state.view(-1, 1) * d_log
         grads.append(grad)

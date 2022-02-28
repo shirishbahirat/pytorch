@@ -33,13 +33,12 @@ total_rewards = []
 
 learning_rate = 0.001
 
- for episode in range(n_episode):
-     total_reward, gradients = run_episode(env, weight)
-     print('Episode {}: {}'.format(episode + 1, total_reward))
-     for i, gradient in enumerate(gradients):
-         weight += learning_rate * gradient * (total_reward - i)
-     total_rewards.append(total_reward)
-
+for episode in range(n_episode):
+    total_reward, gradients = run_episode(env, weight)
+    print('Episode {}: {}'.format(episode + 1, total_reward))
+    for i, gradient in enumerate(gradients):
+        weight += learning_rate * gradient * (total_reward - i)
+    total_rewards.append(total_reward)
 
 
 print('Average total reward over {} episode: {}'.format(n_episode, sum(total_rewards) / n_episode))

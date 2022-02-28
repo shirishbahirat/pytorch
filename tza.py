@@ -46,7 +46,7 @@ learning_rate = 0.001
 print('Average total reward over {} episode: {}'.format(n_episode, sum(total_rewards) / n_episode))
 
 
- import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
  plt.plot(total_rewards)
  plt.xlabel('Episode')
  plt.ylabel('Reward')

@@ -10,7 +10,6 @@ print('Target CL',target)
 output = loss(input, target)
 output.backward()
 
-
 # Example of target with class probabilities
 input = torch.randn(3, 5, requires_grad=True)
 print('Input SM',input)

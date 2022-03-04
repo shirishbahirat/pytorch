@@ -4,7 +4,6 @@ import torch.nn as nn
 # Example of target with class indices
 
 loss = nn.CrossEntropyLoss()
-
 input = torch.randn(3, 5, requires_grad=True)
 print('Input CL',input)
 target = torch.empty(3, dtype=torch.long).random_(5)

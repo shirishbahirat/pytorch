@@ -17,5 +17,4 @@ target = torch.randn(3, 5).softmax(dim=1)
 print('Target SM',target)
 output = loss(input, target)
 output.backward()
-
 print(output)

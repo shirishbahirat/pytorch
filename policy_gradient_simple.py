@@ -50,6 +50,7 @@ state2, reward, done, info = env.step(action) #I
 	The info variable is produced by the environment 
 	but is irrelevant
 '''
+
 def discount_rewards(rewards, gamma=0.99):
     lenr = len(rewards)
     disc_return = torch.pow(gamma,torch.arange(lenr).float()) * rewards #A

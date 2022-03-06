@@ -23,7 +23,7 @@ model = torch.nn.Sequential(
     torch.nn.Softmax(dim=0) #C
 )
 
-env = gym.make("CartPole-v0")
+env = gym.make("CartPole-v1")
 
 learning_rate = 0.009
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
@@ -66,7 +66,7 @@ def loss_fn(preds, r): #A
 #A The loss function expects an array of action probabilities for the actions that were taken and the discounted rewards.
 #B It computes the log of the probabilities, multiplies by the discounted rewards, sums them all and flips the sign.
 
-MAX_DUR = 400
+MAX_DUR = 500
 MAX_EPISODES = 2500
 gamma = 0.99
 score = [] #A

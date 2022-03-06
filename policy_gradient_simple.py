@@ -27,6 +27,8 @@ model = torch.nn.Sequential(
     torch.nn.Softmax(dim=0) #C
 )
 
+env = gym.make("CartPole-v0")
+
 learning_rate = 0.009
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 

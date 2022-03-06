@@ -12,7 +12,6 @@ def running_mean(x, N=50):
         y[i] /= N
     return y
 
-import numpy as np
 import torch
 
 l1 = 4 #A

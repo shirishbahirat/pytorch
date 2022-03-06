@@ -118,3 +118,27 @@ plt.xlabel("Training Epochs",fontsize=22)
 plt.plot(avg_score, color='green')
 plt.show()
 
+
+score = []
+games = 100
+done = False
+state1 = env.reset()
+for i in range(games):
+    t=0
+    while not done: #F
+        pred = model(torch.from_numpy(state1).float()) #G
+        action = np.random.choice(np.array([0,1]), p=pred.data.numpy()) #H
+        state2, reward, done, info = env.step(action) #I
+        state1 = state2 
+        t += 1
+        if t > MAX_DUR: #L
+            break;
+    state1 = env.reset()
+    done = False
+    score.append(t)
+score = np.array(score)
+
+
+plt.scatter(np.arange(score.shape[0]),score)
+plt.show()
+

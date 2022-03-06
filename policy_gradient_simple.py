@@ -109,3 +109,12 @@ for episode in range(MAX_EPISODES):
 #O Subset the action-probabilities associated with the actions that were actually taken 
 
 
+score = np.array(score)
+avg_score = running_mean(score, 50)
+
+plt.figure(figsize=(10,7))
+plt.ylabel("Episode Duration",fontsize=22)
+plt.xlabel("Training Epochs",fontsize=22)
+plt.plot(avg_score, color='green')
+plt.show()
+

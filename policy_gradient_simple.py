@@ -12,7 +12,6 @@ def running_mean(x, N=50):
         y[i] /= N
     return y
 
-
 l1 = 4 #A
 l2 = 150
 l3 = 2 #B

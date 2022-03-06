@@ -12,7 +12,6 @@ def running_mean(x, N=50):
         y[i] /= N
     return y
 
-import gym
 import numpy as np
 import torch
 
@@ -60,8 +59,8 @@ def loss_fn(preds, r): #A
 #A The loss function expects an array of action probabilities for the actions that were taken and the discounted rewards.
 #B It computes the log of the probabilities, multiplies by the discounted rewards, sums them all and flips the sign.
 
-MAX_DUR = 200
-MAX_EPISODES = 500
+MAX_DUR = 400
+MAX_EPISODES = 2500
 gamma = 0.99
 score = [] #A
 expectation = 0.0

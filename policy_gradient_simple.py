@@ -88,6 +88,7 @@ for episode in range(MAX_EPISODES):
     pred_batch = model(state_batch) #N
     prob_batch = pred_batch.gather(dim=1,index=action_batch.long().view(-1,1)).squeeze() #O
     loss = loss_fn(prob_batch, disc_returns)
+    print(loss)
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()

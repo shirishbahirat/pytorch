@@ -28,10 +28,13 @@ env = gym.make("CartPole-v0")
 learning_rate = 0.009
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
+'''
 #A Input data is length 4
-#B Output is a 2-length vector for the Left and the Right actions
-#C Output is a softmax probability distribution over actions
-
+#B Output is a 2-length vector for the Left
+	and the Right actions
+#C Output is a softmax probability distribution 
+	over actions
+'''
 state1 = env.reset()
 pred = model(torch.from_numpy(state1).float()) #G
 action = np.random.choice(np.array([0,1]), p=pred.data.numpy()) #H

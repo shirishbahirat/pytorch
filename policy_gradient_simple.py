@@ -35,15 +35,21 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 #C Output is a softmax probability distribution 
 	over actions
 '''
+
 state1 = env.reset()
 pred = model(torch.from_numpy(state1).float()) #G
 action = np.random.choice(np.array([0,1]), p=pred.data.numpy()) #H
 state2, reward, done, info = env.step(action) #I
 
-#G Call policy network model to produce predicted action probabilities
-#H Sample an action from the probability distribution produced by the policy network
-#I Take the action, receive new state and reward. The info variable is produced by the environment but is irrelevant
-
+'''
+#G Call policy network model to produce predicted 
+	action probabilities
+#H Sample an action from the probability 
+	distribution produced by the policy network
+#I Take the action, receive new state and reward. 
+	The info variable is produced by the environment 
+	but is irrelevant
+'''
 def discount_rewards(rewards, gamma=0.99):
     lenr = len(rewards)
     disc_return = torch.pow(gamma,torch.arange(lenr).float()) * rewards #A

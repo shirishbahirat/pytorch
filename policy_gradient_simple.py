@@ -25,7 +25,7 @@ model = torch.nn.Sequential(
 
 env = gym.make("CartPole-v1")
 
-learning_rate = 0.009
+learning_rate = 0.002
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 '''
@@ -67,7 +67,7 @@ def loss_fn(preds, r): #A
 #B It computes the log of the probabilities, multiplies by the discounted rewards, sums them all and flips the sign.
 
 MAX_DUR = 500
-MAX_EPISODES = 2500
+MAX_EPISODES = 500
 gamma = 0.99
 score = [] #A
 expectation = 0.0

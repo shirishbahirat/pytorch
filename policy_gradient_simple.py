@@ -65,8 +65,14 @@ def discount_rewards(rewards, gamma=0.99):
 def loss_fn(preds, r): #A
     return -1 * torch.sum(r * torch.log(preds)) #B
 
-#A The loss function expects an array of action probabilities for the actions that were taken and the discounted rewards.
-#B It computes the log of the probabilities, multiplies by the discounted rewards, sums them all and flips the sign.
+'''
+#A The loss function expects an array of action 
+	probabilities for the actions that were taken and the 
+	discounted rewards.
+#B It computes the log of the probabilities, 
+	multiplies by the discounted rewards, sums them all and 
+	flips the sign.
+'''
 
 MAX_DUR = 500
 MAX_EPISODES = 500

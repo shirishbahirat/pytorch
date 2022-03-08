@@ -81,6 +81,7 @@ for episode in range(MAX_EPISODES):
         action = np.random.choice(np.array([0,1]), p=act_prob.data.numpy()) #E
         prev_state = curr_state
         curr_state, _, done, info = env.step(action) #F
+        print('action', curr_state, done, info, action)
         transitions.append((prev_state, action, t+1)) #G
         if done: #H
             break
@@ -93,6 +94,7 @@ for episode in range(MAX_EPISODES):
     action_batch = torch.Tensor([a for (s,a,r) in transitions]) #M
     pred_batch = model(state_batch) #N
     prob_batch = pred_batch.gather(dim=1,index=action_batch.long().view(-1,1)).squeeze() #O
+    print('prob_batch', prob_batch)
     loss = loss_fn(prob_batch, disc_returns)
     print(loss)
     optimizer.zero_grad()

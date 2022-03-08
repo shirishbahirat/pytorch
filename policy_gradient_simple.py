@@ -110,7 +110,7 @@ for episode in range(MAX_EPISODES):
     optimizer.step()
 
 
-
+'''
 #A List to keep track of the episode length over training time
 #B List of state, action, rewards (but we ignore the reward)
 #C While in episode
@@ -126,7 +126,7 @@ for episode in range(MAX_EPISODES):
 #M Collect the actions in the episode in a single tensor
 #N Re-compute the action probabilities for all the states in the episode
 #O Subset the action-probabilities associated with the actions that were actually taken 
-
+'''
 
 score = np.array(score)
 avg_score = running_mean(score, 50)

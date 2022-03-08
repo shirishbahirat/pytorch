@@ -57,10 +57,11 @@ def discount_rewards(rewards, gamma=0.99):
     disc_return = torch.pow(gamma,torch.arange(lenr).float()) * rewards #A
     disc_return /= disc_return.max() #B
     return disc_return
-
+'''
 #A Compute exponentially decaying rewards
-#B Normalize the rewards to be within the [0,1] interval to improve numerical stability
-
+#B Normalize the rewards to be within the 
+	[0,1] interval to improve numerical stability
+'''
 def loss_fn(preds, r): #A
     return -1 * torch.sum(r * torch.log(preds)) #B
 

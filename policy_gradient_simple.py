@@ -124,8 +124,10 @@ for episode in range(MAX_EPISODES):
 #K Compute the discounted version of the rewards
 #L Collect the states in the episode in a single tensor
 #M Collect the actions in the episode in a single tensor
-#N Re-compute the action probabilities for all the states in the episode
-#O Subset the action-probabilities associated with the actions that were actually taken 
+#N Re-compute the action probabilities for all the states in 
+	the episode
+#O Subset the action-probabilities associated with the actions 
+	that were actually taken 
 '''
 
 score = np.array(score)

@@ -101,6 +101,7 @@ for episode in range(MAX_EPISODES):
     loss.backward()
     optimizer.step()
 
+
 #A List to keep track of the episode length over training time
 #B List of state, action, rewards (but we ignore the reward)
 #C While in episode

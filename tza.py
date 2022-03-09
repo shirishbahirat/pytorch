@@ -38,7 +38,6 @@ for episode in range(n_episode):
         weight += learning_rate * gradient * (total_reward - i)
     total_rewards.append(total_reward)
 
-
 print('Average total reward over {} episode: {}'.format(n_episode, sum(total_rewards) / n_episode))
 
 import matplotlib.pyplot as plt

@@ -25,7 +25,6 @@ def run_episode(env, weight):
             break
     return total_reward, grads
 
-
 n_episode = 1000
 weight = torch.rand(n_state, n_action)
 total_rewards = []

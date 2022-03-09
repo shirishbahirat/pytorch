@@ -5,6 +5,7 @@ env = gym.make('CartPole-v0')
 n_state = env.observation_space.shape[0]
 n_action = env.action_space.n
 
+
 def run_episode(env, weight):
     state = env.reset()
     grads = []
@@ -24,6 +25,7 @@ def run_episode(env, weight):
         if is_done:
             break
     return total_reward, grads
+
 
 n_episode = 1000
 weight = torch.rand(n_state, n_action)

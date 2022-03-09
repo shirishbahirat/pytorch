@@ -46,7 +46,6 @@ plt.xlabel('Episode')
 plt.ylabel('Reward')
 plt.show()
 
-
 n_episode_eval = 100
 total_rewards_eval = []
 for episode in range(n_episode_eval):

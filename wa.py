@@ -12,19 +12,24 @@ class cmd(object):
 
 class queue(object):
 
-    def __init__(self, luns, cap):
+    def __init__(self, luns, cap, qd):
         self.host_queue = [q() for _ in range(luns)]
         self.mdia_queue = [q() for _ in range(luns)]
         self.luns = luns
         self.cap = cap
+        self.qd = qd
 
 class host(object):
 
     def __init__(self, env, queue):
         self.host_queue = queue.host_queue
         self.proc = env.process(self.cmd_proc())
+        self.qd = queue.qd
 
+    def cmd_proc(self):
 
+        while True:
+            yield self.timeout(1)
 
 
 class ssd(object):

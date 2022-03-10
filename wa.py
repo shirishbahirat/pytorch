@@ -2,6 +2,7 @@ import simpy
 import attr
 from queue import Queue as q
 from copy import deepcopy as dc
+from random import randrange
 
 @attr.s
 class cmd(object):
@@ -12,12 +13,13 @@ class cmd(object):
 
 class queue(object):
 
-    def __init__(self, luns, cap, qd):
+    def __init__(self, luns, cap, qd, life):
         self.host_queue = [q() for _ in range(luns)]
         self.mdia_queue = [q() for _ in range(luns)]
         self.luns = luns
         self.cap = cap
         self.qd = qd
+        self.life = life
 
 class host(object):
 
@@ -25,12 +27,21 @@ class host(object):
         self.host_queue = queue.host_queue
         self.proc = env.process(self.cmd_proc())
         self.qd = queue.qd
+        self.life = queue.life
 
     def cmd_proc(self):
 
         while True:
             yield self.timeout(1)
+            life = randrange(0, self.life)
+            cm = cmd(opcd=1,
+                     time=self.env.now,
+                     dest = 0,
+                     life = life)
+            if self.host_queue[dest].qsize() < self.qd:
+                self.host_queue[dest].put(dc(cmd))
 
+            del life, cm
 
 class ssd(object):
 

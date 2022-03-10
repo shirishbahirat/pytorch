@@ -28,15 +28,17 @@ class host(object):
         self.proc = env.process(self.cmd_proc())
         self.qd = queue.qd
         self.life = queue.life
+        self.luns = queue.luns
 
     def cmd_proc(self):
 
         while True:
             yield self.timeout(1)
             life = randrange(0, self.life)
+            dest = randrange(0, self.luns)
             cm = cmd(opcd=1,
                      time=self.env.now,
-                     dest = 0,
+                     dest = dest,
                      life = life)
             if self.host_queue[dest].qsize() < self.qd:
                 self.host_queue[dest].put(dc(cmd))
@@ -62,8 +64,11 @@ class ssd(object):
         while True:
             yield self.env.timeout(1)
             if self.host_queue[id].qsize():
-                if self.written[id] < self.capacity:
+                if (self.written[id] < self.capacity) and (self.state[id] == 0):
                     self.written[id] += 1
+
+                    if self.written[id] = self.cap:
+                        self.state[id] = 1
 
                 cmd = self.host_queue[id][0]
                 self.mdia_queue[id].put(dc(cmd))

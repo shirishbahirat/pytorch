@@ -12,26 +12,50 @@ class cmd(object):
 
 class queue(object):
 
-	def __init__(self, luns):
-		self.host_queue = [q() for _ in range(luns)]
+    def __init__(self, luns, cap):
+        self.host_queue = [q() for _ in range(luns)]
+        self.mdia_queue = [q() for _ in range(luns)]
+        self.luns = luns
+        self.cap = cap
+
+class host(object):
+
+    def __init__(self, env, queue):
+        self.host_queue = queue.host_queue
+        self.proc = env.process(self.cmd_proc())
+
+
+
 
 class ssd(object):
 
-    def __init__(self, env, luns, cap, queue):
+    def __init__(self, env, queue):
 
         self.env = env
-        self.processor = [env.process(self.cmd_proc(id)) for id in range(luns)]
+        self.luns = queue.luns
+        self.proc = [env.process(self.cmd_proc(id)) for id in range(self.luns)]
         self.read_time = 10
-        self.written = [0 for _ in range(luns)]
-        self.capacity = capacity
-        self.state = [0 for _ in range(luns)]
+        self.read_time = 20
+        self.written = [0 for _ in range(self.luns)]
+        self.cap = queue.cap
+        self.state = [0 for _ in range(self.luns)]
         self.host_queue = queue.host_queue 
-
 
     def cmd_proc(self, id):
 
         while True:
             yield self.env.timeout(1)
             if self.host_queue[id].qsize():
-            	if self.written[id] < self.capacity:
+                if self.written[id] < self.capacity:
+                    self.written[id] += 1
+
+                cmd = self.host_queue[id][0]
+                self.mdia_queue[id].put(dc(cmd))
+                self.self.host_queue[id].get_nowait()
+                del cmd
+
+                if cmd.opcd:
+                    yield self.env.timeout(self.read_time)
+                else:
+                    yield self.env.timeout(self.write_time)
 

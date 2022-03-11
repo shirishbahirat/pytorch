@@ -15,7 +15,7 @@ class queue(object):
 
     def __init__(self, luns, cap, qd, life):
         self.host_queue = [q() for _ in range(luns)]
-        self.mdia_queue = [q() for _ in range(luns)]
+        self.media_queue = [q() for _ in range(luns)]
         self.luns = luns
         self.cap = cap
         self.qd = qd
@@ -29,11 +29,12 @@ class host(object):
         self.qd = queue.qd
         self.life = queue.life
         self.luns = queue.luns
+        self.env = env
 
     def cmd_proc(self):
 
         while True:
-            yield self.timeout(1)
+            yield self.env.timeout(1)
             life = randrange(0, self.life)
             dest = randrange(0, self.luns)
             cm = cmd(opcd=1,
@@ -41,7 +42,7 @@ class host(object):
                      dest = dest,
                      life = life)
             if self.host_queue[dest].qsize() < self.qd:
-                self.host_queue[dest].put(dc(cmd))
+                self.host_queue[dest].put(dc(cm))
 
             del life, cm
 
@@ -57,26 +58,50 @@ class ssd(object):
         self.written = [0 for _ in range(self.luns)]
         self.cap = queue.cap
         self.state = [0 for _ in range(self.luns)]
-        self.host_queue = queue.host_queue 
+        self.host_queue = queue.host_queue
+        self.media_queue = queue.media_queue
 
     def cmd_proc(self, id):
 
         while True:
             yield self.env.timeout(1)
             if self.host_queue[id].qsize():
-                if (self.written[id] < self.capacity) and (self.state[id] == 0):
+                if (self.written[id] < self.cap) and (self.state[id] == 0):
                     self.written[id] += 1
 
-                    if self.written[id] = self.cap:
+                    if self.written[id] == self.cap:
                         self.state[id] = 1
 
-                cmd = self.host_queue[id][0]
-                self.mdia_queue[id].put(dc(cmd))
-                self.self.host_queue[id].get_nowait()
-                del cmd
+                    cm = self.host_queue[id].queue[0]
+                    self.media_queue[id].put(dc(cm))
+                    self.host_queue[id].get_nowait()
 
-                if cmd.opcd:
-                    yield self.env.timeout(self.read_time)
-                else:
-                    yield self.env.timeout(self.write_time)
+                    print(id, self.written[id], self.state[id])
+                    if cm.opcd:
+                        yield self.env.timeout(self.read_time)
+                    else:
+                        yield self.env.timeout(self.write_time)
 
+                    del cm
+
+    def invalidate(self, id):
+
+        while True:
+            pass
+            # loop through all cmds in media queue
+            # check current time - cmd time
+            # if command time above more than cmd life then set cmd life to 0
+            # decrement validity
+
+def main():
+
+    env = simpy.Environment()
+
+    q = queue(10, 10, 4, 8)
+    h = host(env, q)
+    s = ssd(env, q)
+    env.run(1000)
+
+
+if __name__ == "__main__":
+    main()

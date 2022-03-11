@@ -92,7 +92,7 @@ class ssd(object):
             # check current time - cmd time
             # if command time above more than cmd life then set cmd life to 0
             # decrement validity
-            #
+
 
 def main():
 

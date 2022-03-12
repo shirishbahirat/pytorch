@@ -19,7 +19,7 @@ print('Loss 1:',l1)
 print('Loss 2:',l2)
 
 
-y=torch.tensor([0,0,1])
+y=torch.tensor([2])
 y_pre_good=torch.tensor([0.1,0.1,0.8])
 y_pre_bad=torch.tensor([0.8,0.1,0.1])
 

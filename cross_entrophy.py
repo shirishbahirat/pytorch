@@ -34,8 +34,7 @@ print(l2.item())
 
 
 y_pre_good=torch.tensor([0.00005,0.0005,0.9999])
-y_pre_bed=torch.tensor([0.8,0.1,0.1])
-
+y_pre_bed=torch.tensor([0.3,0.4,0.3])
 
 l1=loss(y_pre_good,y)
 l2=loss(y_pre_bed,y)

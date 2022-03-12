@@ -3,8 +3,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
-input = torch.randn(3,8, requires_grad=True)
-target = torch.randn(3, 5).softmax(dim=1)
+input = torch.randn(10,8, requires_grad=True)
+target = torch.randn(10, 5).softmax(dim=1)
 
 class Model(nn.Module):
 
@@ -22,11 +22,11 @@ class Model(nn.Module):
 
 model = Model()
 criterion = nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
 
 train_loss = []
 
-for epoch in range(100):
+for epoch in range(200):
 
     y_hat = model(input)
     optimizer.zero_grad()

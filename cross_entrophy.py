@@ -20,13 +20,13 @@ print('Loss 2:',l2)
 
 
 y=torch.tensor([2])
-y_pre_good=torch.tensor([0.1,0.1,0.8])
-y_pre_bad=torch.tensor([0.8,0.1,0.1])
 
-loss = nn.CrossEntropyLoss()
+y_pre_good=torch.tensor([[1.0,1.1,2.5]])
+y_pre_bed=torch.tensor([[3.2,0.2,0.9]])
+
 
 l1=loss(y_pre_good,y)
-l2=loss(y_pre_bad,y)
+l2=loss(y_pre_bed,y)
 
 print(l1.item()) #0.3850
 print(l2.item()) #2.4398

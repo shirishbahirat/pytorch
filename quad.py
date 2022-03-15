@@ -20,6 +20,7 @@ print(y)
 
 y.backward()
 
+
 print(a.grad)
 print(b.grad)
 print(c.grad)

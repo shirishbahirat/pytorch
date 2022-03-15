@@ -52,6 +52,7 @@ n_iters = 100
 loss = nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 
+
 # 3) Training loop
 for epoch in range(n_iters):
     # predict = forward pass with our model

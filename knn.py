@@ -21,4 +21,4 @@ class knn(object):
         sqrt(sum(x2 - x1))
 
     def _predict(self, x):
-        distences =
+        pass

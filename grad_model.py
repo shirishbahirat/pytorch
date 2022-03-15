@@ -28,6 +28,7 @@ X_test = torch.tensor([5], dtype=torch.float32)
 input_size = n_features
 output_size = n_features
 
+
 # we can call this model with samples X
 model = nn.Linear(input_size, output_size)
 

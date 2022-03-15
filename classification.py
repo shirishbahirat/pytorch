@@ -6,7 +6,6 @@ import torchvision
 import torchvision.transforms as transforms
 from pylab import *
 
-
 transform = transforms.Compose(
     [transforms.ToTensor(),
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])

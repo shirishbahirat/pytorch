@@ -31,7 +31,6 @@ test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
                                           batch_size=batch_size,
                                           shuffle=False)
 
-
 class BiRNN(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, num_classes):
         super(BiRNN, self).__init__()

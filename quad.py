@@ -25,3 +25,4 @@ print(a.grad)
 print(b.grad)
 print(c.grad)
 print(d.grad)
+

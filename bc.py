@@ -25,8 +25,6 @@ class Net(nn.Module):
 
 module = Net()
 
-
-
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(module.parameters(), lr=0.001)
 

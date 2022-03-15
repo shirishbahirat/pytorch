@@ -7,8 +7,6 @@ import torch.nn.functional as F
 data = torch.FloatTensor([[1.8, 0.1, 0.1], [0.2, 1.9, 0.2], [0.1, 0.2, 1.9]])
 labels = torch.LongTensor([0, 1, 2])
 
-
-
 class Net(nn.Module):
 
     def __init__(self):

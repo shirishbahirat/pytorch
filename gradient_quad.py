@@ -32,6 +32,7 @@ def gradient_w2(x, y):
     return 2 * (forward(x) - y) * w2
 
 
+
 print("predict (before training):", 4, forward(3))
 
 for epoch in range(100):

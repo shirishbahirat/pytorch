@@ -15,7 +15,6 @@ class Model(nn.Module):
     def forward(self, x):
         return self.layer1(x)
 
-
 class atn(object):
     def __init__(self, input_data, output_data, input_dim, output_dim):
         self.input_data = input_data

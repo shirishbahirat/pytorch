@@ -32,6 +32,7 @@ class atn(object):
 
     def train(self):
 
+
         for epoch in range(self.num_epochs):
             # Forward pass and loss
             self.x_predicted = self.model.forward(self.input_data)

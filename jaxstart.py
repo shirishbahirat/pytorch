@@ -39,6 +39,7 @@ np.array(q)
 
 print(q)
 
+
 w = jnp.array([[1.0, 2.0, 3.0, 4.0],
                [5.0, 6.0, 7.0, 8.0]])
 updated = jax.ops.index_update(w, (0, 0), 3.0)

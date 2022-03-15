@@ -22,7 +22,6 @@ class Net(nn.Module):
         y = self.l2(y)
         return y
 
-
 module = Net()
 
 criterion = nn.CrossEntropyLoss()

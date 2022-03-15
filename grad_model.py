@@ -13,7 +13,6 @@ import torch.nn as nn
 
 # here : f = 2 * x
 
-
 # 0) Training samples, watch the shape!
 X = torch.tensor([[1], [2], [3], [4]], dtype=torch.float32)
 Y = torch.tensor([[2], [4], [6], [8]], dtype=torch.float32)

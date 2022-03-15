@@ -8,7 +8,6 @@ from random import expovariate
 import simpy
 from SimComponents import PacketGenerator, PacketSink
 
-
 def constArrival():  # Constant arrival distribution for generator 1
     return 1.5
 

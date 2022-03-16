@@ -19,7 +19,6 @@ def cost(W):
     y = np.dot(feature_matrix, W)
     return (1.0 / N) * np.sum(0.5 * np.square(y - t))
 
-
 # Compute the gradient of the cost function using Autograd
 cost_grad = grad(cost)
 

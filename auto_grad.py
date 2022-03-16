@@ -9,7 +9,6 @@ w = torch.tensor([1.0], requires_grad=True)
 def forward(x):
     return x * w
 
-
 def loss(y_pred, y_val):
     return (y_pred - y_val) ** 2
 

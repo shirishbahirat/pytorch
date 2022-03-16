@@ -26,6 +26,7 @@ x = jnp.dot(n, m).block_until_ready()
 
 print(x)
 
+
 a = np.random.normal(size=(4, 4))
 
 b = jnp.dot(a, m)

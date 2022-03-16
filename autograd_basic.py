@@ -8,7 +8,6 @@ def tanh(x):
     y = np.exp(-x)
     return (1.0 - y) / (1.0 + y)
 
-
 # Create a *function* that computes the gradient of tanh
 grad_tanh = grad(tanh)
 

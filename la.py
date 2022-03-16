@@ -21,7 +21,6 @@ class Model(nn.Module):
 
 model = Model()
 
-
 #criterion = nn.CrossEntropyLoss()
 criterion = nn.BCELoss(reduction='mean')
 optimizer = optim.SGD(model.parameters(), lr=0.01)

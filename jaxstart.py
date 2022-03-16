@@ -32,6 +32,7 @@ b = jnp.dot(a, m)
 
 print(b)
 
+
 b = jax.device_put(b)
 
 q = jnp.array([[1.0, 2.0, 3.0, 4.0],

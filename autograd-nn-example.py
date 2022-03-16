@@ -14,7 +14,6 @@ def logistic_predictions(weights, inputs):
     # Outputs probability of a label being true according to logistic model.
     return sigmoid(np.dot(inputs, weights))
 
-
 def training_loss(weights):
     # Training loss is the negative log-likelihood of the training labels.
     preds = logistic_predictions(weights, inputs)

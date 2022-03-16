@@ -26,6 +26,7 @@ criterion = nn.BCELoss(reduction='mean')
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 #optimizer = optim.SGD(model.parameters(), lr=0.001,momentum=0.9)
 
+
 for epoch in range(1000):
 
     output = model(data)

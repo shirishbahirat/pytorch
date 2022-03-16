@@ -21,6 +21,7 @@ n = jnp.array([[1.0, 2.0, 3.0, 4.0],
 print(n)
 print(m)
 
+
 x = jnp.dot(n, m).block_until_ready()
 
 print(x)

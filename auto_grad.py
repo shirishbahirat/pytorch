@@ -13,6 +13,7 @@ def loss(y_pred, y_val):
     return (y_pred - y_val) ** 2
 
 
+
 print("Prediction (before training)", 4, forward(4).item())
 
 for epoch in range(10):

@@ -26,6 +26,7 @@ class Model(nn.Module):
 model = Model()
 
 
+
 criterion = nn.BCELoss(reduction='mean')
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 

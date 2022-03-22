@@ -11,7 +11,6 @@ from autograd.misc.optimizers import sgd
 x = np.linspace(-5, 5, 1000)
 t = x ** 3 - 20 * x + 10 + npr.normal(0, 4, x.shape[0])
 
-
 inputs = x.reshape(x.shape[-1], 1)
 W1 = npr.randn(1, 4)
 b1 = npr.randn(4)

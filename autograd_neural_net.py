@@ -41,7 +41,6 @@ def loss(params, i):
     output = predict(params, inputs)
     return (1.0 / inputs.shape[0]) * np.sum(0.5 * np.square(output.reshape(output.shape[0]) - t))
 
-
 print(loss(params, 0))
 
 optimized_params = sgd(grad(loss), params, step_size=0.01, num_iters=5000)

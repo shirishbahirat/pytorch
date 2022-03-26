@@ -16,7 +16,6 @@ def init_random_params(scale, layer_sizes, rs=npr.RandomState(0)):
              scale * rs.randn(n))      # bias vector
             for m, n in zip(layer_sizes[:-1], layer_sizes[1:])]
 
-
 def neural_net_predict(params, inputs):
     """Implements a deep neural network for classification.
        params is a list of (weights, bias) tuples.

@@ -81,7 +81,6 @@ if __name__ == '__main__':
             print("{:15}|{:20}|{:20}".format(iter // num_batches, train_acc, test_acc))
 
 
-
     # The optimizers provided can optimize lists, tuples, or dicts of parameters.
     optimized_params = adam(objective_grad, init_params, step_size=step_size,
                             num_iters=num_epochs * num_batches, callback=print_perf)

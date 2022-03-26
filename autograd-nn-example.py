@@ -38,6 +38,7 @@ weights = np.array([0.0, 0.0, 0.0])
 check_grads(training_loss, modes=['rev'])(weights)
 
 
+
 # Optimize weights using gradient descent.
 print("Initial loss:", training_loss(weights))
 for i in range(100):

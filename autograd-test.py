@@ -36,7 +36,6 @@ def log_posterior(params, inputs, targets, L2_reg):
     log_lik = np.sum(neural_net_predict(params, inputs) * targets)
     return log_prior + log_lik
 
-
 def accuracy(params, inputs, targets):
     target_class = np.argmax(targets, axis=1)
     predicted_class = np.argmax(neural_net_predict(params, inputs), axis=1)

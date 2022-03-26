@@ -44,4 +44,5 @@ print("Initial loss:", training_loss(weights))
 for i in range(100):
     weights -= training_gradient_fun(weights) * 0.01
 
+
 print("Trained loss:", training_loss(weights))

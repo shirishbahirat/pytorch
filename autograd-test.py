@@ -31,7 +31,6 @@ def l2_norm(params):
     flattened, _ = flatten(params)
     return np.dot(flattened, flattened)
 
-
 def log_posterior(params, inputs, targets, L2_reg):
     log_prior = -L2_reg * l2_norm(params)
     log_lik = np.sum(neural_net_predict(params, inputs) * targets)

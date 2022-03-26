@@ -32,6 +32,7 @@ targets = np.array([True, True, False, True])
 # Build a function that returns gradients of training loss using autograd.
 training_gradient_fun = grad(training_loss)
 
+
 # Check the gradients numerically, just to be safe.
 weights = np.array([0.0, 0.0, 0.0])
 check_grads(training_loss, modes=['rev'])(weights)

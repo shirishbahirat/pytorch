@@ -20,6 +20,8 @@ def training_loss(weights):
     return -np.sum(np.log(label_probabilities))
 
 
+
+
 # Build a toy dataset.
 inputs = np.array([[0.52, 1.12, 0.77],
                    [0.88, -1.08, 0.15],

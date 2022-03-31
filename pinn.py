@@ -74,11 +74,11 @@ def plot_result(x,y,x_data,y_data,yh,xp=None):
     if xp is not None:
         plt.scatter(xp, -0*torch.ones_like(xp), s=60, color="tab:green", alpha=0.4, 
                     label='Physics loss training locations')
-    l = plt.legend(loc=(0.6,0.7), frameon=False, fontsize="large")
+    l = plt.legend(loc=(0.55,0.7), frameon=False, fontsize="large")
     plt.setp(l.get_texts(), color="k")
     plt.xlim(-0.05, 1.05)
     plt.ylim(-1.1, 1.1)
-    plt.text(0.6,1.1,"Training step: %i"%(i+1),fontsize="xx-large",color="k")
+    plt.text(0.6,1.25,"Training step: %i"%(i+1),fontsize="xx-large",color="k")
     plt.axis("off")
     
     

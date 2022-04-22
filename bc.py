@@ -4,8 +4,8 @@ import torch.optim as optim
 
 import torch.nn.functional as F
 
-data = torch.FloatTensor([[1.8, 0.1, 0.1], [0.2, 1.9, 0.2], [0.1, 0.2, 1.9]])
-labels = torch.LongTensor([0, 1, 2])
+data = torch.FloatTensor([[1.8, 0.1, 0.1], [0.2, 1.9, 0.2], [0.1, 0.2, 1.9], [1.9, 0.1, 0.1]])
+labels = torch.LongTensor([0, 1, 2, 0])
 
 class Net(nn.Module):
 
@@ -37,4 +37,4 @@ for epoch in range(1000):
     loss.backward()
     optimizer.step()
 
-print(module(torch.FloatTensor([0.1,0.2, 0.9]))[0].data.item())
+print(module(torch.FloatTensor([1.6,0.2, .09]))[0].data.item())

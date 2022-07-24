@@ -45,7 +45,7 @@ for epoch in range(100):
     optimizer.step()
 
 
-out, _, _ = model(input)
+out= model(input)
 print(out)
 
 

@@ -18,18 +18,18 @@ class Model(nn.Module):
         self.linear1 = nn.Linear(19,32)
         self.linear2 = nn.Linear(32,64)
         self.linear3 = nn.Linear(64,19)
-        self.linear4 = nn.Linear(19,2)
+        self.linear4 = nn.Linear(19,19)
 
     def forward(self,x):
-        y_hat = F.sigmoid(self.linear1(x))
-        y_hat = F.sigmoid(self.linear2(y_hat))
-        y_hat = F.sigmoid(self.linear3(y_hat))
-        y_hat = F.sigmoid(self.linear4(y_hat))
+        y_hat = F.relu(self.linear1(x))
+        y_hat = F.relu(self.linear2(y_hat))
+        y_hat = F.relu(self.linear3(y_hat))
+        y_hat = F.relu(self.linear4(y_hat))
         return y_hat
 
 model = Model()
 
-criterion = nn.MSELoss(reduction='sum')
+criterion = nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
 
 train_loss = []

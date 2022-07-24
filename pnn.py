@@ -54,6 +54,7 @@ def f(x,t, net):
     pde = u_x - 2*u_t - u
     return pde
 
+
 ## Data from Boundary Conditions
 # u(x,0)=6e^(-3x)
 ## BC just gives us datapoints for training

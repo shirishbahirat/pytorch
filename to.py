@@ -30,7 +30,7 @@ class Model(nn.Module):
 model = Model()
 
 criterion = nn.MSELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
 
 train_loss = []
 

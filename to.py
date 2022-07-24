@@ -4,8 +4,8 @@ import torch.nn.functional as F
 import matplotlib.pyplot as plt
 import numpy as np
 
-a = np.array([float(i*i) for i in range(-9,10)])
-b = np.array([float(i*i+5.0) for i in range(-9,10)])
+a = np.array([(i*i) for i in range(-9,10)])
+b = np.array([(i*i+5.0) for i in range(-9,10)])
 
 input = torch.tensor(a, dtype=torch.float32, requires_grad=True)
 target = torch.tensor(b, dtype=torch.float32)

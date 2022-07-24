@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import interp1d
 
-
 size = 40
 
 plt.rc('font', size=size)
@@ -46,6 +45,5 @@ leg.get_frame().set_linewidth(2.5)
 leg.get_frame().set_edgecolor("black")
 
 plt.savefig('line.png', bbox_inches='tight', dpi=600)
-
 
 plt.show()

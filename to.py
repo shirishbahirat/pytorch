@@ -27,7 +27,7 @@ class Model(nn.Module):
         y_hat = F.relu(self.linear1(x))
         y_hat = F.relu(self.linear2(y_hat))
         y_hat = F.relu(self.linear3(y_hat))
-        y_hat = F.relu(self.linear4(y_hat))
+        y_hat = F.sigmoid(self.linear4(y_hat))
         return y_hat
 
 model = Model()

@@ -8,7 +8,7 @@ a = np.array([(i*i) for i in range(-9,10)])
 b = np.array([(i*i+5.0) for i in range(-9,10)])
 
 input = torch.tensor(a/max(a), dtype=torch.float32, requires_grad=True)
-target = torch.tensor(b/max(a), dtype=torch.float32)
+target = torch.tensor(b/max(b), dtype=torch.float32)
 
 
 class Model(nn.Module):

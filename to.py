@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 a = np.array([(i*i) for i in range(-9,10)])
-b = np.array([(i*i+5.0) for i in range(-9,10)])
+b = np.array([(i*i*i+5.0) for i in range(-9,10)])
 
 a = a/max(a)
 b = b/max(b)

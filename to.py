@@ -3,16 +3,19 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
-input = torch.randn(10,8, requires_grad=True)
-target = torch.randn(10, 5).softmax(dim=1)
+a = [i*i for i in range(-9,10)]
+b = [i*i+5 for i in range(-9,10)]
+
+input = torch.tensor(a, dtype=float, requires_grad=True)
+target = torch.tensor(b, dtype=float, requires_grad=True)
 
 class Model(nn.Module):
 
     def __init__(self):
         super(Model, self).__init__()
-        self.linear1 = nn.Linear(8,10)
-        self.linear2 = nn.Linear(10,8)
-        self.linear3 = nn.Linear(8,5)
+        self.linear1 = nn.Linear(19,10)
+        self.linear2 = nn.Linear(10,1)
+        self.linear3 = nn.Linear(8,1)
 
     def forward(self,x):
         y_hat = F.relu(self.linear1(x))
@@ -21,12 +24,12 @@ class Model(nn.Module):
         return y_hat
 
 model = Model()
-criterion = nn.CrossEntropyLoss()
+criterion = nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
 
 train_loss = []
 
-for epoch in range(200):
+for epoch in range(1000):
 
     y_hat = model(input)
     optimizer.zero_grad()
@@ -36,8 +39,8 @@ for epoch in range(200):
     loss.backward()
     optimizer.step()
 
-'''
-plt.plot(train_loss)
-plt.show()
-'''
+
+print(input)
+print(target)
+
 

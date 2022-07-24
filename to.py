@@ -10,6 +10,7 @@ b = np.array([(i*i+5.0) for i in range(-9,10)])
 input = torch.tensor(a, dtype=torch.float32, requires_grad=True)
 target = torch.tensor(b, dtype=torch.float32)
 
+
 class Model(nn.Module):
 
     def __init__(self):
@@ -17,7 +18,7 @@ class Model(nn.Module):
         self.linear1 = nn.Linear(19,32)
         self.linear2 = nn.Linear(32,64)
         self.linear3 = nn.Linear(64,19)
-        self.linear4 = nn.Linear(19,1)
+        self.linear4 = nn.Linear(19,2)
 
     def forward(self,x):
         y_hat = F.sigmoid(self.linear1(x))
@@ -28,7 +29,7 @@ class Model(nn.Module):
 
 model = Model()
 
-criterion = nn.MSELoss()
+criterion = nn.MSELoss(reduction='sum')
 optimizer = torch.optim.Adam(model.parameters(), lr=0.005)
 
 train_loss = []
@@ -42,7 +43,6 @@ for epoch in range(100):
     print('Epoch {:4.0f} | Loss {:4.4f}'.format(epoch, loss.item()))
     loss.backward()
     optimizer.step()
-    print(y_hat.item())
 
 
 print(input)

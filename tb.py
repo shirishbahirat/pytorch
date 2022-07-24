@@ -32,7 +32,6 @@ for epoch in range(50):
     loss.backward()
     optimizer.step()
 
-
 para = 10.
 tx = torch.tensor([[para]])
 y_hat = model(tx)

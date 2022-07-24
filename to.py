@@ -15,8 +15,8 @@ class Model(nn.Module):
 
     def __init__(self):
         super(Model, self).__init__()
-        self.linear1 = nn.Linear(19,6)
-        self.linear2 = nn.Linear(6,19)
+        self.linear1 = nn.Linear(19,64)
+        self.linear2 = nn.Linear(64,19)
         self.linear3 = nn.Linear(19,1)
 
     def forward(self,x):

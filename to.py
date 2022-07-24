@@ -15,14 +15,16 @@ class Model(nn.Module):
 
     def __init__(self):
         super(Model, self).__init__()
-        self.linear1 = nn.Linear(19,64)
-        self.linear2 = nn.Linear(64,19)
-        self.linear3 = nn.Linear(19,1)
+        self.linear1 = nn.Linear(19,32)
+        self.linear2 = nn.Linear(32,64)
+        self.linear3 = nn.Linear(64,19)
+        self.linear4 = nn.Linear(19,1)
 
     def forward(self,x):
-        y_hat = F.relu(self.linear1(x))
-        y_hat = F.relu(self.linear2(y_hat))
-        y_hat = F.relu(self.linear3(y_hat))
+        y_hat = F.sigmoid(self.linear1(x))
+        y_hat = F.sigmoid(self.linear2(y_hat))
+        y_hat = F.sigmoid(self.linear3(y_hat))
+        y_hat = F.sigmoid(self.linear4(y_hat))
         return y_hat
 
 model = Model()
@@ -40,6 +42,7 @@ for epoch in range(100):
     print('Epoch {:4.0f} | Loss {:4.4f}'.format(epoch, loss.item()))
     loss.backward()
     optimizer.step()
+    print(y_hat.item())
 
 
 print(input)

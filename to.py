@@ -14,8 +14,8 @@ class Model(nn.Module):
     def __init__(self):
         super(Model, self).__init__()
         self.linear1 = nn.Linear(19,10)
-        self.linear2 = nn.Linear(10,1)
-        self.linear3 = nn.Linear(8,1)
+        self.linear2 = nn.Linear(10,19)
+        self.linear3 = nn.Linear(8,19)
 
     def forward(self,x):
         y_hat = F.relu(self.linear1(x))

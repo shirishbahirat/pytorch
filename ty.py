@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 input = torch.randn(3,8, requires_grad=True)
 target = torch.empty(3,dtype=torch.long).random_(5)
 
+print(input)
+
 class Model(nn.Module):
 
     def __init__(self):

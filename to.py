@@ -46,7 +46,7 @@ for epoch in range(100):
 
 
 out= model(input)
-print(out)
+print(out, a, b)
 
 
 

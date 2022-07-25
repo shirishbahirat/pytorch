@@ -53,6 +53,7 @@ print(out, a, b)
 
 plt.plot(out.detach().numpy())
 plt.plot(target.detach().numpy()+.2)
+plt.plot(input.detach().numpy())
 plt.show()
 
 

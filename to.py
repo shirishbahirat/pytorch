@@ -7,8 +7,12 @@ import numpy as np
 a = np.array([(i*i) for i in range(-9,10)])
 b = np.array([(i*i+5.0) for i in range(-9,10)])
 
+
+
 a = a/max(a)
 b = b/max(b)
+
+a = np.array([-0.152066984, 0.073096932, 0.261599879, 0.414636285, 0.53391308, 0.621649691, 0.680578049, 0.713942582, 0.725500221, 0.719520394, 0.700785031, 0.674588563, 0.64673792, 0.62355253, 0.611864326, 0.619017737, 0.652869693, 0.721789626, 0.834659466, 1.000873644])
 
 input = torch.tensor(a, dtype=torch.float32, requires_grad=True)
 target = torch.tensor(b, dtype=torch.float32)

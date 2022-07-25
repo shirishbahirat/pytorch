@@ -37,7 +37,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
 
 train_loss = []
 
-for epoch in range(100):
+for epoch in range(5000):
 
     y_hat = model(input)
     optimizer.zero_grad()

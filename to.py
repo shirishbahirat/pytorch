@@ -56,7 +56,7 @@ out= model(input)
 print(out, a, b)
 
 plt.plot(out.detach().numpy())
-plt.plot(target.detach().numpy())
+plt.plot(target.detach().numpy()+0.002)
 plt.plot(input.detach().numpy())
 plt.show()
 

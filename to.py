@@ -51,7 +51,6 @@ for epoch in range(5000):
     loss.backward()
     optimizer.step()
 
-
 out= model(input)
 print(out, a, b)
 
@@ -59,5 +58,3 @@ plt.plot(out.detach().numpy())
 plt.plot(target.detach().numpy()+0.009)
 plt.plot(input.detach().numpy())
 plt.show()
-
-

@@ -18,10 +18,10 @@ class Model(nn.Module):
 
     def __init__(self):
         super(Model, self).__init__()
-        self.linear1 = nn.Linear(19,32)
-        self.linear2 = nn.Linear(32,128)
-        self.linear3 = nn.Linear(128,64)
-        self.linear4 = nn.Linear(64,19)
+        self.linear1 = nn.Linear(19,22)
+        self.linear2 = nn.Linear(22,32)
+        self.linear3 = nn.Linear(32,22)
+        self.linear4 = nn.Linear(22,19)
 
     def forward(self,x):
         y_hat = F.relu(self.linear1(x))
@@ -33,7 +33,7 @@ class Model(nn.Module):
 model = Model()
 
 criterion = nn.MSELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
 
 train_loss = []
 

@@ -51,5 +51,7 @@ for epoch in range(1000):
 out= model(input)
 print(out, a, b)
 
+plt.plot(out)
+plt.show()
 
 

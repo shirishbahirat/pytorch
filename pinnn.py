@@ -60,7 +60,7 @@ for epoch in range(5000):
     train_loss1.append(loss1)
     train_loss2.append(loss2)
 
-    print('Epoch {:4.0f} | Loss {:4.4f, 4.4f}'.format(epoch, loss1.item(), loss2.item()))
+    print('Epoch {:4.0f} | Loss {:4.4f, :4.4f}'.format(epoch, loss1.item(), loss2.item()))
 
     loss1.backward()
     optimizer1.step()

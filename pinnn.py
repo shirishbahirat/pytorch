@@ -14,6 +14,7 @@ a1 = np.array([0.073096932, 0.261599879, 0.414636285, 0.53391308, 0.621649691, 0
 a2 = np.array([0.557912174, 0.583314627, 0.608367332, 0.631376756, 0.650451583, 0.663502717, 0.668243283, 0.662188623, 0.642656299, 0.606766091, 0.55144, 0.473402244, 0.369179263, 0.235099712, 0.06729447, -0.13830337, -0.38595849, -0.680133359, -1.025488223])
 
 input1 = torch.tensor(a1, dtype=torch.float32, requires_grad=True)
+input2 = torch.tensor(a2, dtype=torch.float32, requires_grad=True)
 target = torch.tensor(b1, dtype=torch.float32)
 
 
@@ -36,13 +37,13 @@ class Model(nn.Module):
 model = Model()
 
 criterion = nn.MSELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+optimizer1 = torch.optim.Adam(model.parameters(), lr=0.01)
 
 train_loss = []
 
 for epoch in range(5000):
 
-    y_hat = model(input1)
+    y_hat = model(input1) * model(input2)
     optimizer.zero_grad()
     loss = criterion(y_hat, target)
     train_loss.append(loss)

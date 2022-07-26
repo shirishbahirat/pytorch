@@ -51,7 +51,7 @@ for epoch in range(5000):
     optimizer.step()
 
 out= model(input)
-print(out, a, b)
+print(out, a1, b1)
 
 plt.plot(out.detach().numpy())
 plt.plot(target.detach().numpy()+0.009)

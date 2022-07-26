@@ -34,30 +34,46 @@ class Model(nn.Module):
         y_hat = F.sigmoid(self.linear4(y_hat))
         return y_hat
 
-model = Model()
+model1 = Model()
+model2 = Model()
 
-criterion = nn.MSELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+criterion1 = nn.MSELoss()
+optimizer1 = torch.optim.Adam(model1.parameters(), lr=0.01)
 
-train_loss = []
+criterion2 = nn.MSELoss()
+optimizer2 = torch.optim.Adam(model2.parameters(), lr=0.01)
+
+train_loss1 = []
+train_loss2 = []
 
 for epoch in range(5000):
 
-    y_hat1 = model(input1)
-    y_hat2 = model(input2)
-    optimizer.zero_grad()
-    loss = criterion(y_hat1*y_hat2, target)
-    train_loss.append(loss)
-    print('Epoch {:4.0f} | Loss {:4.4f}'.format(epoch, loss.item()))
-    loss.backward()
-    optimizer.step()
+    y_hat1 = model1(input1)
+    y_hat2 = model2(input2)
 
-out= model(input1)
-print(out, a1, b1)
+    optimizer1.zero_grad()
+    optimizer2.zero_grad()
 
-plt.plot(out.detach().numpy())
+    loss1 = criterion(y_hat1, target)
+    loss2 = criterion(y_hat2, target)
+
+    train_loss1.append(loss1)
+    train_loss2.append(loss2)
+
+    print('Epoch {:4.0f} | Loss {:4.4f, 4.4f}'.format(epoch, loss1.item(), loss2.item()))
+
+    loss1.backward()
+    optimizer1.step()
+
+    loss2.backward()
+    optimizer2.step()
+
+out1 = model1(input1)
+out2 = model2(input2)
+
+plt.plot(out1.detach().numpy())
+plt.plot(out2.detach().numpy())
 plt.plot(target.detach().numpy())
 plt.plot(input1.detach().numpy())
 plt.plot(input2.detach().numpy())
-plt.plot(input2.detach()*input1.detach().numpy())
 plt.show()

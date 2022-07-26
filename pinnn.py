@@ -54,8 +54,8 @@ for epoch in range(5000):
     optimizer1.zero_grad()
     optimizer2.zero_grad()
 
-    loss1 = criterion(y_hat1, target)
-    loss2 = criterion(y_hat2, target)
+    loss1 = criterion1(y_hat1, target)
+    loss2 = criterion2(y_hat2, target)
 
     train_loss1.append(loss1)
     train_loss2.append(loss2)

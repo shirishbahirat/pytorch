@@ -55,6 +55,6 @@ out= model(input1)
 print(out, a1, b1)
 
 plt.plot(out.detach().numpy())
-plt.plot(target.detach().numpy()+0.009)
+plt.plot(target.detach().numpy())
 plt.plot(input1.detach().numpy())
 plt.show()

@@ -43,9 +43,10 @@ train_loss = []
 
 for epoch in range(5000):
 
-    y_hat = model(input1) * model(input2)
+    y_hat1 = model(input1)
+    y_hat2 = model(input2)
     optimizer.zero_grad()
-    loss = criterion(y_hat, target)
+    loss = criterion(y_hat*y_hat2, target)
     train_loss.append(loss)
     print('Epoch {:4.0f} | Loss {:4.4f}'.format(epoch, loss.item()))
     loss.backward()

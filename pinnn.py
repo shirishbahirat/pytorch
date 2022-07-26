@@ -72,7 +72,7 @@ out1 = model1(input1)
 out2 = model2(input2)
 
 plt.plot(out1.detach().numpy())
-plt.plot(out2.detach().numpy())
+plt.plot(out2.detach().numpy()+0.02)
 plt.plot(target.detach().numpy())
 plt.plot(input1.detach().numpy())
 plt.plot(input2.detach().numpy())

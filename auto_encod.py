@@ -14,8 +14,10 @@ a1 = np.array([0.073096932, 0.261599879, 0.414636285, 0.53391308, 0.621649691, 0
 a2 = np.array([0.557912174, 0.583314627, 0.608367332, 0.631376756, 0.650451583, 0.663502717, 0.668243283, 0.662188623, 0.642656299, 0.606766091, 0.55144, 0.473402244, 0.369179263, 0.235099712, 0.06729447, -0.13830337, -0.38595849, -0.680133359, -1.025488223])
 
 input1 = torch.tensor(a1, dtype=torch.float32, requires_grad=True)
-input2 = torch.tensor(a2, dtype=torch.float32, requires_grad=True)
-target = torch.tensor(b1, dtype=torch.float32)
+#input2 = torch.tensor(a2, dtype=torch.float32, requires_grad=True)
+input2 = torch.tensor(a1, dtype=torch.float32, requires_grad=True)
+#target = torch.tensor(b1, dtype=torch.float32)
+target = torch.tensor(a1, dtype=torch.float32)
 
 
 class Model(nn.Module):
@@ -29,10 +31,10 @@ class Model(nn.Module):
         self.linear4 = nn.Linear(22,19)
         '''
 
-        self.linear1 = nn.Linear(19,10)
-        self.linear2 = nn.Linear(10,4)
-        self.linear3 = nn.Linear(4,10)
-        self.linear4 = nn.Linear(10,19)
+        self.linear1 = nn.Linear(19,12)
+        self.linear2 = nn.Linear(12,2)
+        self.linear3 = nn.Linear(3,12)
+        self.linear4 = nn.Linear(12,19)
 
     def forward(self,x):
         '''
@@ -60,7 +62,7 @@ optimizer2 = torch.optim.Adam(model2.parameters(), lr=0.01)
 train_loss1 = []
 train_loss2 = []
 
-for epoch in range(5000):
+for epoch in range(100):
 
     y_hat1 = model1(input1)
     y_hat2 = model2(input2)

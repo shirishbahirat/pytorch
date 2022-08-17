@@ -33,7 +33,7 @@ class Model(nn.Module):
 
         self.linear1 = nn.Linear(19,12)
         self.linear2 = nn.Linear(12,2)
-        self.linear3 = nn.Linear(3,12)
+        self.linear3 = nn.Linear(2,12)
         self.linear4 = nn.Linear(12,19)
 
     def forward(self,x):

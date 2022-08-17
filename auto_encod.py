@@ -22,10 +22,17 @@ class Model(nn.Module):
 
     def __init__(self):
         super(Model, self).__init__()
+        '''
         self.linear1 = nn.Linear(19,22)
         self.linear2 = nn.Linear(22,32)
         self.linear3 = nn.Linear(32,22)
         self.linear4 = nn.Linear(22,19)
+        '''
+
+        self.linear1 = nn.Linear(19,10)
+        self.linear2 = nn.Linear(10,6)
+        self.linear3 = nn.Linear(6,10)
+        self.linear4 = nn.Linear(10,19)
 
     def forward(self,x):
         '''

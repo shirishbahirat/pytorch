@@ -1,34 +1,30 @@
 import numpy as np
 
-def create_fourier_weights(signal_length):  
+def create_fourier_weights(sig_len):  
     "Create weights, as described above."
-    k_vals, n_vals = np.mgrid[0:signal_length, 0:signal_length]
-    theta_vals = 2 * np.pi * k_vals * n_vals / signal_length
-    return np.hstack([np.cos(theta_vals), -np.sin(theta_vals)])
+    kv, nv = np.mgrid[0:sig_len, 0:sig_len]
+    theta = 2 * np.pi * kv * nv / sig_len
+    return np.hstack([np.cos(theta), -np.sin(theta)])
 
-# Generate data:
-signal_length = 64
-x = np.random.random(size=[1, signal_length]) - 0.5
+sig_len = 64
+x = np.random.random(size=[1, sig_len]) - 0.5
 
-# Compute Fourier transform using method described above:
-W_fourier = create_fourier_weights(signal_length)
-y = np.matmul(x, W_fourier)
+w_fourier = create_fourier_weights(sig_len)
+y = np.matmul(x, w_fourier)
 
-# Compute Fourier transform using the fast Fourier transform: 
 fft = np.fft.fft(x)
 y_fft = np.hstack([fft.real, fft.imag])
 
-# Compare the results:
 print('rmse: ', np.sqrt(np.mean((y - y_fft)**2)))
 
 import matplotlib.pyplot as plt
 
-y_real = y[:, :signal_length]
-y_imag = y[:, signal_length:]
-tvals = np.arange(signal_length).reshape([-1, 1])
-freqs = np.arange(signal_length).reshape([1, -1])
-arg_vals = 2 * np.pi * tvals * freqs / signal_length
-sinusoids = (y_real * np.cos(arg_vals) - y_imag * np.sin(arg_vals)) / signal_length
+y_real = y[:, :sig_len]
+y_imag = y[:, sig_len:]
+tvals = np.arange(sig_len).reshape([-1, 1])
+freqs = np.arange(sig_len).reshape([1, -1])
+arg_vals = 2 * np.pi * tvals * freqs / sig_len
+sinusoids = (y_real * np.cos(arg_vals) - y_imag * np.sin(arg_vals)) / sig_len
 reconstructed_signal = np.sum(sinusoids, axis=1)
 
 print('rmse:', np.sqrt(np.mean((x - reconstructed_signal)**2)))

@@ -50,6 +50,7 @@ c += h
 d2 = a*b + c
 
 print('d1', d1)
+
 print('d2', d2)
 print('slope', (d2 - d1)/h)
 

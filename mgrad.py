@@ -156,3 +156,5 @@ def draw_dot(root):
     dot.edge(str(id(n1)), str(id(n2)) + n2._op)
 
   return dot
+
+draw_dot(L)

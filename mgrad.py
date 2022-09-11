@@ -219,4 +219,34 @@ x1w1x2w2 = x1w1 + x2w2; x1w1x2w2.label = 'x1*w1 + x2*w2'
 n = x1w1x2w2 + b; n.label = 'n'
 o = n.tanh(); o.label = 'o'
 
+o.backward()
 
+topo = []
+visited = set()
+def build_topo(v):
+  if v not in visited:
+    visited.add(v)
+    for child in v._prev:
+      build_topo(child)
+    topo.append(v)
+build_topo(o)
+topo
+
+o.grad = 1.0
+o._backward()
+n._backward()
+b._backward()
+x1w1x2w2._backward()
+x2w2._backward()
+x1w1._backward()
+x1.grad = w1.data * x1w1.grad
+w1.grad = x1.data * x1w1.grad
+x2.grad = w2.data * x2w2.grad
+w2.grad = x2.data * x2w2.grad
+x1w1.grad = 0.5
+x2w2.grad = 0.5
+x1w1x2w2.grad = 0.5
+b.grad = 0.5
+n.grad = 0.5
+o.grad = 1.0
+1 - o.data**2

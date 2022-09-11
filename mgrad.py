@@ -158,3 +158,17 @@ def draw_dot(root):
   return dot
 
 draw_dot(L)
+
+
+a.data += 0.01 * a.grad
+b.data += 0.01 * b.grad
+c.data += 0.01 * c.grad
+f.data += 0.01 * f.grad
+
+e = a * b
+d = e + c
+L = d * f
+
+print(L.data)
+
+

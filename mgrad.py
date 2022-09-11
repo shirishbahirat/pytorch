@@ -139,7 +139,7 @@ def trace(root):
 
 def draw_dot(root):
   dot = Digraph(format='svg', graph_attr={'rankdir': 'LR'}) # LR = left to right
-  
+
   nodes, edges = trace(root)
   for n in nodes:
     uid = str(id(n))

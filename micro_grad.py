@@ -5,6 +5,7 @@ a = Value(-4.0)
 b = Value(2.0)
 
 c = a + b
+
 d = a * b + b**3
 c += c + 1
 c += 1 + c + (-a)

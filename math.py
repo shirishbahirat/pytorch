@@ -13,7 +13,7 @@ class mk:
      return out
 
    def __sub__(self,other):
-     out = mk(self.val * other.val)
+     out = mk(self.val - other.val)
      return out
 
 

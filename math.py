@@ -16,7 +16,7 @@ class mk:
      out = mk(self.val - other.val)
      return out
 
-   def __div__(self,other):
+   def __truediv__(self,other):
      out = mk(self.val / other.val)
      return out
 

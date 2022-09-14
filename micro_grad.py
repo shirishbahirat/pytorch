@@ -27,6 +27,7 @@ g += 10.0 / f
 print(f'{g.data:.4f}') # prints 24.7041, the outcome of this forward pass
 
 g.backward()
+
 print(f'{a.grad:.4f}') # prints 138.8338, i.e. the numerical value of dg/da
 print(f'{b.grad:.4f}') # prints 645.5773, i.e. the numerical value of dg/db
 

@@ -21,12 +21,13 @@ class mk:
      return out
 
 a = mk(3)
+
 b = mk(4)
 
 c = a + b
 d = a * b
 e = a - b
-x = a // b
+x = a / b
 
 print(c.val)
 print(d.val)

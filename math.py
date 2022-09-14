@@ -26,3 +26,4 @@ e = a - b
 
 print(c.val)
 print(d.val)
+print(e.val)

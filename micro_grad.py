@@ -19,6 +19,7 @@ d += 3 * d + (b - a).relu()
 e = c - d
 
 f = e**2
+
 g = f / 2.0
 g += 10.0 / f
 print(f'{g.data:.4f}') # prints 24.7041, the outcome of this forward pass

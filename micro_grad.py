@@ -7,6 +7,7 @@ b = Value(2.0)
 c = a + b
 
 d = a * b + b**3
+
 c += c + 1
 c += 1 + c + (-a)
 d += d * 2 + (b + a).relu()

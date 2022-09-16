@@ -128,6 +128,7 @@ L = d * f; L.label = 'L'
 print(L)
 
 
+
 def trace(root):
   # builds a set of all nodes and edges in a graph
   nodes, edges = set(), set()

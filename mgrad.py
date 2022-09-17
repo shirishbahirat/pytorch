@@ -28,3 +28,9 @@ b = -3.0
 c = 10.0
 d = a*b + c
 print(d)
+
+def g(a,b,c):
+  return a*b + c
+
+
+print((g(a,b,c + h) - g(a,b,c))/h)

@@ -21,3 +21,10 @@ print((f(x + h) - f(x))/h)
 h = 0.000001
 x = 2/3
 print((f(x + h) - f(x))/h)
+
+
+a = 2.0
+b = -3.0
+c = 10.0
+d = a*b + c
+print(d)

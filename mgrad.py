@@ -35,3 +35,4 @@ def g(a,b,c):
 
 print((g(a,b,c + h) - g(a,b,c))/h)
 print((g(a+h,b,c) - g(a,b,c))/h)
+print((g(a,b+h,c) - g(a,b,c))/h)

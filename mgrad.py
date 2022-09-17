@@ -15,4 +15,4 @@ ys = f(xs)
 
 h = 0.000001
 x = 3
-(f(x + h) - f(x))/h
+print((f(x + h) - f(x))/h)

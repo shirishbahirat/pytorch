@@ -7,7 +7,7 @@ def f(x):
 
 print(f(3.0))
 
-xs = np.arange(-5, 6, 0.25)
+xs = np.arange(-5, 7, 0.25)
 ys = f(xs)
 plt.plot(xs, ys)
 plt.show()

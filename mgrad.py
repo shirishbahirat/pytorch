@@ -5,9 +5,14 @@ import matplotlib.pyplot as plt
 def f(x):
   return 3*x**2 - 4*x + 5
 
+#6*x - 4
+
 print(f(3.0))
 
 xs = np.arange(-5, 7, 0.25)
 ys = f(xs)
-plt.plot(xs, ys)
-plt.show()
+
+
+h = 0.000001
+x = 3
+(f(x + h) - f(x))/h

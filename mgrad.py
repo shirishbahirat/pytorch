@@ -6,9 +6,6 @@ from graphviz import Digraph
 def f(x):
   return 3*x**2 - 4*x + 5
 
-#6*x - 4
-#6*(2/3) - 4 = 0
-
 print(f(3.0))
 
 xs = np.arange(-5, 7, 0.25)

@@ -53,8 +53,6 @@ print('d1', d1)
 print('d2', d2)
 print('slope', (d2 - d1)/h)
 
-
-
 class Value:
 
   def __init__(self, data, _children=(), _op='', label=''):

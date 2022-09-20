@@ -204,7 +204,6 @@ lol()
 
 # inputs x1,x2
 x1 = Value(2.0, label='x1')
-
 x2 = Value(0.0, label='x2')
 
 # weights w1,w2

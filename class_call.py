@@ -13,7 +13,6 @@ class model:
 	def __repr__(self):
 		print(f'model:')
 
-
 	def __add__(self, other):
 		out = model(self.data + other.data)
 		return out

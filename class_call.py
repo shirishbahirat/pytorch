@@ -20,8 +20,6 @@ class model:
 		return out
 
 
-
-
 def main():
 
 	m = model(6.0)

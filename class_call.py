@@ -29,7 +29,6 @@ def main():
 	g(2)
 	print(g._prev)
 
-
 if __name__ == '__main__':
     main()
 

@@ -28,6 +28,7 @@ def main():
 
 	g = m + n
 	g(2)
+	print(g._prev)
 
 
 

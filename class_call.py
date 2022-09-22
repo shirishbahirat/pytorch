@@ -11,7 +11,7 @@ class model:
 		print('from class call {self.data}')
 
 	def __repr__(self):
-		print(f'model:')
+		return f"Value(data={self.data})"
 
 	def chain(self):
 		print(self._prev)

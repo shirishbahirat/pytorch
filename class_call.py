@@ -13,6 +13,9 @@ class model:
 	def __repr__(self):
 		print(f'model:')
 
+	def chain(self):
+		print(self._prev)
+
 	def __add__(self, other):
 		out = model(self.data + other.data, (self, other))
 		return out
@@ -27,7 +30,7 @@ def main():
 
 	g = m + n
 	g(2)
-	print(g._prev)
+	print(g.chain)
 
 if __name__ == '__main__':
     main()

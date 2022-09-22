@@ -30,7 +30,7 @@ def main():
 
 	g = m + n
 	g(2)
-	print(g.chain)
+	g.chain()
 
 if __name__ == '__main__':
     main()

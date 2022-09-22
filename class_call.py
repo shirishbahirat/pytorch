@@ -17,7 +17,6 @@ class model:
 		out = model(self.data + other.data)
 		return out
 
-
 def main():
 
 	m = model(6.0)

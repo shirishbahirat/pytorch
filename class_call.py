@@ -25,11 +25,9 @@ def main():
 	n = model(12.0)
 	n(11.0)
 
-
 	g = m + n
 	g(2)
 	print(g._prev)
-
 
 
 if __name__ == '__main__':

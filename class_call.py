@@ -28,6 +28,7 @@ def main():
     n(11.0)
 
     g = m + n
+
     g(2)
 
     print('b')

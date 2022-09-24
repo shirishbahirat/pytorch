@@ -32,7 +32,6 @@ def main():
     g(2)
 
     print('b')
-
     g.chain()
 
 if __name__ == '__main__':

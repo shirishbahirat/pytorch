@@ -22,15 +22,12 @@ class model:
 def main():
 
     m = model(6.0)
-
     m(10.0)
 
     n = model(12.0)
-
     n(11.0)
 
     g = m + n
-
     g(2)
 
     print('b')

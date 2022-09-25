@@ -26,6 +26,7 @@ def main():
     m(10.0)
 
     n = model(12.0)
+
     n(11.0)
 
     g = m + n

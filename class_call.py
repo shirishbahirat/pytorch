@@ -10,7 +10,7 @@ class model:
         print('from class call {self.data}')
 
     def __repr__(self):
-        return f"Value(data={self.data})"
+        return f"model(data={self.data})"
 
     def chain(self):
         print(self._prev)

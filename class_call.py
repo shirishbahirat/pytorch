@@ -43,8 +43,6 @@ def main():
     print('s')
     list(s.chain())[0].chain()
 
-    print('done')
-
 if __name__ == '__main__':
 
     main()

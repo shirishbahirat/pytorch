@@ -14,6 +14,7 @@ class model:
 
     def chain(self):
         print(self._prev)
+        return self._prev
 
     def __add__(self, other):
         out = model(self.data + other.data, (self, other))
@@ -40,7 +41,7 @@ def main():
     s = g + a
 
     print('s')
-    s.chain()[0]
+    s.chain()
 
 if __name__ == '__main__':
 

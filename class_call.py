@@ -11,6 +11,7 @@ class model:
 		for i in self.data:
 			print(i + y)
 
+
 	def __repr__(self):
 		print(f'model:')
 

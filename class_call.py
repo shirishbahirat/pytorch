@@ -31,6 +31,7 @@ def main():
 
 
 	g = m + n
+	g(0)
 
 
 

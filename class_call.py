@@ -10,3 +10,12 @@ class model:
 
 	def __repr__(self):
 		print(f'model:')
+
+
+
+def main():
+
+	m = model([1,2,3])
+	m()
+
+	

@@ -26,10 +26,11 @@ def main():
 	m = model(6)
 	m(10)
 
-	n= model(12)
+	n = model(12)
 	n(11)
 
 
+	g = m + n
 
 
 

@@ -7,6 +7,7 @@ class model:
 
 	def __call__(self):
 		print(self.data)
+		print('from class call')
 
 	def __repr__(self):
 		print(f'model:')

@@ -23,7 +23,7 @@ def main():
 	m = model([1,2,3])
 	m(10)
 
-	print(m)
+	print(m())
 
 
 

@@ -15,7 +15,7 @@ class model:
 
 
 	def __add__(self, val):
-		return out = model(self.data + val)
+		return out = (self.data + val)
 
 
 

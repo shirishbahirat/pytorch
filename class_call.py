@@ -18,4 +18,6 @@ def main():
 	m = model([1,2,3])
 	m()
 
-	
+
+if __name__ == '__main__':
+    main()

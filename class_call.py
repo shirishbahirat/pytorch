@@ -40,7 +40,7 @@ def main():
     s = g + a
 
     print('s')
-    s.chain()
+    s.chain()[0]
 
 if __name__ == '__main__':
 

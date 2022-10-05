@@ -34,6 +34,14 @@ def main():
 
     g.chain()
 
+    a = model(111.0)
+    a(1000.0)
+
+    s = g + a
+
+    print('s')
+    s.chain()
+
 if __name__ == '__main__':
 
     main()

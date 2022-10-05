@@ -23,11 +23,11 @@ class model:
 
 def main():
 
-	m = model(6)
-	m(10)
+	m = model(6.0)
+	m(10.0)
 
-	n = model(12)
-	n(11)
+	n = model(12.0)
+	n(11.0)
 
 
 	g = m + n

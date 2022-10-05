@@ -15,7 +15,7 @@ class model:
 
 
 	def __add__(self, other):
-		out = model(self.data + other)
+		out = model(self.data + other.data)
 		return out
 
 

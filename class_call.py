@@ -16,6 +16,7 @@ class model:
 
 	def __add__(self, val):
 		out = model(self.data + val)
+		return out
 
 
 
@@ -24,6 +25,10 @@ def main():
 
 	m = model(6)
 	m(10)
+
+	n= model(12)
+	n(11)
+
 
 
 

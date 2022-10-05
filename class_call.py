@@ -41,7 +41,7 @@ def main():
     s = g + a
 
     print('s')
-    list(s.chain())[0]
+    list(s.chain())[0].chain()
 
 if __name__ == '__main__':
 

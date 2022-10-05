@@ -14,8 +14,8 @@ class model:
 		print(f'model:')
 
 
-	def __add__(self, val):
-		out = model(self.data + val)
+	def __add__(self, other):
+		out = model(self.data + other)
 		return out
 
 

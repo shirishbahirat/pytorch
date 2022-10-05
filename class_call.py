@@ -8,20 +8,21 @@ class model:
 	def __call__(self, y):
 		print(self.data)
 		print('from class call')
-		for i in self.data:
-			print(i + y)
 
 
 	def __repr__(self):
 		print(f'model:')
 
 
+	def __add__(self, val):
+		return out = model(self.data + val)
+
 
 
 
 def main():
 
-	m = model([1,2,3])
+	m = model(6)
 	m(10)
 
 

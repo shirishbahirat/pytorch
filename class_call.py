@@ -19,7 +19,8 @@ class model:
 def main():
 
 	m = model([1,2,3])
-	m(9)
+	m(10)
+
 
 
 if __name__ == '__main__':

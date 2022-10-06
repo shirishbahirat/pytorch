@@ -44,6 +44,8 @@ def main():
     m = model(6.0)
     m(10.0)
 
+    m.subfunction()
+
     n = model(12.0)
     n(11.0)
 

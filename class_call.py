@@ -78,12 +78,12 @@ def main():
 
     #y = sum([m, n])
 
-    def test():
-        xx = m
-        yy = n
+    def test(cc, vv):
+        xx = cc
+        yy = vv
         print('global objects')
 
-    test()
+    test(m, n)
 
 if __name__ == '__main__':
 

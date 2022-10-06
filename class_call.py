@@ -58,6 +58,11 @@ def main():
 
     list(s.chain())[0].backward()
 
+    w = a * g
+    list(w.chain())[0].backward()
+
+
+
 if __name__ == '__main__':
 
     main()

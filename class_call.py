@@ -82,6 +82,7 @@ def main():
         xx = m
         yy = n
 
+    test()
 
 if __name__ == '__main__':
 

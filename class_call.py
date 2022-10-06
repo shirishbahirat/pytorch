@@ -22,7 +22,7 @@ class model:
         return out
 
     def __mul__(self, other):
-        out = model(self.data + other.data, (self, other))
+        out = model(self.data * other.data, (self, other))
         return out
 
 

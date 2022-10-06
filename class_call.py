@@ -28,6 +28,8 @@ class model:
         self._grad = other.data
         return out
 
+    def backward(self):
+        return self._grad
 
 def main():
 

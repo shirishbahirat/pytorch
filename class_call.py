@@ -24,7 +24,7 @@ class model:
         return out
 
     def __radd__(self, other):
-        return self.__add__(other.data)
+        return self.__add__(other)
 
     def __mul__(self, other):
         out = model(self.data * other.data, (self, other))

@@ -2,7 +2,6 @@
 class model:
 
     def __init__(self, data, _children=()):
-
         self.data = data
 
         self._prev = set(_children)

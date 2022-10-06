@@ -73,6 +73,8 @@ def main():
 
     list(w.chain())[1].backward()
 
+    y = sum(w, s)
+
 
 
 if __name__ == '__main__':

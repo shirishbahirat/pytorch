@@ -82,7 +82,7 @@ def main():
         xx = cc
         yy = vv
         print('global objects')
-        print(xx)
+        print(xx, yy)
 
     test(m, n)
 

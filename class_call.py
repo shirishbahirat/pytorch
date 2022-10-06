@@ -76,8 +76,7 @@ def main():
 
     list(w.chain())[1].backward()
 
-    y = sum([m, n])
-
+    #y = sum([m, n])
 
     def test():
         xx = m

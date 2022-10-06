@@ -47,7 +47,7 @@ def main():
 
     g.chain()
 
-    a = model(111.0)
+    a = model(2.0)
     a(1000.0)
 
     s = g * a

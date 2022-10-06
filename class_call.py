@@ -79,6 +79,10 @@ def main():
     y = sum([m, n])
 
 
+    def test():
+        xx = m
+        yy = n
+
 
 if __name__ == '__main__':
 

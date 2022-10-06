@@ -32,6 +32,13 @@ class model:
         print(f"grad {self._grad}")
         return self._grad
 
+    def subfunction(self):
+
+        def _sub(self):
+            print('from sub')
+
+        self.sub = _sub
+
 def main():
 
     m = model(6.0)

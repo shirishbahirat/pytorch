@@ -4,6 +4,7 @@ class model:
     def __init__(self, data, _children=()):
         self.data = data
         self._prev = set(_children)
+        self.h = 0.00001
 
     def __call__(self, y):
         print(self.data)
@@ -19,6 +20,11 @@ class model:
     def __add__(self, other):
         out = model(self.data + other.data, (self, other))
         return out
+
+    def __mul__(self, other):
+        out = model(self.data + other.data, (self, other))
+        return out
+
 
 def main():
 

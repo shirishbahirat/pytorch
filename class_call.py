@@ -5,6 +5,7 @@ class model:
         self.data = data
         self._prev = set(_children)
         self.h = 0.00001
+        self._grad = 0.0
 
     def __call__(self, y):
         print(self.data)
@@ -19,10 +20,12 @@ class model:
 
     def __add__(self, other):
         out = model(self.data + other.data, (self, other))
+        self._grad = 1
         return out
 
     def __mul__(self, other):
         out = model(self.data * other.data, (self, other))
+        self._grad = other.data
         return out
 
 

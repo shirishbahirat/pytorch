@@ -2,6 +2,7 @@
 class model:
 
     def __init__(self, data, _children=()):
+    
         self.data = data
         self._prev = set(_children)
         self.h = 0.00001
@@ -84,7 +85,7 @@ def main():
         yy = vv
 
         print('global objects')
-    
+
         print(xx, yy)
 
     test(m, n)

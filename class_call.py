@@ -2,8 +2,9 @@
 class model:
 
     def __init__(self, data, _children=()):
-    
+
         self.data = data
+    
         self._prev = set(_children)
         self.h = 0.00001
         self._grad = 0.0

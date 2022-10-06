@@ -29,6 +29,7 @@ class model:
         return out
 
     def backward(self):
+        print(f"grad {self._grad}")
         return self._grad
 
 def main():
@@ -53,6 +54,8 @@ def main():
 
     print('s')
     list(s.chain())[0].chain()
+
+    list(s.chain())[0].backward()
 
 if __name__ == '__main__':
 

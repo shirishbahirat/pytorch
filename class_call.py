@@ -54,6 +54,7 @@ def main():
     s = g * a
 
     print('s')
+
     list(s.chain())[0].chain()
 
     list(s.chain())[0].backward()

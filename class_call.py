@@ -73,7 +73,7 @@ def main():
 
     list(w.chain())[1].backward()
 
-    y = sum(w, s)
+    y = sum([w, s])
 
 
 

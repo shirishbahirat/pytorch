@@ -60,6 +60,7 @@ def main():
     list(s.chain())[0].backward()
 
     w = a * g
+
     list(w.chain())[1].backward()
 
 

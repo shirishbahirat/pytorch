@@ -34,7 +34,7 @@ class model:
 
     def subfunction(self):
 
-        def _sub(self):
+        def _sub():
             print('from sub')
 
         self.sub = _sub

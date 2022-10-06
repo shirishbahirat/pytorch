@@ -81,6 +81,7 @@ def main():
     def test():
         xx = m
         yy = n
+        print('global objects')
 
     test()
 

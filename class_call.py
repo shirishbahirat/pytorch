@@ -50,7 +50,7 @@ def main():
     a = model(111.0)
     a(1000.0)
 
-    s = g + a
+    s = g * a
 
     print('s')
     list(s.chain())[0].chain()

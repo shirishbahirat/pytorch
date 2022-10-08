@@ -217,6 +217,7 @@ o = n.tanh(); o.label = 'o'
 
 o.backward()
 
+
 topo = []
 visited = set()
 def build_topo(v):

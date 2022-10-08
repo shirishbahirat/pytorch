@@ -230,7 +230,6 @@ build_topo(o)
 topo
 
 
-
 o.grad = 1.0
 o._backward()
 n._backward()

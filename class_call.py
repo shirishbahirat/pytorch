@@ -80,6 +80,7 @@ def main():
 
     def test(cc, vv):
         xx = cc
+    
         yy = vv
         print('global objects')
         print(xx, yy)

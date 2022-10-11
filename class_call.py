@@ -16,10 +16,10 @@ class model:
 
     def __call__(self, y):
         print(self.data)
-        print('from class call {self.data, self.label}')
+        print('from class call {self.data}')
 
     def __repr__(self):
-        return f"model(data={self.data})"
+        return f"model(data={self.data, self.label})"
 
     def chain(self):
         print(self._prev)

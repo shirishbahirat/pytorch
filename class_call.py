@@ -82,8 +82,6 @@ def draw_dot(root):
 
   return dot
 
-draw_dot(L)
-
 
 def main():
 

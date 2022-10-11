@@ -119,8 +119,10 @@ def main():
 
     nodes, edges = trace(w)
 
+    print('.....')
     print(nodes)
     print(edges)
+    print('.....')
 
     #y = sum([m, n])
 

@@ -6,11 +6,13 @@ from graphviz import Digraph
 
 class model:
 
-    def __init__(self, data, _children=()):
+    def __init__(self, data, _children=(), _op='', label=''):
         self.data = data
         self._prev = set(_children)
         self.h = 0.00001
         self._grad = 0.0
+        self._op = _op
+        self.label = label
 
     def __call__(self, y):
         print(self.data)

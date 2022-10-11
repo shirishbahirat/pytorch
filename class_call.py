@@ -16,7 +16,7 @@ class model:
 
     def __call__(self, y):
         print(self.data)
-        print('from class call {self.data}')
+        print('from class call {self.data, self.label}')
 
     def __repr__(self):
         return f"model(data={self.data})"
@@ -86,15 +86,18 @@ def draw_dot(root):
 def main():
 
     m = model(6.0)
+    m.label = 'm'
     m(10.0)
 
     m.subfunction()
     m.sub()
 
     n = model(12.0)
+    n.label = 'n'
     n(11.0)
 
     g = m + n
+    g.label = 'g'
     g(2)
 
     print('b')
@@ -102,10 +105,12 @@ def main():
     g.chain()
 
     a = model(2.0)
+    a.label = 'a'
 
     a(1000.0)
 
     s = g * a
+    s.label = 's'
 
     print('s')
 
@@ -114,6 +119,7 @@ def main():
     list(s.chain())[0].backward()
 
     w = a * g
+    w.label = 'w'
 
     list(w.chain())[1].backward()
 

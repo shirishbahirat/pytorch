@@ -26,7 +26,7 @@ class model:
         return self._prev
 
     def __add__(self, other):
-        out = model(self.data + other.data, (self, other))
+        out = model(self.data + other.data, (self, other), '+')
         self._grad = 1
         return out
 
@@ -34,7 +34,7 @@ class model:
         return self.__add__(other)
 
     def __mul__(self, other):
-        out = model(self.data * other.data, (self, other))
+        out = model(self.data * other.data, (self, other), '*')
         self._grad = other.data
         return out
 

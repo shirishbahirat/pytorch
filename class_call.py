@@ -119,6 +119,9 @@ def main():
 
     nodes, edges = trace(w)
 
+    print(nodes)
+    print(edges)
+
     #y = sum([m, n])
 
     def test(cc, vv):

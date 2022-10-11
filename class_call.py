@@ -117,6 +117,8 @@ def main():
 
     list(w.chain())[1].backward()
 
+    nodes, edges = trace(w)
+
     #y = sum([m, n])
 
     def test(cc, vv):

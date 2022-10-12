@@ -88,11 +88,11 @@ def mlp():
     a = model(2.0)
     b = model(3.0)
 
-    c = model(8.0 + 0.001)
+    c = model(8.0)
 
     d = a*b + c
 
-    x = model(2.0)
+    x = model(2.0 + 0.001)
     y = model(3.0)
 
     z = model(8.0)

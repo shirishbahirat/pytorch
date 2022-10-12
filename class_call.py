@@ -93,9 +93,9 @@ def mlp():
     d = a*b + c
 
     x = model(2.0)
-    y = model(3.0 + 0.0001)
+    y = model(3.0)
 
-    z = model(8.0)
+    z = model(8.0 + 0.0001)
 
     l = x*y + z
 

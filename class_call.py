@@ -85,14 +85,14 @@ def draw_dot(root):
 
 def mlp():
 
-    a = model(2.0)
+    a = model(2.0 + 0.0001)
     b = model(3.0)
 
     c = model(8.0)
 
     d = a*b + c
 
-    x = model(2.0 + 0.0001)
+    x = model(2.0)
     y = model(3.0)
 
     z = model(8.0)

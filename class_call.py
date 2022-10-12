@@ -100,9 +100,9 @@ def mlp():
     l = x*y + z
 
 
-    d = d + l
+    w = d + l
 
-    print((d.data - 28)/0.001)
+    print((w.data - 28)/0.001)
 
 
 

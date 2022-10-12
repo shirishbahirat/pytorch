@@ -156,6 +156,8 @@ def main():
 
     test(m, n)
 
+    mlp()
+
 if __name__ == '__main__':
 
     main()

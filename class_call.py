@@ -102,7 +102,7 @@ def mlp():
 
     d = d + l
 
-    print((d - 28)/0.001)
+    print((d.data - 28)/0.001)
 
 
 

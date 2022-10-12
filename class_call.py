@@ -97,7 +97,7 @@ def mlp():
 
     z = model(8.0)
 
-    l = x*y + d
+    l = x*y + z
 
 
     d = d + l

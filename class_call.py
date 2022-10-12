@@ -92,6 +92,16 @@ def mlp():
 
     d = a*b + c
 
+    x = model(2.0)
+    y = model(3.0)
+
+    z = model(8.0)
+
+    l = x*y + d
+
+
+    d = d + l
+
     print(d)
 
 

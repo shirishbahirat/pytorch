@@ -83,6 +83,19 @@ def draw_dot(root):
   return dot
 
 
+def mlp():
+
+    a = model(2.0)
+    b = model(3.0)
+
+    c = model(8.0)
+
+    d = a*b + c
+
+    print(d)
+
+
+
 def main():
 
     m = model(6.0)

@@ -17,7 +17,7 @@ def gradn(w1, w2, x1, x2, b):
 
 
 hm = gradn(2,3,1,4,-3)
-hd = gradn(2+h,3,1,4,-3)
+hd = gradn(2,3+h,1,4,-3)
 
 xc = (hd - hm)/h
 

@@ -12,6 +12,14 @@ g = (fh - f)/h
 print(g)
 
 
-def grad(w1, w2, x1, x2, b):
+def gradn(w1, w2, x1, x2, b):
     return w1*x1 + w1*x2 + w2*x1 + w2*x2 + b
+
+
+hm = gradn(2,3,1,4,-3)
+hd = gradn(2+h,3,1,4,-3)
+
+xc = (hd - hm)/h
+
+print(xc)
 

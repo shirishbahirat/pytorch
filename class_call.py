@@ -99,7 +99,6 @@ def mlp():
 
     l = x*y + z
 
-
     w = d * l
 
     print((w.data - 196)/0.0001)

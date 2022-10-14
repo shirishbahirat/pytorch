@@ -1,7 +1,9 @@
+import math
+
 
 def f1(a,b):
     return a+b
 
-def f2(c,d):
+def x(r):
     return c+d
 

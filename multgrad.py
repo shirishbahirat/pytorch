@@ -1,6 +1,7 @@
 import math
 
-
+r = 3
+thera = 3
 
 
 def x(r, theta):
@@ -9,6 +10,9 @@ def x(r, theta):
 
 def y(r, theta):
     return r*math.cos(theta)
+
+a = x(r, theta)
+b = y(r, theta)
 
 def g(a,b):
     return a**2 * b**3

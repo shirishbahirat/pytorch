@@ -2,7 +2,7 @@ import math
 
 h = 0.0001
 
-r = .1
+r = 1
 theta = math.pi*.24
 
 

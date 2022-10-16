@@ -1,6 +1,6 @@
 import math
 
-h = 0.0001
+h = 0.001
 
 r = 3
 theta = 3

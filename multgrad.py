@@ -1,6 +1,6 @@
 import math
 
-h = 0.001
+h = 0.0001
 
 r = 3
 theta = 3
@@ -31,5 +31,3 @@ gr = (2*a*(b**3)*math.cos(theta)) + (3*(a**2)*(b**2)*math.sin(theta))
 
 print(a,b, w1, w2)
 print((w2-w1)/h, gr)
-
-

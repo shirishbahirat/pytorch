@@ -21,7 +21,7 @@ b1 = y(r+h, theta)
 
 
 def g(a,b):
-    return a**2 * b**3
+    return (a**2) * (b**3)
 
 
 w1 = g(a, b)

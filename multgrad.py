@@ -3,7 +3,7 @@ import math
 h = 0.0001
 
 r = 3
-theta = 3
+theta = 3*math.pi()
 
 
 def x(r, theta):

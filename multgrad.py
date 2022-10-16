@@ -29,7 +29,7 @@ w2 = g(a1, b1)
 
 gr = (2*a*(b**3)*math.cos(theta)) + (3*(a**2)*(b**2)*math.sin(theta))
 
-gr2 = (5*r**4)*math.cos(theta**2)*math.sin(theta**3)
+gr2 = (5*r**4)*math.cos(theta)**2*math.sin(theta)**3
 
 print(a,b, w1, w2)
 print((w2-w1)/h, gr, gr2)

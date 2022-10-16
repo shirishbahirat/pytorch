@@ -14,5 +14,7 @@ def y(r, theta):
 a = x(r, theta)
 b = y(r, theta)
 
+print(a,b)
+
 def g(a,b):
     return a**2 * b**3

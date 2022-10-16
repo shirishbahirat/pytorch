@@ -18,3 +18,6 @@ print(a,b)
 
 def g(a,b):
     return a**2 * b**3
+
+
+w = g(a, b)

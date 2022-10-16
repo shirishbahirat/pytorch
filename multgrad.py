@@ -1,7 +1,7 @@
 import math
 
 r = 3
-thera = 3
+theta = 3
 
 
 def x(r, theta):

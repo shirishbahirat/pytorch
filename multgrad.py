@@ -1,8 +1,7 @@
 import math
 
 
-def f1(a,b):
-    return a+b
+
 
 def x(r, theta):
     return r*math.sin(theta)
@@ -10,3 +9,6 @@ def x(r, theta):
 
 def y(r, theta):
     return r*math.cos(theta)
+
+def g(a,b):
+    return a**2 * b**3

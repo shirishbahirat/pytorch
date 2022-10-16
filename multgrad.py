@@ -27,6 +27,6 @@ def g(a,b):
 w1 = g(a, b)
 w2 = g(a1, b1)
 
-print(a,b, w1)
+print(a,b, w1, w2)
 
 

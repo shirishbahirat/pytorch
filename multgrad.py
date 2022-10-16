@@ -1,5 +1,7 @@
 import math
 
+h = 0.0001
+
 r = 3
 theta = 3
 
@@ -14,11 +16,17 @@ def y(r, theta):
 a = x(r, theta)
 b = y(r, theta)
 
+a1 = x(r+h, theta)
+b1 = y(r+h, theta)
+
 
 def g(a,b):
     return a**2 * b**3
 
 
-w = g(a, b)
+w1 = g(a, b)
+w2 = g(a1, b1)
 
 print(a,b, w)
+
+

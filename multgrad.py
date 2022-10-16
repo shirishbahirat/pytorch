@@ -27,6 +27,8 @@ def g(a,b):
 w1 = g(a, b)
 w2 = g(a1, b1)
 
+gr = 2*a*b**3
+
 print(a,b, w1, w2, (w2-w1)/h)
 
 

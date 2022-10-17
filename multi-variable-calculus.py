@@ -1,6 +1,6 @@
 
 
-t = 0.01
+t = 2
 
 def fx(t):
 	return t**2

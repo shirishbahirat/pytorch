@@ -19,3 +19,5 @@ print((fw(t+h) - fw(t))/h)
 def cal(t):
 	return (2*t * 3*t) + (3* t**2)
 
+print(cal(t))
+

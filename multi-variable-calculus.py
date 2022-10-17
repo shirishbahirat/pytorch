@@ -10,7 +10,7 @@ def fy(t):
 	return 3*t
 
 
-def fw(t):
-	return fx(t) * fy(t)
+def fw(s):
+	return fx(s) * fy(s)
 
 print((fw(t+h) - fw(t))/h)

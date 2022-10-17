@@ -1,6 +1,7 @@
 
 
 t = 2
+h = 0.001
 
 def fx(t):
 	return t**2
@@ -12,4 +13,4 @@ def fy(t):
 def fw(t):
 	return fx(t) * fy(t)
 
-print(fw(t+0.001))
+print((fw(t+h) - fw(t))/h)

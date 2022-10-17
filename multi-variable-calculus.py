@@ -13,4 +13,6 @@ def fy(t):
 def fw(s):
 	return fx(s) * fy(s)
 
+print(fw(t))
+
 print((fw(t+h) - fw(t))/h)

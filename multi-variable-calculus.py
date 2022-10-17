@@ -13,6 +13,9 @@ def fy(t):
 def fw(s):
 	return fx(s) * fy(s)
 
-print(fw(t+h) - fw(t))
-
 print((fw(t+h) - fw(t))/h)
+
+
+def cal(t):
+	return (2*t * 3*t) + (3* t**2)
+

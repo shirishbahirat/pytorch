@@ -1,7 +1,7 @@
 
 
 t = 2
-h = 0.001
+h = 0.00001
 
 def fx(t):
 	return t**2

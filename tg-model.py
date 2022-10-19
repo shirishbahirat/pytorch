@@ -86,5 +86,6 @@ plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral, alpha=0.8)
 plt.scatter(X[:, 0], X[:, 1], c=y, s=40, cmap=plt.cm.Spectral)
 plt.xlim(xx.min(), xx.max())
 plt.ylim(yy.min(), yy.max())
+plt.show()
 
 

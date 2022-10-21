@@ -16,3 +16,7 @@ y = y*2 - 1 # make y be -1 or 1
 plt.figure(figsize=(5,5))
 plt.scatter(X[:,0], X[:,1], c=y, s=20, cmap='jet')
 plt.show()
+
+model = MLP(2, [16, 16, 1]) # 2-layer neural network
+print(model)
+print("number of parameters", len(model.parameters()))

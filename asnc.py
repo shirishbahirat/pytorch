@@ -14,5 +14,4 @@ async def main():
     L = await asyncio.gather(factorial(2), factorial(3), factorial(4))
     print(L)  # [2, 6, 24]
 
-
 asyncio.run(main())

@@ -1,5 +1,5 @@
 import asyncio
-import queue.Queue as q
+from queue import Queue as q
 
 class consumer(object):
 

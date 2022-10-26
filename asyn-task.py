@@ -6,6 +6,9 @@ class consumer(object):
 	def __init__(self):
 		self.count = 0
 		self.process = asyncio.create_task(self.dispatcher())
+		
+
+	async def scheduler(self):
 		await self.process
 
 	async def dispatcher(self):

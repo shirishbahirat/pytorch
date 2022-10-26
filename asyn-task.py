@@ -15,11 +15,13 @@ class consumer(object):
 
         while True:
             print(f'task {self.count} started')
-            await asyncio.sleep(1)
+            await asyncio.sleep(.1)
             print(f'task {self.count} completed')
             self.count +=1
             if self.count > self.limit:
                 break
 
-cn = consumer()
-asyncio.run(cn.scheduler())
+
+def main():
+    cn = consumer()
+    asyncio.run(cn.scheduler())

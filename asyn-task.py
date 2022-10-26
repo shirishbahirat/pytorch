@@ -5,6 +5,7 @@ class consumer(object):
 
     def __init__(self):
         self.count = 0
+        self.limit = 10
 
     async def scheduler(self):
         self.process = asyncio.create_task(self.dispatcher())
@@ -17,6 +18,8 @@ class consumer(object):
             await asyncio.sleep(4)
             print(f'task {self.count} completed')
             self.count +=1
+            if self.count > self.limit:
+                break
 
 cn = consumer()
 asyncio.run(cn.scheduler())

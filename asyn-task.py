@@ -1,5 +1,5 @@
 import asyncio
-
+import Queue as queue
 
 class consumer(object):
 
@@ -20,7 +20,6 @@ class consumer(object):
             self.count +=1
             if self.count > self.limit:
                 break
-
 
 def main():
     cn = consumer()

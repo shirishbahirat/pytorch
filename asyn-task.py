@@ -8,8 +8,8 @@ class consumer(object):
         
 
     async def scheduler(self):
-        self.process = asyncio.create_task(self.dispatcher())
-        await self.process
+        await self.process = asyncio.create_task(self.dispatcher())
+        #await self.process
 
     async def dispatcher(self):
         print(f'task {self.count} started')

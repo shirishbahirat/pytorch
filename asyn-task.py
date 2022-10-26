@@ -25,3 +25,9 @@ class consumer(object):
 def main():
     cn = consumer()
     asyncio.run(cn.scheduler())
+
+
+if __name__ == '__main__':
+
+    main()
+

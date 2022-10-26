@@ -6,6 +6,7 @@ class consumer(object):
     def __init__(self):
         self.count = 0
         self.limit = 10
+        asyncio.run(self.scheduler())
 
     async def scheduler(self):
         self.process = asyncio.create_task(self.dispatcher())
@@ -23,7 +24,7 @@ class consumer(object):
 
 def main():
     cn = consumer()
-    asyncio.run(cn.scheduler())
+    
 
 
 if __name__ == '__main__':

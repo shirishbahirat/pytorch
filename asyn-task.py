@@ -17,4 +17,5 @@ class consumer(object):
 		print(f'task {self.count} completed')
 		self.count +=1
 
-
+cn = consumer()
+asyncio.run(cn.scheduler())

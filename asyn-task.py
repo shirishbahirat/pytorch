@@ -16,3 +16,5 @@ class consumer(object):
 		await asyncio.sleep(4)
 		print(f'task {self.count} completed')
 		self.count +=1
+
+

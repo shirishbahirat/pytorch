@@ -19,8 +19,6 @@ class test(object):
     def test(cls):
         print (10)
 
-
-
 async def main():
 
     test.test()

@@ -11,9 +11,14 @@ class test(object):
     def __init__(self):
         self.x = 10
 
+    @staticmethod
+    def test():
+        print(100)
+
     @classmethod
     def test(cls):
         print (10)
+
 
 
 async def main():

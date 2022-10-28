@@ -12,16 +12,16 @@ class test(object):
         self.x = 10
 
     @staticmethod
-    def test():
-        print(100)
+    def test(b):
+        print(100*b)
 
     @classmethod
-    def test(cls):
-        print (10)
+    def test(cls, b):
+        print (10*b)
 
 async def main():
 
-    test.test()
+    test.test(2)
 
     task1 = asyncio.create_task(hello(1))
     await asyncio.sleep(3)

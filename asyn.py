@@ -23,6 +23,10 @@ class test(object):
     def another(cls, b):
         print (10*b)
 
+    @staticmethod
+    def another(b):
+        print(100*b)
+
 async def main():
 
     test.another(2)

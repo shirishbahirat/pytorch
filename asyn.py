@@ -19,9 +19,13 @@ class test(object):
     def test(cls, b):
         print (10*b)
 
+    @classmethod
+    def another(cls, b):
+        print (10*b)
+
 async def main():
 
-    test.test(2)
+    test.another(2)
 
     task1 = asyncio.create_task(hello(1))
     await asyncio.sleep(3)

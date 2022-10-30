@@ -12,6 +12,15 @@ async def main():
     await task1
     await task2
 
+class test(object):
+
+    def __init__(self, x)
+        self.x = x
+
+    @classmethod
+    def test(self)
+        print (self.x)
+
 asyncio.run(main())  # main loop
 
 

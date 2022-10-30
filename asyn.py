@@ -14,7 +14,7 @@ async def main():
 
 class test(object):
 
-    def __init__(self, x)
+    def __init__(self, x):
         self.x = x
 
     @classmethod

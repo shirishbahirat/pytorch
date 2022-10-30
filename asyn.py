@@ -12,7 +12,7 @@ class test(object):
         self.x = x
 
     @classmethod
-    def test(self):
+    def test(cls):
         print (self.x)
 
 

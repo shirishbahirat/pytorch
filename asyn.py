@@ -18,7 +18,7 @@ class test(object):
 
 async def main():
 
-    t = test(10)
+    test.test(10)
 
     task1 = asyncio.create_task(hello(1))
     await asyncio.sleep(3)

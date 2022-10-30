@@ -18,7 +18,7 @@ class test(object):
         self.x = x
 
     @classmethod
-    def test(self)
+    def test(self):
         print (self.x)
 
 asyncio.run(main())  # main loop

@@ -13,7 +13,7 @@ class test(object):
 
     @classmethod
     def test(cls):
-        print (self.x)
+        print (10)
 
 
 async def main():

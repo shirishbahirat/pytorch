@@ -5,12 +5,6 @@ async def hello(i):
     await asyncio.sleep(4)
     print(f"hello {i} done")
 
-async def main():
-    task1 = asyncio.create_task(hello(1))
-    await asyncio.sleep(3)
-    task2 = asyncio.create_task(hello(2))
-    await task1
-    await task2
 
 class test(object):
 
@@ -20,6 +14,18 @@ class test(object):
     @classmethod
     def test(self):
         print (self.x)
+
+
+async def main():
+
+    t = test(10)
+
+    task1 = asyncio.create_task(hello(1))
+    await asyncio.sleep(3)
+    task2 = asyncio.create_task(hello(2))
+    await task1
+    await task2
+
 
 asyncio.run(main())  # main loop
 

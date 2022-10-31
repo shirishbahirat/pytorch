@@ -36,7 +36,6 @@ async def main():
     await task2
 
 
-
 asyncio.run(main())  # main loop
 
 

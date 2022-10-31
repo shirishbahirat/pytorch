@@ -26,6 +26,7 @@ class test(object):
     def another(b):
         print(100*b)
 
+
 async def main():
 
     test.another(2)

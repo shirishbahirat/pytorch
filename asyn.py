@@ -8,8 +8,8 @@ async def hello(i):
 
 class test(object):
 
-    def __init__(self):
-        self.x = 10
+    def __init__(self, x):
+        self.x = x
 
     @staticmethod
     def test(b):

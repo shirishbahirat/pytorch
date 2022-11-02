@@ -9,7 +9,6 @@ class Module:
             p.grad = 0
 
     def parameters(self):
-
         return []
 
 class Neuron(Module):

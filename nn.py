@@ -30,6 +30,7 @@ class Neuron(Module):
         return f"{'ReLU' if self.nonlin else 'Linear'}Neuron({len(self.w)})"
 
 
+
 class Layer(Module):
 
     def __init__(self, nin, nout, **kwargs):

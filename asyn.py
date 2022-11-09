@@ -30,15 +30,10 @@ class test(object):
 async def main():
 
     test.another(2)
-
     task1 = asyncio.create_task(hello(1))
-
     await asyncio.sleep(3)
-
     task2 = asyncio.create_task(hello(2))
-
     await task1
-
     await task2
 
 
